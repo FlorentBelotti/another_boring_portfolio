@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Staatliches&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+@import './colors.scss';
+@import './fonts.scss';
+@import './spacing.scss';
+@import './breakpoints.scss';
+@import './transitions.scss';
+@import './layout.scss';
+@import './mixins.scss';
+@import './animations.scss';
+@import './grain.scss';
+@import './radius.scss';
+
+
+// ============================================
+// RESET & GLOBAL STYLES
+// ============================================
+
+// All
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  overflow: hidden;
+  position: relative;
+
+  // Grain
+  &::before {
+    content: '';
+    @include grain-overlay;
+  }
+}
+
+// All titles rules
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+  color: $color-text;
+}
+
+h1 {
+  font-family: $font-display;
+  font-size: $font-size-3xl;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-4xl;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: $font-size-5xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-3xl;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+  
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-2xl;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: $font-size-3xl;
+  }
+}
+
+// Paragraph
+p {
+  margin-bottom: $spacing-md;
+  color: $color-text;
+}
+
+// Links
+a {
+  color: $color-text;
+  text-decoration: none;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// Button
+button {
+  cursor: pointer;
+  font-family: $font-sans;
+  border: none;
+  background: none;
+  transition: all $transition-normal;
+}
+
+// Image responsive
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+}
+
+// Selection color
+::selection {
+  background: $color-accent;
+  color: $color-bg;
+}
+::-moz-selection {
+  background: $color-accent;
+  color: $color-bg;
+}

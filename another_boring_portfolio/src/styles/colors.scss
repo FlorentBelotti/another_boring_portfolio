@@ -1,0 +1,21 @@
+// ============================================
+// COLORS
+// ============================================
+
+// Main colors
+$color-bg: #000000;
+$color-accent: #D29F1A;
+$color-text: #C2C2C1;
+$color-light: #ffffff; 
+
+// Varients
+$color-bg-dark: #040609;
+$color-accent-dark: #6C520D;
+$color-text-dark: #5C5C5C;  
+
+// gradients
+$gradient-accent: linear-gradient(135deg, $color-accent 0%, $color-accent-dark 100%);
+$gradient-text: linear-gradient(135deg, $color-text 0%, $color-text-dark 100%);
+$gradient-accent-45: linear-gradient(45deg, $color-accent 0%, $color-accent-dark 100%);
+$gradient-accent-90: linear-gradient(90deg, $color-accent 0%, $color-accent-dark 100%);
+

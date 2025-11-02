@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/breakpoints.scss';
+@import '../../styles/transitions.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/radius.scss';
+
+.content {
+  height: $content-height;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm;
+  height: 100%;
+  max-width: 100%;
+  
+  > * {
+    border: 1px solid $color-accent;
+  }
+}

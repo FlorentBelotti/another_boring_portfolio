@@ -1,0 +1,72 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/breakpoints.scss';
+@import '../../styles/transitions.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/radius.scss';
+
+.header {
+  @include flex-center;
+  height: $header-height;
+  position: relative;
+  z-index: 10;
+  padding: 0 $spacing-lg;
+}
+
+.container {
+  @include flex-end;  // ← Change flex-between à flex-end
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: $font-display;
+  font-size: $font-size-3xl;
+  color: $color-accent;
+  @include neon-glow;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: scale(1.1);
+    text-shadow:
+      0 0 10px $color-accent,
+      0 0 20px $color-accent,
+      0 0 40px $color-accent;
+  }
+}
+
+.nav {
+  @include flex-row($spacing-xl);
+  align-items: center;
+}
+
+.navLink {
+  font-family: $font-heading;
+  font-size: $font-size-lg;
+  color: $color-text;
+  position: relative;
+  transition: color $transition-normal;
+
+  @include neon-underline($color-accent);
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.navHome {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  color: $color-accent;
+  position: relative;
+  transition: color $transition-normal;
+
+  @include neon-glow;
+
+  &:hover {
+    color: $color-accent;
+  }
+}

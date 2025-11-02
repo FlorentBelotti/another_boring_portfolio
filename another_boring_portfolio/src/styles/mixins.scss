@@ -1,0 +1,334 @@
+// ============================================
+// SCSS MIXINS & UTILITY FUNCTIONS
+// ============================================
+
+// ============================================
+// FLEXBOX UTILITIES
+// ============================================
+
+/// Center content using flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Space between layout (space-between)
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/// Flex start alignment
+@mixin flex-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/// Flex start alignment
+@mixin flex-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/// Flex column centered
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Flex column with gap
+@mixin flex-column($gap: $spacing-md) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+/// Flex row with gap
+@mixin flex-row($gap: $spacing-md) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+// ============================================
+// GRID UTILITIES
+// ============================================
+
+/// Center content using grid
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+/// Grid auto columns
+@mixin grid-auto($min-width: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $spacing-md;
+}
+
+// ============================================
+// TEXT UTILITIES
+// ============================================
+
+/// Truncate text to single line
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Clamp text to multiple lines
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/// Responsive font size
+@mixin responsive-text($mobile, $tablet: null, $desktop: null) {
+  font-size: $mobile;
+
+  @media (min-width: $breakpoint-tablet) {
+    @if $tablet {
+      font-size: $tablet;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    @if $desktop {
+      font-size: $desktop;
+    }
+  }
+}
+
+// ============================================
+// VISUAL EFFECTS
+// ============================================
+
+/// Neon glow effect on text
+@mixin neon-glow($color: $color-accent) {
+  text-shadow:
+    0 0 5px $color,
+    0 0 10px $color,
+    0 0 20px $color,
+    0 0 40px $color,
+    0 0 80px $color;
+}
+
+/// Gold glow (accent color)
+@mixin gold-glow {
+  box-shadow: 0 0 20px rgba(210, 159, 26, 0.4);
+}
+
+/// Neon underline animation on hover
+@mixin neon-underline($color: $color-accent) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $color;
+    transition: width $transition-normal;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/// Glass morphism effect
+@mixin glass-morphism($blur: 10px, $opacity: 0.05) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/// Gradient background
+@mixin gradient-bg($gradient) {
+  background: $gradient;
+}
+
+// ============================================
+// RESPONSIVE UTILITIES
+// ============================================
+
+/// Tablet and up (min-width)
+@mixin tablet-and-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+/// Desktop and up (min-width)
+@mixin desktop-and-up {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+/// Wide screens
+@mixin wide-screens {
+  @media (min-width: $breakpoint-wide) {
+    @content;
+  }
+}
+
+// ============================================
+// SIZING UTILITIES
+// ============================================
+
+/// Square element
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+/// Circle element
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+/// Aspect ratio (for images, videos)
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  padding-bottom: ($height / $width) * 100%;
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// ============================================
+// SCROLL UTILITIES
+// ============================================
+
+/// Smooth scrollbar styling
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: $color-gray-200 $color-dark;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-dark;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-gray-200;
+    border-radius: $radius-full;
+
+    &:hover {
+      background: $color-gray-300;
+    }
+  }
+}
+
+// ============================================
+// ANIMATION UTILITIES
+// ============================================
+
+/// Fade in animation
+@mixin fade-in($duration: $transition-normal, $delay: 0s) {
+  animation: fadeIn $duration ease-out $delay forwards;
+}
+
+/// Slide in from top
+@mixin slide-in-top($duration: $transition-normal, $delay: 0s) {
+  animation: slideInDown $duration ease-out $delay forwards;
+}
+
+/// Slide in from bottom
+@mixin slide-in-bottom($duration: $transition-normal, $delay: 0s) {
+  animation: slideInUp $duration ease-out $delay forwards;
+}
+
+/// Slide in from left
+@mixin slide-in-left($duration: $transition-normal, $delay: 0s) {
+  animation: slideInLeft $duration ease-out $delay forwards;
+}
+
+/// Slide in from right
+@mixin slide-in-right($duration: $transition-normal, $delay: 0s) {
+  animation: slideInRight $duration ease-out $delay forwards;
+}
+
+/// Scale in animation
+@mixin scale-in($duration: $transition-normal, $delay: 0s) {
+  animation: scaleIn $duration ease-out $delay forwards;
+}
+
+// ============================================
+// ACCESSIBILITY UTILITIES
+// ============================================
+
+/// Hide visually but keep for screen readers
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/// Focus visible for keyboard navigation
+@mixin focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+// ============================================
+// LAYOUT UTILITIES
+// ============================================
+
+/// Container max-width with auto margins
+@mixin container($max-width: 1200px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+/// Absolute centering
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/// Fixed centering
+@mixin fixed-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

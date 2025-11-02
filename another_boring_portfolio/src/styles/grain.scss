@@ -1,0 +1,58 @@
+// ============================================
+// GRAIN EFFECT UTILITIES
+// ============================================
+// Styles for grain/noise texture overlays
+
+// Mixin for grain overlay
+@mixin grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('/src/assets/textures/texture_concrete.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+// SVG-based grain
+@mixin svg-grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='2' /%3E%3C/filter%3E%3Crect width='256' height='256' fill='%23000' /%3E%3Crect width='256' height='256' fill='%23fff' filter='url(%23grain)' opacity='0.05' /%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+// Grain overlay class
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('/src/assets/textures/texture_concrete.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+// Subtle grain variant
+.grain-overlay--subtle {
+  opacity: 0.15;
+}
+
+// Strong grain variant
+.grain-overlay--strong {
+  opacity: 0.6;
+}

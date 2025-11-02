@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/spacing.scss';
+@import '../../styles/breakpoints.scss';
+@import '../../styles/transitions.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/radius.scss';
+
+
+.footer {
+  @include flex-center;
+  background: $color-bg;
+  height: $footer-height;
+  border: 1px solid white;
+  position: relative;
+  z-index: 10;
+  padding: 0 $spacing-lg;
+}
+
+.container {
+  @include flex-center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text {
+  font-size: $font-size-sm;
+  color: $color-text-dark;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+}
