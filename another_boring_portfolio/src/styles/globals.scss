@@ -1,17 +1,15 @@
+@use './colors.scss' as colors;
+@use './fonts.scss' as fonts;
+@use './spacing.scss' as spacing;
+@use './breakpoints.scss' as breakpoints;
+@use './transitions.scss' as transitions;
+@use './layout.scss' as layout;
+@use './mixins.scss' as mixins;
+@use './animations.scss' as animations;
+@use './grain.scss' as grain;
+@use './radius.scss' as radius;
 
 @import url('https://fonts.googleapis.com/css2?family=Amarante&family=Staatliches&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-
-@import './colors.scss';
-@import './fonts.scss';
-@import './spacing.scss';
-@import './breakpoints.scss';
-@import './transitions.scss';
-@import './layout.scss';
-@import './mixins.scss';
-@import './animations.scss';
-@import './grain.scss';
-@import './radius.scss';
-
 
 // ============================================
 // RESET & GLOBAL STYLES
@@ -29,88 +27,88 @@ html {
 }
 
 body {
-  background: $color-bg;
-  color: $color-text;
-  font-family: $font-sans;
-  font-size: $font-size-base;
-  line-height: $line-height-normal;
+  background: colors.$color-bg;
+  color: colors.$color-text;
+  font-family: fonts.$font-sans;
+  font-size: fonts.$font-size-base;
+  line-height: fonts.$line-height-normal;
   overflow: hidden;
   position: relative;
 
   // Grain
   &::before {
     content: '';
-    @include grain-overlay;
+    @include grain.grain-overlay;
   }
 }
 
 // All titles rules
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-heading;
-  font-weight: $font-weight-bold;
-  line-height: $line-height-tight;
-  margin-bottom: $spacing-md;
-  color: $color-text;
+  font-family: fonts.$font-heading;
+  font-weight: fonts.$font-weight-bold;
+  line-height: fonts.$line-height-tight;
+  margin-bottom: spacing.$spacing-md;
+  color: colors.$color-text;
 }
 
 h1 {
-  font-family: $font-display;
-  font-size: $font-size-3xl;
+  font-family: fonts.$font-display;
+  font-size: fonts.$font-size-3xl;
 
-  @media (min-width: $breakpoint-tablet) {
-    font-size: $font-size-4xl;
+  @media (min-width: breakpoints.$breakpoint-tablet) {
+    font-size: fonts.$font-size-4xl;
   }
-  @media (min-width: $breakpoint-desktop) {
-    font-size: $font-size-5xl;
+  @media (min-width: breakpoints.$breakpoint-desktop) {
+    font-size: fonts.$font-size-5xl;
   }
 }
 
 h2 {
-  font-size: $font-size-2xl;
+  font-size: fonts.$font-size-2xl;
   
-  @media (min-width: $breakpoint-tablet) {
-    font-size: $font-size-3xl;
+  @media (min-width: breakpoints.$breakpoint-tablet) {
+    font-size: fonts.$font-size-3xl;
   }
-  @media (min-width: $breakpoint-desktop) {
-    font-size: $font-size-4xl;
+  @media (min-width: breakpoints.$breakpoint-desktop) {
+    font-size: fonts.$font-size-4xl;
   }
 }
 
 h3 {
-  font-size: $font-size-xl;
+  font-size: fonts.$font-size-xl;
   
-  @media (min-width: $breakpoint-tablet) {
-    font-size: $font-size-2xl;
+  @media (min-width: breakpoints.$breakpoint-tablet) {
+    font-size: fonts.$font-size-2xl;
   }
-  @media (min-width: $breakpoint-desktop) {
-    font-size: $font-size-3xl;
+  @media (min-width: breakpoints.$breakpoint-desktop) {
+    font-size: fonts.$font-size-3xl;
   }
 }
 
 // Paragraph
 p {
-  margin-bottom: $spacing-md;
-  color: $color-text;
+  margin-bottom: spacing.$spacing-md;
+  color: colors.$color-text;
 }
 
 // Links
 a {
-  color: $color-text;
+  color: colors.$color-text;
   text-decoration: none;
-  transition: color $transition-normal;
+  transition: color transitions.$transition-normal;
 
   &:hover {
-    color: $color-accent;
+    color: colors.$color-accent;
   }
 }
 
 // Button
 button {
   cursor: pointer;
-  font-family: $font-sans;
+  font-family: fonts.$font-sans;
   border: none;
   background: none;
-  transition: all $transition-normal;
+  transition: all transitions.$transition-normal;
 }
 
 // Image responsive
@@ -128,10 +126,10 @@ ol {
 
 // Selection color
 ::selection {
-  background: $color-accent;
-  color: $color-bg;
+  background: colors.$color-accent;
+  color: colors.$color-bg;
 }
 ::-moz-selection {
-  background: $color-accent;
-  color: $color-bg;
+  background: colors.$color-accent;
+  color: colors.$color-bg;
 }

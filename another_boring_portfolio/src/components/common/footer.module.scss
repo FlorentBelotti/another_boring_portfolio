@@ -1,12 +1,4 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
-@import '../../styles/spacing.scss';
-@import '../../styles/breakpoints.scss';
-@import '../../styles/transitions.scss';
-@import '../../styles/layout.scss';
-@import '../../styles/mixins.scss';
-@import '../../styles/radius.scss';
-
+@use '../../styles' as *;
 
 .footer {
   @include flex-center;

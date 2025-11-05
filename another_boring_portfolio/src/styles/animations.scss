@@ -1,3 +1,5 @@
+@use './colors.scss' as colors;
+
 // ============================================
 // GLOBAL ANIMATIONS & KEYFRAMES
 // ============================================
@@ -330,14 +332,14 @@
   0%,
   100% {
     text-shadow:
-      0 0 5px $color-accent,
-      0 0 10px $color-accent;
+      0 0 5px colors.$color-accent,
+      0 0 10px colors.$color-accent;
   }
   50% {
     text-shadow:
-      0 0 10px $color-accent,
-      0 0 20px $color-accent,
-      0 0 40px $color-accent;
+      0 0 10px colors.$color-accent,
+      0 0 20px colors.$color-accent,
+      0 0 40px colors.$color-accent;
   }
 }
 
