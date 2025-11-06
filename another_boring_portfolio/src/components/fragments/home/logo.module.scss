@@ -9,7 +9,7 @@
     flex-direction: row;
     gap: spacing.$spacing-sm;
     justify-content: flex-end;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 .img_container {

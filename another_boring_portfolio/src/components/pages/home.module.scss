@@ -1,7 +1,10 @@
 @use '../../styles' as *;
 
 .block {
-  @include flex-column-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   height: 100%;
   text-align: center;
   position: relative;
