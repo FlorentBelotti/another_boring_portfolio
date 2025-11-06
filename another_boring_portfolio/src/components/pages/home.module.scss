@@ -4,6 +4,8 @@
   @include flex-column-center;
   height: 100%;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 
   h2 {
     margin-bottom: $spacing-lg;
@@ -12,5 +14,13 @@
 
   p {
     color: $color-text;
+  }
+
+  .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
