@@ -1,22 +1,41 @@
+import PageTransition from '../transition/pageTransition'
 import styles from './resume.module.scss'
 
 export default function Resume() {
   return (
     <>
-      <section className={styles.block}>
-        <h2>Section 1</h2>
-        <p>Welcome to Resume section 1</p>
-      </section>
+      <PageTransition 
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Resume Section 1</h2>
+          <p>Resume content here</p>
+        </section>
+      </PageTransition>
       
-      <section className={styles.block}>
-        <h2>Section 2</h2>
-        <p>Welcome to Resume section 2</p>
-      </section>
+      <PageTransition 
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Resume Section 2</h2>
+          <p>More resume content</p>
+        </section>
+      </PageTransition>
       
-      <section className={styles.block}>
-        <h2>Section 3</h2>
-        <p>Welcome to Resume section 3</p>
-      </section>
+      <PageTransition 
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Resume Section 3</h2>
+          <p>Even more resume content</p>
+        </section>
+      </PageTransition>
     </>
   )
 }

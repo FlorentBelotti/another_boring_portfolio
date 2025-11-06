@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import TransitionLink from '../transition/transitionLink'
 import styles from './header.module.scss'
 
 export default function Header() {
@@ -7,15 +7,15 @@ export default function Header() {
       <div className={styles.container}>
         
         <nav className={styles.nav}>
-          <Link to="/resume" className={styles.navLink}>
+          <TransitionLink to="/resume" className={styles.navLink}>
             Resume
-          </Link>
-          <Link to="/works" className={styles.navLink}>
+          </TransitionLink>
+          <TransitionLink to="/works" className={styles.navLink}>
             Works
-          </Link>
-          <Link to="/" className={styles.navHome}>
+          </TransitionLink>
+          <TransitionLink to="/" className={styles.navHome}>
             Home
-          </Link>
+          </TransitionLink>
         </nav>
 
       </div>

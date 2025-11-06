@@ -1,22 +1,41 @@
+import PageTransition from '../transition/pageTransition'
 import styles from './works.module.scss'
 
 export default function Works() {
   return (
     <>
-      <section className={styles.block}>
-        <h2>Section 1</h2>
-        <p>Welcome to Works section 1</p>
-      </section>
+      <PageTransition
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Works Section 1</h2>
+          <p>My projects here</p>
+        </section>
+      </PageTransition>
       
-      <section className={styles.block}>
-        <h2>Section 2</h2>
-        <p>Welcome to Works section 2</p>
-      </section>
+      <PageTransition 
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Works Section 2</h2>
+          <p>More projects</p>
+        </section>
+      </PageTransition>
       
-      <section className={styles.block}>
-        <h2>Section 3</h2>
-        <p>Welcome to Works section 3</p>
-      </section>
+      <PageTransition 
+        index={0} 
+        enableTransition={true}
+        className={styles.block}
+      >
+        <section>
+          <h2>Works Section 3</h2>
+          <p>Even more projects</p>
+        </section>
+      </PageTransition>
     </>
   )
 }
