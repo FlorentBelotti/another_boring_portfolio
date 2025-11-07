@@ -3,74 +3,79 @@
 @use '../../../styles/colors.scss' as colors;
 
 .logo_container {
-    display: flex;
     width: 100%;
-    height: auto;
+
+    display: flex;
+    height: fit-content;
     flex-direction: row;
-    gap: spacing.$spacing-sm;
     justify-content: flex-end;
-    align-items: flex-start;
+    align-items: stretch;
+    
+    gap: spacing.$spacing-sm;
 }
 
 .img_container {
     width: 100%;
-    height: 100%;
-    // border: 1px solid yellow;
+
+    display: flex;
+    position: relative;
 }
 
 .logo_image {
     width: 100%;
     height: 100%;
+
+    position: absolute;
     object-fit: cover;
 }
 
 .logo_title {
     width: fit-content;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    border-left: 10px solid colors.$color-accent;
-    padding-left: spacing.$spacing-sm;
     justify-content: center;
     align-items: flex-end;
-    // border: 1px solid yellow;
 
+    border-left: 10px solid colors.$color-accent;
+    padding-left: spacing.$spacing-sm;
 }
 
 .logo_title_1 {
-    display: flex;
-    width: 100%;
-    height: fit-content;
-    flex-direction: row;
-    align-items: center;
-    // border: 1px solid yellow;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: end;
+
+    gap: spacing.$spacing-xs;
 }
 
 .text_1 {
     width: fit-content;
+    height: fit-content;
+    text-align: right;
+
     font-family: fonts.$font-heading;
     color: colors.$color-text;
     font-size: fonts.$font-size-4xl;
-    line-height: fonts.$line-height-tight;
-    text-align: right;
+    line-height: fonts.$line-height-minimal;
 }
 
 .eye {
-    height: 100%;
-    width: 100%;
     aspect-ratio: 1 / 1;
+
+    align-self: stretch;
+
     background-color: colors.$color-accent;
-    margin-left: spacing.$spacing-xs;
 }
 
 .text_2 {
-    width: 100%;
+    width: fit-content;
     height: fit-content;
+    text-align: right;
 
     font-family: fonts.$font-display;
     color: colors.$color-accent;
     font-size: fonts.$font-size-5xl;
     line-height: fonts.$line-height-minimal;
-    text-align: right;
-    // border: 1px solid yellow;
+    letter-spacing: -0.03em;
 }

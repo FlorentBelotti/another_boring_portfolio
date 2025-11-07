@@ -9,10 +9,10 @@ export default function Logo() {
         </div>
         <div className={styles.logo_title}>
             <div className={styles.logo_title_1}>
-                <div className={styles.text_1}> ANOTHER<br></br>BORING </div>
+                <div className={styles.text_1}> ANOTHER BORING </div>
                 <div className={styles.eye}> </div>
             </div>
-            <div className={styles.text_2}> PORTFOLIO </div>
+            <div className={styles.text_2}>PORTFOLIO</div>
         </div>
     </div>
   )
