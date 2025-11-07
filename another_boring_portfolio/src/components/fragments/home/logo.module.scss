@@ -19,6 +19,7 @@
 
     display: flex;
     position: relative;
+    padding-right: spacing.$spacing-md;
 }
 
 .logo_image {
@@ -38,7 +39,7 @@
     align-items: flex-end;
 
     border-left: 10px solid colors.$color-accent;
-    padding-left: spacing.$spacing-sm;
+    padding-left: spacing.$spacing-md;
 }
 
 .logo_title_1 {
