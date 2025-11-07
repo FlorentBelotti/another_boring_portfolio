@@ -1,23 +1,39 @@
-import { Link } from 'react-router-dom'
 import styles from './header.module.scss'
 
-export default function Header() {
+type Page = 'home' | 'resume' | 'works'
+
+interface HeaderProps {
+  currentPage: Page
+  onPageChange: (page: Page) => void
+}
+
+export default function Header({ currentPage, onPageChange }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        
         <nav className={styles.nav}>
-          <Link to="/resume" className={styles.navLink}>
+          <button 
+            onClick={() => onPageChange('resume')}
+            className={styles.navLink}
+            type="button"
+          >
             Resume
-          </Link>
-          <Link to="/works" className={styles.navLink}>
+          </button>
+          <button 
+            onClick={() => onPageChange('works')}
+            className={styles.navLink}
+            type="button"
+          >
             Works
-          </Link>
-          <Link to="/" className={styles.navHome}>
+          </button>
+          <button 
+            onClick={() => onPageChange('home')}
+            className={currentPage === 'home' ? styles.navHome : styles.navLink}
+            type="button"
+          >
             Home
-          </Link>
+          </button>
         </nav>
-
       </div>
     </header>
   )

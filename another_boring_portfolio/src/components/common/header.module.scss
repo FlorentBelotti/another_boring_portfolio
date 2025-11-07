@@ -42,6 +42,10 @@
   color: $color-text;
   position: relative;
   transition: color $transition-normal;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 
   @include neon-underline($color-accent);
 
@@ -56,6 +60,10 @@
   color: $color-accent;
   position: relative;
   transition: color $transition-normal;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 
   @include neon-glow;
 
