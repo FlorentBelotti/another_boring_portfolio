@@ -1,0 +1,76 @@
+@use '../../../styles/spacing.scss' as spacing;
+@use '../../../styles/fonts.scss' as fonts;
+@use '../../../styles/colors.scss' as colors;
+
+.logo_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    gap: spacing.$spacing-sm;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.img_container {
+    width: 100%;
+    height: 100%;
+    // border: 1px solid yellow;
+}
+
+.logo_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo_title {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 10px solid colors.$color-accent;
+    padding-left: spacing.$spacing-sm;
+    justify-content: center;
+    align-items: flex-end;
+    // border: 1px solid yellow;
+
+}
+
+.logo_title_1 {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    align-items: center;
+    // border: 1px solid yellow;
+}
+
+.text_1 {
+    width: fit-content;
+    font-family: fonts.$font-heading;
+    color: colors.$color-text;
+    font-size: fonts.$font-size-4xl;
+    line-height: fonts.$line-height-tight;
+    text-align: right;
+}
+
+.eye {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: colors.$color-accent;
+    margin-left: spacing.$spacing-xs;
+}
+
+.text_2 {
+    width: 100%;
+    height: fit-content;
+
+    font-family: fonts.$font-display;
+    color: colors.$color-accent;
+    font-size: fonts.$font-size-5xl;
+    line-height: fonts.$line-height-minimal;
+    text-align: right;
+    // border: 1px solid yellow;
+}
