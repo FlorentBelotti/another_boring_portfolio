@@ -1,11 +1,25 @@
 import styles from './home.module.scss'
 import building from '../../assets/images/img_building.png'
 import Logo from '../fragments/home/logo'
+import EmblaCarousel from '../fragments/home/emblaCarousel'
+
+const OPTIONS = { 
+  loop: false,
+  duration: 25,
+  skipSnaps: false,
+  dragFree: false,
+  containScroll: 'trimSnaps'
+}
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 export default function Home() {
   const leftBlock = (
     <div className={styles.block}>
       <Logo />
+      <div style={{ marginTop: '2rem' }}>
+        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      </div>
     </div>
   )
 
