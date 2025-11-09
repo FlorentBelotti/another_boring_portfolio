@@ -4,16 +4,15 @@
   height: $content-height;
   position: relative;
   overflow: hidden;
+  display: flex;
+  gap: $spacing-sm;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-sm;
-  height: 100%;
-  max-width: 100%;
-  
-  > * {
-    border: 1px solid $color-accent;
-  }
+.leftBlock,
+.centerBlock,
+.rightBlock {
+  flex: 1;
+  border: 1px solid $color-accent;
+  overflow: hidden;
+  position: relative;
 }

@@ -1,38 +1,32 @@
+import type { HeaderProps } from '../../interfaces/header'
 import styles from './header.module.scss'
 
-type Page = 'home' | 'resume' | 'works'
-
-interface HeaderProps {
-  currentPage: Page
-  onPageChange: (page: Page) => void
-}
-
-export default function Header({ currentPage, onPageChange }: HeaderProps) {
+export default function Header({ onPageChange }: HeaderProps) {
   return (
     <header className={styles.header}>
+      
       <div className={styles.container}>
+
         <nav className={styles.nav}>
-          <button 
+
+          <button className={styles.navLink}
             onClick={() => onPageChange('resume')}
-            className={styles.navLink}
-            type="button"
-          >
+            type="button">
             Resume
           </button>
-          <button 
+
+          <button className={styles.navLink}
             onClick={() => onPageChange('works')}
-            className={styles.navLink}
-            type="button"
-          >
+            type="button" >
             Works
           </button>
-          <button 
+
+          <button className={styles.navHome }
             onClick={() => onPageChange('home')}
-            className={currentPage === 'home' ? styles.navHome : styles.navLink}
-            type="button"
-          >
+            type="button">
             Home
           </button>
+
         </nav>
       </div>
     </header>

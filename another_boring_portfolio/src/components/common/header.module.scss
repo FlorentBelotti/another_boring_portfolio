@@ -1,25 +1,24 @@
 @use '../../styles' as *;
 
-.header {
-  @include flex-center;
-  height: $header-height;
-  position: relative;
+.header { @include flex-center;
   z-index: 10;
-  padding: 0 $spacing-lg;
+
+  position: relative;
+
+  height: $header-height;
+  padding: $spacing-lg;
 }
 
-.container {
-  @include flex-end;  // ← Change flex-between à flex-end
+.container { @include flex-end;
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;
 }
 
-.logo {
+.logo { @include neon-glow;
+
   font-family: $font-display;
   font-size: $font-size-3xl;
   color: $color-accent;
-  @include neon-glow;
   transition: all $transition-normal;
   
   &:hover {
@@ -31,23 +30,18 @@
   }
 }
 
-.nav {
-  @include flex-row($spacing-xl);
+.nav { @include flex-row($spacing-xl);
   align-items: center;
 }
 
-.navLink {
-  font-family: $font-heading;
-  font-size: $font-size-lg;
-  color: $color-text;
+.navLink { @include neon-underline($color-accent);
   position: relative;
-  transition: color $transition-normal;
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: 0;
 
-  @include neon-underline($color-accent);
+  font-family: $font-heading;
+  color: $color-text;
+  font-size: $font-size-lg;
+  transition: color $transition-normal;
 
   &:hover {
     color: $color-accent;
@@ -55,15 +49,13 @@
 }
 
 .navHome {
+  position: relative;
+  cursor: pointer;
+
   font-family: $font-heading;
   font-size: $font-size-2xl;
   color: $color-accent;
-  position: relative;
   transition: color $transition-normal;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
 
   @include neon-glow;
 
