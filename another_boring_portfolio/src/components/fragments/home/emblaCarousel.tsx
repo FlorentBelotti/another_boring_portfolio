@@ -4,17 +4,19 @@ import { Thumb } from './emblaCarouselButton'
 import styles from './emblaCarousel.module.scss'
 
 type PropType = {
-  slides: number[]
+  slides: string[]
   options?: Parameters<typeof useEmblaCarousel>[0]
+  autoplayDelay?: number
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
+  const { slides, options, autoplayDelay = 3000 } = props
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
-    dragFree: true
+    dragFree: true,
+    align: 'center'
   })
 
   const onThumbClick = useCallback(
@@ -38,30 +40,55 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     emblaMainApi.on('select', onSelect).on('reInit', onSelect)
   }, [emblaMainApi, onSelect])
 
+  useEffect(() => {
+    if (!emblaMainApi) return
+
+    const autoplay = setInterval(() => {
+      if (emblaMainApi.canScrollNext()) {
+        emblaMainApi.scrollNext()
+      } else {
+        emblaMainApi.scrollTo(0)
+      }
+    }, autoplayDelay)
+
+    return () => clearInterval(autoplay)
+  }, [emblaMainApi, autoplayDelay])
+
   return (
     <div className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaMainRef}>
-        <div className={styles.embla__container}>
-          {slides.map((index) => (
-            <div className={styles.embla__slide} key={index}>
-              <div className={styles.embla__slide__number}>{index + 1}</div>
-            </div>
-          ))}
+
+      <div className={styles.display}>
+        <div className={styles.works_container}>
+          <div className={styles.title}> WORKS </div>
+          <div className={styles.square}></div>
         </div>
+        <div className={styles.embla__viewport} ref={emblaMainRef}>
+          <div className={styles.embla__container}>
+            {slides.map((slide, index) => (
+              <div className={styles.embla__slide} key={index}>
+                <div className={styles.embla__slide__number}>{slide}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
 
       <div className={styles['embla-thumbs']}>
         <div className={styles['embla-thumbs__viewport']} ref={emblaThumbsRef}>
+
           <div className={styles['embla-thumbs__container']}>
-            {slides.map((index) => (
+            {slides.map((slide, index) => (
               <Thumb
                 key={index}
                 onClick={() => onThumbClick(index)}
                 selected={index === selectedIndex}
                 index={index}
+                label={slide}
               />
             ))}
           </div>
+
         </div>
       </div>
     </div>

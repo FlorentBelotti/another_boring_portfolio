@@ -5,10 +5,11 @@ type PropType = {
   selected: boolean
   index: number
   onClick: () => void
+  label: string
 }
 
 export const Thumb: React.FC<PropType> = (props) => {
-  const { selected, index, onClick } = props
+  const { selected, index, onClick, label } = props
 
   return (
     <div
@@ -21,7 +22,7 @@ export const Thumb: React.FC<PropType> = (props) => {
         type="button"
         className={styles['embla-thumbs__slide__number']}
       >
-        {index + 1}
+        {label}
       </button>
     </div>
   )
