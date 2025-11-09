@@ -1,10 +1,10 @@
 @use '../../styles' as *;
 
 .content {
-  height: $content-height;
   position: relative;
   overflow: hidden;
   display: flex;
+  height: $content-height;
   gap: $spacing-sm;
 }
 
@@ -12,7 +12,7 @@
 .centerBlock,
 .rightBlock {
   flex: 1;
-  border: 1px solid $color-accent;
+  // border: 1px solid $color-accent;
   overflow: hidden;
   position: relative;
 }

@@ -9,7 +9,10 @@ export default function Logo() {
         </div>
         <div className={styles.logo_title}>
             <div className={styles.logo_title_1}>
-                <div className={styles.text_1}> ANOTHER BORING </div>
+              <div className={styles.logo_title_1_text}>
+                <div className={styles.text_1_1}> ANOTHER </div>
+                <div className={styles.text_1_2}> BORING </div>
+              </div>
                 <div className={styles.eye}> </div>
             </div>
             <div className={styles.text_2}>PORTFOLIO</div>

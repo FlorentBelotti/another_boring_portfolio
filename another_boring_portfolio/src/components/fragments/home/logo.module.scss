@@ -15,12 +15,11 @@
 }
 
 .img_container {
+    height: 100%;
     width: 100%;
 
     display: flex;
-    position: relative;
-    padding-right: spacing.$spacing-md;
-}
+    position: relative;}
 
 .logo_image {
     width: 100%;
@@ -39,32 +38,53 @@
     align-items: flex-end;
 
     border-left: 10px solid colors.$color-accent;
-    padding-left: spacing.$spacing-md;
+    padding-left: spacing.$spacing-sm;
+    gap: spacing.$spacing-logo;
 }
 
 .logo_title_1 {
+    height: 100%;
+
+    width: fit-content;
     display: grid;
     grid-template-columns: auto auto;
     align-items: end;
+    
+}
+
+.logo_title_1_text {
+    display: flex;
+    flex-direction: column;
 
     gap: spacing.$spacing-xs;
 }
 
-.text_1 {
+.text_1_1 {
     width: fit-content;
     height: fit-content;
     text-align: right;
-
+    
     font-family: fonts.$font-heading;
     color: colors.$color-text;
-    font-size: fonts.$font-size-4xl;
-    line-height: fonts.$line-height-minimal;
+    font-size: fonts.$font-size-5xl;
+    line-height: fonts.$line-height-staal;
+}
+
+.text_1_2 {
+    width: fit-content;
+    height: fit-content;
+    text-align: right;
+    
+    font-family: fonts.$font-heading;
+    color: colors.$color-text;
+    font-size: fonts.$font-size-5xl;
+    line-height: fonts.$line-height-staal;
+    letter-spacing: spacing.$spacing-title-1;
 }
 
 .eye {
+    height: 100%;
     aspect-ratio: 1 / 1;
-
-    align-self: stretch;
 
     background-color: colors.$color-accent;
 }
@@ -77,6 +97,6 @@
     font-family: fonts.$font-display;
     color: colors.$color-accent;
     font-size: fonts.$font-size-5xl;
-    line-height: fonts.$line-height-minimal;
-    letter-spacing: -0.03em;
+    line-height: fonts.$line-height-amarante;
+    letter-spacing: spacing.$spacing-title-2;
 }
