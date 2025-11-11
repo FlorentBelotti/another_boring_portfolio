@@ -21,7 +21,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   })
   const [emblaDescRef, emblaDescApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
-    draggable: false
   })
 
   const onThumbClick = useCallback(

@@ -1,0 +1,18 @@
+@use '../../../styles' as *;
+
+.introduction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.text {
+  font-family: $font-display;
+  font-size: $font-size-sm;
+  color: $color-text;
+  text-align: justify;
+  line-height: $line-height-relaxed;
+  padding: 0 $spacing-md;
+  margin-bottom: 0;
+}

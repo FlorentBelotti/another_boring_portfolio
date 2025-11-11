@@ -3,9 +3,9 @@ import building from '../../assets/images/img_building.png'
 import Logo from '../fragments/home/logo'
 import EmblaCarousel from '../fragments/home/emblaCarousel'
 import { WORKS_LIST } from '../../constants/works'
-import Separator from '../fragments/common/separator'
-import SeparatorText from '../fragments/common/separatorText'
 import Contact from '../fragments/home/contact'
+import Marquee from '../fragments/home/marquee'
+import Introduction from '../fragments/home/introduction'
 
 const OPTIONS = { 
   loop: true,
@@ -46,8 +46,8 @@ export default function Home() {
 
   const rightBlock = (
     <div className={styles.block}>
-      <h2>Section 3</h2>
-      <p>Welcome to Home page section 3</p>
+      <Marquee text="Ceci est un test d'une phrase normalement longue." duration={32} />
+      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
     </div>
   )
 
