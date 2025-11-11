@@ -1,0 +1,32 @@
+@use '../../../styles/colors.scss' as colors;
+@use '../../../styles/spacing.scss' as spacing;
+@use '../../../styles/fonts.scss' as fonts;
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.diamond {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: transparent;
+  border: 1px solid colors.$color-accent;
+  transform: rotate(45deg);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: colors.$color-accent;
+}
+
+.title {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: colors.$color-accent;
+  padding: 0 spacing.$spacing-sm;
+  font-family: fonts.$font-display;
+}

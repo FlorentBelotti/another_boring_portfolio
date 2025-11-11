@@ -7,16 +7,21 @@ type PropType = {
   slides: string[]
   options?: Parameters<typeof useEmblaCarousel>[0]
   autoplayDelay?: number
+  descriptions?: string[]
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options, autoplayDelay = 3000 } = props
+  const { slides, options, autoplayDelay = 3000, descriptions } = props
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
     dragFree: true,
     align: 'center'
+  })
+  const [emblaDescRef, emblaDescApi] = useEmblaCarousel({
+    containScroll: 'keepSnaps',
+    draggable: false
   })
 
   const onThumbClick = useCallback(
@@ -29,9 +34,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const onSelect = useCallback(() => {
     if (!emblaMainApi || !emblaThumbsApi) return
-    setSelectedIndex(emblaMainApi.selectedScrollSnap())
-    emblaThumbsApi.scrollTo(emblaMainApi.selectedScrollSnap())
-  }, [emblaMainApi, emblaThumbsApi, setSelectedIndex])
+    const selected = emblaMainApi.selectedScrollSnap()
+    setSelectedIndex(selected)
+    emblaThumbsApi.scrollTo(selected)
+    if (emblaDescApi) {
+      emblaDescApi.scrollTo(selected)
+    }
+  }, [emblaMainApi, emblaThumbsApi, emblaDescApi, setSelectedIndex])
 
   useEffect(() => {
     if (!emblaMainApi) return
@@ -91,6 +100,20 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
         </div>
       </div>
+
+      {descriptions && (
+        <div className={styles['embla-description']}>
+          <div className={styles['embla-description__viewport']} ref={emblaDescRef}>
+            <div className={styles['embla-description__container']}>
+              {descriptions.map((desc, index) => (
+                <div className={styles['embla-description__slide']} key={index}>
+                  <p className={styles['embla-description__text']}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

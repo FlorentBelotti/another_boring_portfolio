@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <p className="footer-text">
-          © {currentYear} Florent Belotti. All rights reserved.
+          {/* © {currentYear} Florent Belotti. All rights reserved. */}
         </p>
       </div>
     </footer>

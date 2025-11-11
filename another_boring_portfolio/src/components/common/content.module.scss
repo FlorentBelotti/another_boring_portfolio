@@ -16,3 +16,15 @@
   overflow: hidden;
   position: relative;
 }
+
+.leftBlock {
+  padding-left: $spacing-sm;
+}
+
+.centerBlock {
+  border: 1px solid $color-accent;
+}
+
+.rightBlock {
+  padding-left: $spacing-sm;
+}
