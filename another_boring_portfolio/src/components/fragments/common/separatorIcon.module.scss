@@ -1,0 +1,41 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/spacing.scss' as *;
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2px 2px;
+}
+
+.diamond {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: transparent;
+  border: 1px solid $color-accent;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: $color-accent;
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $spacing-sm;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(74%) saturate(423%) hue-rotate(359deg) brightness(101%) contrast(101%);
+}
