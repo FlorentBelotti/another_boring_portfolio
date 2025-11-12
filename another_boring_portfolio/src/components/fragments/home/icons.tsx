@@ -10,7 +10,7 @@ interface IconsProps {
 
 const Icons: React.FC<IconsProps> = ({ className }) => {
   return (
-    <>
+    <div className={styles.container}>
       <SeparatorIcon
         className={className}
         iconPath={IconBrutalism}
@@ -31,7 +31,7 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
         <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" />
         <p className={styles.iconText}>Sed do eiusmod tempor</p>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -2,11 +2,17 @@
 @use '../../../styles/fonts.scss' as *;
 @use '../../../styles/spacing.scss' as *;
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
 .iconRow {
   display: flex;
   width: 100%;
   align-items: center;
-  margin-left: $spacing-sm;
+  margin-left: $spacing-md;
   gap: $spacing-md;
 }
 
