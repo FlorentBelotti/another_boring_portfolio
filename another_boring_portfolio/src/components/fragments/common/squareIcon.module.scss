@@ -1,0 +1,38 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/spacing.scss' as *;
+@use '../../../styles/transitions.scss' as *;
+
+.square {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-accent;
+  background: transparent;
+  transition: all $transition-normal;
+  box-shadow: 0 0 10px $color-accent;
+  border-radius: 0;
+
+  &:hover {
+    transform: scale(1.12);
+    background-color: $color-bg;
+    box-shadow: 0 0 15px $color-accent, 0 0 30px $color-accent;
+    border-color: $color-accent;
+  }
+
+  & > svg,
+  & > i,
+  & > img {
+    pointer-events: none;
+  }
+}
+
+.icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+  filter: invert(75%) sepia(50%) saturate(800%) hue-rotate(5deg) brightness(95%);
+  transition: filter $transition-normal;
+}

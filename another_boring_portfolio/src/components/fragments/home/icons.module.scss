@@ -1,0 +1,20 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/fonts.scss' as *;
+@use '../../../styles/spacing.scss' as *;
+
+.iconRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-left: $spacing-sm;
+  gap: $spacing-md;
+}
+
+.iconText {
+  font-family: $font-display;
+  color: $color-text;
+  font-size: $font-size-sm;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}

@@ -1,14 +1,13 @@
 import styles from './home.module.scss'
 import building from '../../assets/images/img_building.png'
-import icon1 from '../../assets/icons/Brutalism 27.svg'
 import Logo from '../fragments/home/logo'
 import EmblaCarousel from '../fragments/home/emblaCarousel'
 import { WORKS_LIST } from '../../constants/works'
 import Contact from '../fragments/home/contact'
 import Marquee from '../fragments/home/marquee'
 import Introduction from '../fragments/home/introduction'
-import SeparatorIcon from '../fragments/common/separatorIcon'
 import NextPage from '../fragments/home/nextPage'
+import Icons from '../fragments/home/icons'
 
 const OPTIONS = { 
   loop: true,
@@ -51,8 +50,8 @@ export default function Home() {
     <div className={styles.block}>
       <NextPage />
       <Marquee text="Lorem ipsum dolor sit amet" duration={32} />
-      {/* <SeparatorIcon iconPath={icon1} iconAlt="separator icon" /> */}
-      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
+      <Icons></Icons>
+      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
     </div>
   )
 
