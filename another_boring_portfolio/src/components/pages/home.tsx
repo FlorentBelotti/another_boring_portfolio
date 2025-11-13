@@ -1,5 +1,8 @@
 import styles from './home.module.scss'
 import building from '../../assets/images/img_building.png'
+import seneca from '../../assets/images/img_seneca_col.png'
+import patern from '../../assets/images/img_brutalism_patern.jpg'
+import baldwin from '../../assets/images/img_baldwin_col.png'
 import Logo from '../fragments/home/logo'
 import EmblaCarousel from '../fragments/home/emblaCarousel'
 import { WORKS_LIST } from '../../constants/works'
@@ -8,6 +11,7 @@ import Marquee from '../fragments/home/marquee'
 import Introduction from '../fragments/home/introduction'
 import NextPage from '../fragments/home/nextPage'
 import Icons from '../fragments/home/icons'
+import PointCloudImage from '../animations/pointCloudImage'
 
 const OPTIONS = { 
   loop: true,
@@ -42,7 +46,7 @@ export default function Home() {
 
   const centerBlock = (
     <div className={styles.block}>
-      <img src={building} alt="Placeholder" className={styles.image} />
+      <PointCloudImage src={patern} />
     </div>
   )
 
