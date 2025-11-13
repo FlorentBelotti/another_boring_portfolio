@@ -73,21 +73,25 @@ export default function PointCloudImage({ src }: { src: string }) {
 
   // Crée les particules selon alpha et couleur
   const arr: Particle[] = [];
-  for (let y = PARTICLE_STEP / 2; y < canvas.height; y += PARTICLE_STEP) {
-    for (let x = PARTICLE_STEP / 2; x < canvas.width; x += PARTICLE_STEP) {
-      const i = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      const a = data[i + 3] / 255;
-      // Seuil alpha et couleur (par exemple, alpha > 0.05)
-      if (a > 0.05) {
-        arr.push({
-          x, y,
-          ox: x, oy: y,
-          vx: 0, vy: 0,
-          color: `rgb(${data[i]},${data[i + 1]},${data[i + 2]})`
-        });
-      }
+for (let y = PARTICLE_STEP / 2; y < canvas.height; y += PARTICLE_STEP) {
+  for (let x = PARTICLE_STEP / 2; x < canvas.width; x += PARTICLE_STEP) {
+    const i = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+    const a = data[i + 3] / 255;
+    if (a > 0.05) {
+      // Conversion en niveau de gris (méthode standard)
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const gray = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+      arr.push({
+        x, y,
+        ox: x, oy: y,
+        vx: 0, vy: 0,
+        color: `rgb(${gray},${gray},${gray})`
+      });
     }
   }
+}
   particles.current = arr;
     };
 

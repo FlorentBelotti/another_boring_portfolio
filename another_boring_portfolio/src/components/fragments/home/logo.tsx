@@ -1,5 +1,5 @@
 import styles from './logo.module.scss'
-import nero from '../../../assets/images/img_nero.png'
+import nero from '../../../assets/images/img_nero_col.png'
 import PointCloudImage from '../../animations/pointCloudImage'
 
 export default function Logo() {
