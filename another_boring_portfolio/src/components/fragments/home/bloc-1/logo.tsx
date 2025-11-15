@@ -1,12 +1,11 @@
 import styles from './logo.module.scss'
-import nero from '../../../../assets/images/img_nero_col.png'
-import PointCloudImage from '../../../animations/pointCloudImage'
+import nero from '../../../../assets/images/img_nero.png'
 
 export default function Logo() {
   return (
     <div className={styles.logo_container}>
         <div className={styles.img_container}>
-            <PointCloudImage src={nero}/>
+            <img src={nero} className={styles.logo_image}/>
         </div>
         <div className={styles.logo_title}>
             <div className={styles.logo_title_1}>

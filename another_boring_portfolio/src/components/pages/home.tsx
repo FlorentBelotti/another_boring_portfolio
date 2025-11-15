@@ -1,8 +1,13 @@
 import styles from './home.module.scss'
 // import building from '../../assets/images/img_building.png'
 // import seneca from '../../assets/images/img_seneca_col.png'
-// import baldwin from '../../assets/images/img_baldwin_col.png'
+import baldwin from '../../assets/images/img_baldwin_col.png'
+import bwipo from '../../assets/images/img_bwipo.png'
 import patern from '../../assets/images/img_brutalism_patern.jpg'
+import paradise from '../../assets/images/img_paradise_lost.jpg'
+import brutal from '../../assets/images/img_brutal_build.jpg'
+import satan from '../../assets/images/img_satan_descend.png'
+import paradise_col from '../../assets/images/img_paradise_lost_col_alone.png'
 import Logo from '../fragments/home/bloc-1/logo'
 import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
 import { WORKS_LIST } from '../../constants/works'
@@ -46,7 +51,7 @@ export default function Home() {
 
   const centerBlock = (
     <div className={styles.block}>
-      <PointCloudImage src={patern} />
+      <PointCloudImage src={brutal}/>
     </div>
   )
 
