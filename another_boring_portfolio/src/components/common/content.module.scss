@@ -12,7 +12,6 @@
 .centerBlock,
 .rightBlock {
   flex: 1;
-  // border: 1px solid $color-accent;
   overflow: hidden;
   position: relative;
 }
@@ -22,7 +21,7 @@
 }
 
 .centerBlock {
-  // border: 1px solid $color-accent;
+  border: 1px solid $color-accent;
 }
 
 .rightBlock {

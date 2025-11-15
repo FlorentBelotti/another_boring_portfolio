@@ -1,8 +1,8 @@
 import React from 'react';
-import SeparatorIcon from '../common/separatorIcon';
-import IconBrutalism from '../../../assets/icons/Brutalism 27.svg';
+import SeparatorIcon from '../../common/separatorIcon';
+import IconBrutalism from '../../../../assets/icons/Brutalism 27.svg';
 import styles from './icons.module.scss';
-import SquareIcon from '../common/squareIcon';
+import SquareIcon from '../../common/squareIcon';
 
 interface IconsProps {
   className?: string;

@@ -11,7 +11,7 @@ type Particle = {
 };
 
 const PARTICLE_SIZE = 4;
-const PARTICLE_STEP = 6;
+const PARTICLE_STEP = 10;
 const MOUSE_RADIUS = 5000;
 const EASE = 1;
 const FRICTION = 0.92;
