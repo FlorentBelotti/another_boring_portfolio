@@ -18,18 +18,15 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
       />
 
       <div className={styles.iconRow}>
-        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" />
-        <p className={styles.iconText}>Lorem ipsum dolor sit amet</p>
+        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" text="Ceci est un test" />
       </div>
 
       <div className={styles.iconRow}>
-        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" />
-        <p className={styles.iconText}>Consectetur adipiscing elit</p>
+        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" text="Ceci est un second test"/>
       </div>
 
       <div className={styles.iconRow}>
-        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" />
-        <p className={styles.iconText}>Sed do eiusmod tempor</p>
+        <SquareIcon className={className} title="SquareIcon" iconPath={IconBrutalism} iconAlt="Brutalism27" text="Ceci est un troisième test" />
       </div>
     </div>
   );

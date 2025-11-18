@@ -1,9 +1,15 @@
 @use '../../styles' as *;
 
 .block {
-  @include flex-column-center;
+  min-height: 0;
   height: 100%;
-  text-align: center;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  justify-content: space-between;
 
   h2 {
     margin-bottom: $spacing-lg;

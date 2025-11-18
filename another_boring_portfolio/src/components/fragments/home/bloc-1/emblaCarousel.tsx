@@ -100,7 +100,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      {descriptions && (
+      {/* {descriptions && (
         <div className={styles['embla-description']}>
           <div className={styles['embla-description__viewport']} ref={emblaDescRef}>
             <div className={styles['embla-description__container']}>
@@ -112,7 +112,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   )
 }

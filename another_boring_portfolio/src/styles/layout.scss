@@ -7,5 +7,5 @@ $header-height: 8vh;
 $footer-height: 8vh;
 
 // Content
-$content-height: 84vh;
+$content-height: calc(100vh - $header-height);
 $section-width: calc(100% / 3);

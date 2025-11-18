@@ -1,49 +1,36 @@
+import { useEffect, useState } from 'react';
+
 import styles from './home.module.scss'
-// import building from '../../assets/images/img_building.png'
-// import seneca from '../../assets/images/img_seneca_col.png'
-import baldwin from '../../assets/images/img_baldwin_col.png'
-import bwipo from '../../assets/images/img_bwipo.png'
-import patern from '../../assets/images/img_brutalism_patern.jpg'
-import paradise from '../../assets/images/img_paradise_lost.jpg'
-import brutal from '../../assets/images/img_brutal_build.jpg'
-import satan from '../../assets/images/img_satan_descend.png'
-import paradise_col from '../../assets/images/img_paradise_lost_col_alone.png'
-import Logo from '../fragments/home/bloc-1/logo'
 import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
+import Marquee from "react-fast-marquee";
+
+import building from '../../assets/images/img_brutal_build.jpg'
+
 import { WORKS_LIST } from '../../constants/works'
+import Logo from '../fragments/home/bloc-1/logo'
 import Contact from '../fragments/home/bloc-1/contact'
-import Marquee from '../fragments/home/bloc-2/marquee'
 import Introduction from '../fragments/home/bloc-2/introduction'
 import NextPage from '../fragments/home/bloc-2/nextPage'
 import Icons from '../fragments/home/bloc-2/icons'
 import PointCloudImage from '../animations/pointCloudImage'
 
-const OPTIONS = { 
-  loop: true,
-  duration: 25,
-  skipSnaps: false,
-  dragFree: false,
-  containScroll: 'trimSnaps'
-}
 const SLIDES = WORKS_LIST
 
-const DESCRIPTIONS = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
-  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
-  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-]
-
 export default function Home() {
+
+  const [isFirefox, setIsFirefox] = useState(false)
+
+  useEffect(() => {
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+    setIsFirefox(/firefox/i.test(ua))
+  })
+
   const leftBlock = (
     <div className={styles.block}>
       <Logo />
       <EmblaCarousel 
         slides={SLIDES} 
-        options={OPTIONS} 
         autoplayDelay={4000}
-        descriptions={DESCRIPTIONS}
       />
       <Contact />
     </div>
@@ -51,14 +38,23 @@ export default function Home() {
 
   const centerBlock = (
     <div className={styles.block}>
-      <PointCloudImage src={brutal}/>
+      {isFirefox ? (
+        <img src={building} className={styles.image}/>
+      ) : (
+      <PointCloudImage src={building}
+          particleSize={3}
+          particleStep={6}
+          mouseRadius={3000}/>
+      )}
     </div>
   )
 
   const rightBlock = (
     <div className={styles.block}>
       <NextPage />
-      <Marquee text="Lorem ipsum dolor sit amet" duration={32} />
+      <Marquee speed={40} pauseOnHover className={styles.marquee}>
+      CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
+      </Marquee>
       <Icons></Icons>
       <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
     </div>

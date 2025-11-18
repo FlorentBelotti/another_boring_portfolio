@@ -1,11 +1,15 @@
 import styles from './logo.module.scss'
-import nero from '../../../../assets/images/img_nero.png'
+import nero from '../../../../assets/images/img_nero_new.png'
+import PointCloudImage from '../../../animations/pointCloudImage'
 
 export default function Logo() {
   return (
     <div className={styles.logo_container}>
         <div className={styles.img_container}>
-            <img src={nero} className={styles.logo_image}/>
+            <PointCloudImage src={nero}
+            particleSize={2}
+            particleStep={4}
+            mouseRadius={3000}/>
         </div>
         <div className={styles.logo_title}>
             <div className={styles.logo_title_1}>

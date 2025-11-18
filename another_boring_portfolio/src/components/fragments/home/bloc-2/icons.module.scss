@@ -5,23 +5,16 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
   height: fit-content;
+  gap: $spacing-md;
 }
 
 .iconRow {
-  display: flex;
   width: 100%;
+  display: flex;
   align-items: center;
+  position: relative;
+  isolation: isolate;
   margin-left: $spacing-md;
   gap: $spacing-md;
-}
-
-.iconText {
-  font-family: $font-display;
-  color: $color-text;
-  font-size: $font-size-sm;
-  margin: 0;
-  display: flex;
-  align-items: center;
 }

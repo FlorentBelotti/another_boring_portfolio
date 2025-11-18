@@ -19,7 +19,9 @@
     width: 100%;
 
     display: flex;
-    position: relative;}
+    position: relative;
+    border: 1px solid colors.$color-accent;
+}
 
 .logo_image {
     width: 100%;
