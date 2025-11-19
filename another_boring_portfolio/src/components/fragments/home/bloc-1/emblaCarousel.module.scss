@@ -108,7 +108,6 @@
 
 .embla-thumbs__slide--selected .embla-thumbs__slide__number {
   color: colors.$color-accent;
-  @include mixins.neon-glow(colors.$color-accent);
 }
 
 .embla-description {

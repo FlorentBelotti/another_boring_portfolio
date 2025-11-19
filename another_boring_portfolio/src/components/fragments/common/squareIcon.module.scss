@@ -55,6 +55,7 @@
 .container:hover .text {
   @include neon-glow();
   color: $color-accent;
+  transform: scale(1.12);
 }
 
 .text {

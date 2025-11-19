@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Header from './components/common/header'
-import Footer from './components/common/footer'
 import Content from './components/common/content'
 import Home from './components/pages/home'
 import Resume from './components/pages/resume'
