@@ -38,14 +38,14 @@ export default function Home() {
 
   const centerBlock = (
     <div className={styles.block}>
-      {isFirefox ? (
+      {/* {isFirefox ? (
         <img src={building} className={styles.image}/>
-      ) : (
+      ) : ( */}
       <PointCloudImage src={building}
           particleSize={4}
           particleStep={12}
           mouseRadius={3000}/>
-      )}
+      {/* )} */}
     </div>
   )
 

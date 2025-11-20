@@ -15,12 +15,12 @@ export default function SeeProject({ className }: SeeProjectProps) {
         initial={{ x: '-100%' }}
         animate={{ x: ['-100%', '0%', '100%'] }}
         transition={{
-          duration: 1.4,
+          duration: 2.0,
           times: [0, 0.5, 1],
           ease: 'easeInOut',
           repeat: Infinity,
           repeatType: 'loop',
-          repeatDelay: 1.0,
+          repeatDelay: 3.0,
         }}
       />
 

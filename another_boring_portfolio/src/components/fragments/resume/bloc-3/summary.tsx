@@ -35,17 +35,17 @@ const Summary: React.FC<SummaryProps> = ({ className }) => {
           </div>
 
           <div className={styles['tech-row']}>
+            <div className={styles['tech-label']}>BACKEND</div>
+            <div className={styles.icons} aria-label="backend">
+              <i className={`${styles.icon} devicon-django-plain colored`} aria-hidden="true"></i>
+            </div>
+          </div>
+          
+          <div className={styles['tech-row']}>
             <div className={styles['tech-label']}>FRONTEND</div>
             <div className={styles.icons} aria-label="frontend">
               <i className={`${styles.icon} devicon-angularjs-plain colored`} aria-hidden="true"></i>
               <i className={`${styles.icon} devicon-react-original colored`} aria-hidden="true"></i>
-            </div>
-          </div>
-
-          <div className={styles['tech-row']}>
-            <div className={styles['tech-label']}>BACKEND</div>
-            <div className={styles.icons} aria-label="backend">
-              <i className={`${styles.icon} devicon-django-plain colored`} aria-hidden="true"></i>
             </div>
           </div>
 

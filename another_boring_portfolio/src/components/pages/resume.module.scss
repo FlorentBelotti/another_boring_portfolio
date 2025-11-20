@@ -9,14 +9,26 @@
   flex-direction: column;
   overflow: hidden;
 
+  border: 1px solid $color-accent;
+
   justify-content: space-between;
 
   h2 {
-    margin-bottom: $spacing-lg;
     color: $color-accent;
   }
 
   p {
     color: $color-text;
+  }
+}
+
+.experiencesContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+  h2 {
+    font-family: $font-display;
+    line-height: $line-height-amarante-resume;
   }
 }
