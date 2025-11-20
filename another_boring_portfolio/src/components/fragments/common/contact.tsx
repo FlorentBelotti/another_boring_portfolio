@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './contact.module.scss';
-import SeparatorText from '../../common/separatorText';
-import Separator from '../../common/separator';
+import SeparatorText from './separatorText';
+import Separator from './separator';
 
 interface ContactProps {
   className?: string;

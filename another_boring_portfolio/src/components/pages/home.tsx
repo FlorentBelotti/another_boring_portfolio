@@ -8,7 +8,7 @@ import building from '../../assets/images/img_brutal_build.jpg'
 
 import { WORKS_LIST } from '../../constants/works'
 import Logo from '../fragments/home/bloc-1/logo'
-import Contact from '../fragments/home/bloc-1/contact'
+import Contact from '../fragments/common/contact';
 import Introduction from '../fragments/home/bloc-2/introduction'
 import NextPage from '../fragments/home/bloc-2/nextPage'
 import Icons from '../fragments/home/bloc-2/icons'

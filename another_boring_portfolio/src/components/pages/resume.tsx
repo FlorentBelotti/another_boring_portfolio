@@ -5,7 +5,12 @@ import styles from './resume.module.scss'
 import me from '../../assets/photos/me_2.png'
 
 import PointCloudImage from '../animations/pointCloudImage'
-import Logo from '../fragments/home/bloc-1/logo';
+import SeeProject from '../fragments/resume/bloc-3/seeProject';
+import Contact from '../fragments/common/contact';
+import Actions from '../fragments/resume/bloc-3/actions';
+import AboutMe from '../fragments/resume/bloc-3/aboutMe';
+import { LOREM } from '../../constants/texts';
+import Summary from '../fragments/resume/bloc-3/summary';
 
 export default function Resume() {
 
@@ -34,7 +39,13 @@ export default function Resume() {
   )
 
   const rightBlock = (
-    <div className={styles.block}> </div>
+    <div className={styles.block}> 
+    <SeeProject></SeeProject>
+    {/* <Actions></Actions> */}
+    <Summary></Summary>
+    <AboutMe text={LOREM}></AboutMe>
+    <Contact></Contact>
+    </div>
   )
 
   return { leftBlock, centerBlock, rightBlock }
