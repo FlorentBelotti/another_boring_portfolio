@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import styles from './resume.module.scss'
 
-import me from '../../assets/photos/sujet.png'
+import me from '../../assets/photos/me_2.png'
 
 import PointCloudImage from '../animations/pointCloudImage'
 import Logo from '../fragments/home/bloc-1/logo';
@@ -22,8 +22,8 @@ export default function Resume() {
         <img src={me} className={styles.image}/>
       ) : (
         <PointCloudImage src={me}
-        particleSize={8}
-        particleStep={16}
+        particleSize={4}
+        particleStep={12}
         mouseRadius={3000}/>
       )}
     </div>

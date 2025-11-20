@@ -42,8 +42,8 @@ export default function Home() {
         <img src={building} className={styles.image}/>
       ) : (
       <PointCloudImage src={building}
-          particleSize={3}
-          particleStep={6}
+          particleSize={4}
+          particleStep={12}
           mouseRadius={3000}/>
       )}
     </div>
