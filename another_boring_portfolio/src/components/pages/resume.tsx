@@ -11,6 +11,20 @@ import Contact from '../fragments/common/contact';
 import AboutMe from '../fragments/resume/bloc-3/aboutMe';
 import { LOREM } from '../../constants/texts';
 import Summary from '../fragments/resume/bloc-3/summary';
+import ExperienceAccordion from '../fragments/resume/bloc-2/experienceAccordion';
+
+  const experiences = [
+    { date: '2023 — 2025', title: 'Senior Frontend Engineer', company: 'Acme Corp', pole: 'Web', details: "Conception et maintenance d'interfaces React; optimisation des performances; mentoring d'équipe." },
+    { date: '2021 — 2023', title: 'Frontend Engineer', company: 'Beta Studio', pole: 'UI/UX', details: "Refonte UI, amélioration de l'accessibilité, mise en place de tests et workflows CI." },
+    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
+    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
+  ];
+
+  const formations = [
+    { date: '2023 — 2025', title: 'Senior Frontend Engineer', company: 'Acme Corp', pole: 'Web', details: "Conception et maintenance d'interfaces React; optimisation des performances; mentoring d'équipe." },
+    { date: '2021 — 2023', title: 'Frontend Engineer', company: 'Beta Studio', pole: 'UI/UX', details: "Refonte UI, amélioration de l'accessibilité, mise en place de tests et workflows CI." },
+    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
+  ];
 
 export default function Resume() {
 
@@ -20,11 +34,6 @@ export default function Resume() {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
     setIsFirefox(/firefox/i.test(ua))
   })
-
-  const experiences = [
-    { date: '2023 — 2025', title: 'Senior Frontend Engineer', company: 'Acme Corp', pole: 'Web', details: 'Détails de la mission, responsabilités et technologies utilisées.' },
-    { date: '2021 — 2023', title: 'Frontend Engineer', company: 'Beta Studio', pole: 'UI/UX', details: 'Détails de la mission, réalisations et impact.' },
-  ];
 
   const leftBlock = (
     <div className={styles.block}>
@@ -40,9 +49,14 @@ export default function Resume() {
   )
 
   const centerBlock = (
-    <div className={styles.block}>
+    <div className={`${styles.block} ${styles.center}`}>
       <div className={styles.experiencesContainer}>
         <h2>EXPERIENCES</h2>
+        <ExperienceAccordion experiences={experiences} ></ExperienceAccordion>
+      </div>
+      <div className={styles.experiencesContainer}>
+        <h2>FORMATIONS</h2>
+        <ExperienceAccordion experiences={formations} ></ExperienceAccordion>
       </div>
     </div>
   )

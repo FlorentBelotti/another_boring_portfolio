@@ -2,7 +2,7 @@
 
 .content {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   height: $content-height;
   gap: $spacing-sm;
@@ -14,15 +14,16 @@
   flex: 1;
   overflow: hidden;
   position: relative;
+  padding-bottom: $spacing-sm;
 }
 
 .leftBlock {
   padding-left: $spacing-sm;
 }
 
-// .centerBlock {
-//   border: 1px solid $color-accent;
-// }
+.centerBlock {
+  // border: 1px solid $color-accent;
+}
 
 .rightBlock {
   padding-right: $spacing-sm;
