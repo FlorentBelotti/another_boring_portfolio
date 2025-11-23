@@ -1,22 +1,30 @@
+import { useEffect, useState } from 'react';
+
 import styles from './works.module.scss'
 
 export default function Works() {
-  return (
-    <>
-      <section className={styles.block}>
-        <h2>Section 1</h2>
-        <p>Welcome to Works section 1</p>
-      </section>
-      
-      <section className={styles.block}>
-        <h2>Section 2</h2>
-        <p>Welcome to Works section 2</p>
-      </section>
-      
-      <section className={styles.block}>
-        <h2>Section 3</h2>
-        <p>Welcome to Works section 3</p>
-      </section>
-    </>
+
+  const [isFirefox, setIsFirefox] = useState(false)
+
+  useEffect(() => {
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+    setIsFirefox(/firefox/i.test(ua))
+  })
+
+  const leftBlock = (
+    <div className={styles.block}>
+    </div>
   )
+
+  const centerBlock = (
+    <div className={`${styles.block} ${styles.center}`}>
+    </div>
+  )
+
+  const rightBlock = (
+    <div className={styles.block}> 
+    </div>
+  )
+
+  return { leftBlock, centerBlock, rightBlock }
 }
