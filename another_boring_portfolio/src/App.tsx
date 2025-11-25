@@ -9,48 +9,57 @@ import { useTransitionStore } from './stores/transitionStore'
 type Page = 'home' | 'resume' | 'works'
 
 export default function App() {
-  
-  const [currentPage, setCurrentPage] = useState<Page>('resume')
+  const [currentPage, setCurrentPage] = useState<Page>('works')
   const { startTransition, endTransition } = useTransitionStore()
 
   const handlePageChange = (page: Page) => {
-
     startTransition()
-    
     setTimeout(() => {
       setCurrentPage(page)
     }, 500)
-    
     setTimeout(() => {
       endTransition()
     }, 1200)
   }
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return Home()
-      case 'resume':
-        return Resume()
-      case 'works':
-        return Works()
-      default:
-        return Home()
-    }
-  }
+  // Appeler TOUS les composants à chaque rendu (important pour React Hooks)
+  const homeBlocks = Home()
+  const resumeBlocks = Resume()
+  const worksBlocks = Works()
 
-  const { leftBlock, centerBlock, rightBlock } = renderPage()
+  // Sélectionner les blocs à afficher en fonction de la page courante
+  let leftBlock, centerBlock, rightBlock
+
+  switch (currentPage) {
+    case 'home':
+      leftBlock = homeBlocks.leftBlock
+      centerBlock = homeBlocks.centerBlock
+      rightBlock = homeBlocks.rightBlock
+      break
+    case 'resume':
+      leftBlock = resumeBlocks.leftBlock
+      centerBlock = resumeBlocks.centerBlock
+      rightBlock = resumeBlocks.rightBlock
+      break
+    case 'works':
+      leftBlock = worksBlocks.leftBlock
+      centerBlock = worksBlocks.centerBlock
+      rightBlock = worksBlocks.rightBlock
+      break
+    default:
+      leftBlock = homeBlocks.leftBlock
+      centerBlock = homeBlocks.centerBlock
+      rightBlock = homeBlocks.rightBlock
+  }
 
   return (
     <>
       <Header currentPage={currentPage} onPageChange={handlePageChange} />
-      
       <Content 
         leftBlock={leftBlock}
         centerBlock={centerBlock}
         rightBlock={rightBlock}
       />
-      
       {/* <Footer /> */}
     </>
   )

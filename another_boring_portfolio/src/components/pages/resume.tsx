@@ -33,7 +33,7 @@ export default function Resume() {
   useEffect(() => {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
     setIsFirefox(/firefox/i.test(ua))
-  })
+  }, [])  
 
   const leftBlock = (
     <div className={styles.block}>

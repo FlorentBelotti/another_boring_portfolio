@@ -14,7 +14,7 @@ import NextPage from '../fragments/home/bloc-2/nextPage'
 import Icons from '../fragments/home/bloc-2/icons'
 import PointCloudImage from '../animations/pointCloudImage'
 
-const SLIDES = WORKS_LIST
+const SLIDES = WORKS_LIST.map(work => work.name)
 
 export default function Home() {
 
@@ -23,7 +23,7 @@ export default function Home() {
   useEffect(() => {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
     setIsFirefox(/firefox/i.test(ua))
-  })
+  }, []) 
 
   const leftBlock = (
     <div className={styles.block}>

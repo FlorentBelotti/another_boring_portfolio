@@ -1,0 +1,124 @@
+.embla {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.emblaViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.emblaContainer {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.emblaSlide {
+  position: relative;
+  min-width: 300px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideNumber {
+  font-size: 2rem;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.emblaControls {
+  display: flex;
+  flex-direction: row; // Change de column à row
+  align-items: center;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.emblaButtons {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem; // Ajoute un espace entre les boutons et les points
+}
+
+.emblaDots {
+  display: flex;
+  gap: 0.5rem;
+  // margin-top: 0.5rem; // Supprime le margin-top pour aligner horizontalement
+}
+
+.emblaDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.emblaDotSelected {
+  background: #333;
+}
+
+.embla__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: color 0.2s;
+  font-size: 0;
+}
+
+.embla__button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.embla__button__svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+  fill: #333;
+}
+
+.emblaButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: color 0.2s;
+  font-size: 0;
+}
+
+.emblaButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.emblaButtonSvg {
+  width: 32px;
+  height: 32px;
+  display: block;
+  fill: #333;
+}
+
+.emblaButtonPrev {
+  /* Optionnel: positionner à gauche si besoin */
+}
+
+.emblaButtonNext {
+  /* Optionnel: positionner à droite si besoin */
+}
