@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import styles from './works.module.scss'
 import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
 import { WORKS_LIST } from '../../constants/works';
+import SeparatorText from '../fragments/common/separatorText';
+import TechLogos from '../fragments/works/bloc-2/techLogos';
 
 const SLIDES = WORKS_LIST
 
@@ -33,13 +35,54 @@ export default function Works() {
 
   const centerBlock = (
     <div className={`${styles.block} ${styles.center}`}>
+      {/* Description */}
+      <SeparatorText title='Description'></SeparatorText>
       {SLIDES[currentSlideIndex] && (
-        <>
-          <h2>{SLIDES[currentSlideIndex].title}</h2>
+        <div className={styles.description}>
           <p>{SLIDES[currentSlideIndex].description}</p>
-          {/* Ajoutez ici tout autre contenu de SLIDES[currentSlideIndex] */}
-        </>
+        </div>
       )}
+
+
+
+      {/* Technologies */}
+      <SeparatorText title='Technologies'></SeparatorText>
+      <>
+        <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
+      </>
+
+      {/* Features */}
+      <SeparatorText title='Fonctionnalités'></SeparatorText>
+      <>
+        <ul>
+          {SLIDES[currentSlideIndex].features.map((f: string, i: number) => (
+            <li key={i}>{f}</li>
+          ))}
+        </ul>
+      </>
+
+      {/* Year */}
+      <SeparatorText title='Année'></SeparatorText>
+      <>
+        <p>{SLIDES[currentSlideIndex].year}</p>
+      </>
+
+      {/* Project type */}
+      <SeparatorText title='Type de projet'></SeparatorText>
+      <>
+        <p>{SLIDES[currentSlideIndex].projectType}</p>
+      </>
+
+      {/* Links */}
+      <SeparatorText title='Lien code source'></SeparatorText>
+      <>
+        <p>{SLIDES[currentSlideIndex].sourceLink || '—'}</p>
+      </>
+
+      <SeparatorText title='Demo'></SeparatorText>
+      <>
+        <p>{SLIDES[currentSlideIndex].demoLink || '—'}</p>
+      </>
     </div>
   )
 

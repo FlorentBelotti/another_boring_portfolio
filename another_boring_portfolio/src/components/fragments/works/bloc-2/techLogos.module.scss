@@ -1,0 +1,22 @@
+@use '../../../../styles' as *;
+
+.container {
+  padding: 0 $spacing-md;
+}
+
+.icons {
+  display: flex;
+  gap: $spacing-logo;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $spacing-lg;
+  height: $spacing-lg;
+}

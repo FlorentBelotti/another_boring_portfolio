@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
-
 import styles from './home.module.scss'
 import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
 import Marquee from "react-fast-marquee";
-
 import building from '../../assets/images/img_brutal_build.jpg'
-
 import { WORKS_LIST } from '../../constants/works'
 import Logo from '../fragments/home/bloc-1/logo'
 import Contact from '../fragments/common/contact';
