@@ -1,7 +1,8 @@
 @use '../../../../styles' as *;
 
 .container {
-  padding: 0 $spacing-md;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .icons {

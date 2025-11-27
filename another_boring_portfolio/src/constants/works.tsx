@@ -1,3 +1,7 @@
+import tr_1 from '../assets/works/transcandence/tr_connexion.png'
+import tr_2 from '../assets/works/transcandence/tr_homepage.png'
+
+
 export const WORKS_LIST = [
   {
     id: 0,
@@ -19,9 +23,9 @@ export const WORKS_LIST = [
       "Gestion des latences réseau",
       "Séparation back/front propre"
     ],
-    screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    screenshots: [tr_1, tr_2],
+    sourceLink: "https://fr.wikipedia.org/wiki/Wiki",
+    demoLink: "https://fr.wikipedia.org/wiki/Wiki",
     year: "2023",
     projectType: "Scolaire"
   },
@@ -105,7 +109,7 @@ export const WORKS_LIST = [
     name: "MINIRT",
     title: "MiniRT",
     tag: "42",
-    type: "Rendering engine",
+    type: "Software",
     description: "Un moteur de ray tracing développé en C, capable de générer des images photoréalistes à partir de scènes 3D.",
     role: "Développeur",
     technologies: ["C", "Mathématiques 3D"],
@@ -129,7 +133,7 @@ export const WORKS_LIST = [
     name: "TABULA",
     title: "Tabula",
     tag: "Side",
-    type: "Web template",
+    type: "Web application",
     description: "Un outil de visualisation et d'analyse de données permettant de créer des tableaux de bord interactifs.",
     role: "Développeur",
     technologies: ["React", "D3.js", "Node.js"],

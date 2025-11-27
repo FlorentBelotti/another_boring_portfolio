@@ -5,6 +5,7 @@ import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
 import { WORKS_LIST } from '../../constants/works';
 import SeparatorText from '../fragments/common/separatorText';
 import TechLogos from '../fragments/works/bloc-2/techLogos';
+import ProjectMeta from '../fragments/works/bloc-2/projectMeta';
 
 const SLIDES = WORKS_LIST
 
@@ -32,62 +33,40 @@ export default function Works() {
       />
     </div>
   )
-
+  
   const centerBlock = (
     <div className={`${styles.block} ${styles.center}`}>
-      {/* Description */}
-      <SeparatorText title='Description'></SeparatorText>
-      {SLIDES[currentSlideIndex] && (
-        <div className={styles.description}>
-          <p>{SLIDES[currentSlideIndex].description}</p>
-        </div>
-      )}
+      
+        <ProjectMeta tag={SLIDES[currentSlideIndex].tag} type={SLIDES[currentSlideIndex].type } githubLink={SLIDES[currentSlideIndex].sourceLink} demoLink={SLIDES[currentSlideIndex].demoLink} />
+        
+      <div className={styles.innerContent}>
+        <div className={styles.sectionTitle}>Description</div>
+        {SLIDES[currentSlideIndex] && (
+          <div className={styles.description}>
+            <p>{SLIDES[currentSlideIndex].description}</p>
+          </div>
+        )}
+      </div>
+      
+      <div className={styles.innerContent}>
+        <div className={styles.sectionTitle}>Features</div>
+        {SLIDES[currentSlideIndex] && (
+          <div className={styles.description}>
+            <p>{SLIDES[currentSlideIndex].description}</p>
+          </div>
+        )}
+      </div>
 
-
-
-      {/* Technologies */}
-      <SeparatorText title='Technologies'></SeparatorText>
-      <>
+      <div className={styles.innerContent}>
+        <div className={styles.sectionTitle}>Technos</div>
         <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
-      </>
+      </div>
 
-      {/* Features */}
-      <SeparatorText title='Fonctionnalités'></SeparatorText>
-      <>
-        <ul>
-          {SLIDES[currentSlideIndex].features.map((f: string, i: number) => (
-            <li key={i}>{f}</li>
-          ))}
-        </ul>
-      </>
-
-      {/* Year */}
-      <SeparatorText title='Année'></SeparatorText>
-      <>
-        <p>{SLIDES[currentSlideIndex].year}</p>
-      </>
-
-      {/* Project type */}
-      <SeparatorText title='Type de projet'></SeparatorText>
-      <>
-        <p>{SLIDES[currentSlideIndex].projectType}</p>
-      </>
-
-      {/* Links */}
-      <SeparatorText title='Lien code source'></SeparatorText>
-      <>
-        <p>{SLIDES[currentSlideIndex].sourceLink || '—'}</p>
-      </>
-
-      <SeparatorText title='Demo'></SeparatorText>
-      <>
-        <p>{SLIDES[currentSlideIndex].demoLink || '—'}</p>
-      </>
     </div>
   )
-
+  
   const rightBlock = (
-    <div className={styles.block}> 
+    <div className={`${styles.block} ${styles.right}`}>
     </div>
   )
 

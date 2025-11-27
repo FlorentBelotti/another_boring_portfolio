@@ -1,0 +1,160 @@
+@use '../../../../styles' as *;
+
+.container {
+  align-items: center;
+  overflow: visible;
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-md;
+  justify-content: flex-end;
+}
+
+.value {
+  text-align: justify;
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  color: $color-text;
+}
+
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.label {
+  font-size: $font-size-base;
+  border-radius: 999px;
+  padding: 0.25em 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px $color-accent;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+  background: transparent;
+
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent; // aura réduite
+    background-color: $color-accent;
+    color: $color-bg;
+    border-color: $color-accent;
+  }
+}
+
+// Web application : rouge/rose foncé transparent
+.label--web {
+  color: #e63946;
+  border-color: #e63946;
+  background: rgba(183, 28, 42, 0.5);
+  box-shadow: 0 0 10px #e63946;
+  &:hover {
+    box-shadow: 0 0 12px #e63946, 0 0 24px #e63946; // aura réduite
+    background: rgba(183, 28, 42, 0.5);
+    color: #e63946;
+    border-color: #e63946;
+  }
+}
+
+// 42 : texte blanc, fond transparent, contour noir, box-shadow blanc
+.label--42 {
+  color: #fff;
+  border-color: #222;
+  background: transparent;
+  box-shadow: 0 0 10px #fff;
+  &:hover {
+    box-shadow: 0 0 12px #fff, 0 0 24px #fff;
+    background: transparent;
+    color: #fff;
+    border-color: #222;
+  }
+}
+
+// Pro : vert foncé transparent
+.label--pro {
+  color: #2ecc40;
+  border-color: #2ecc40;
+  background: rgba(22, 156, 42, 0.5);
+  box-shadow: 0 0 10px #2ecc40;
+  &:hover {
+    box-shadow: 0 0 12px #2ecc40, 0 0 24px #2ecc40;
+    background: rgba(22, 156, 42, 0.5);
+    color: #2ecc40;
+    border-color: #2ecc40;
+  }
+}
+
+// Business application : bleu foncé transparent
+.label--business {
+  color: #0077b5;
+  border-color: #0077b5;
+  background: rgba(0, 68, 102, 0.5);
+  box-shadow: 0 0 10px #0077b5;
+  &:hover {
+    box-shadow: 0 0 12px #0077b5, 0 0 24px #0077b5;
+    background: rgba(0, 68, 102, 0.5);
+    color: #0077b5;
+    border-color: #0077b5;
+  }
+}
+
+// Marketplace : orange foncé transparent
+.label--marketplace {
+  color: #ff9900;
+  border-color: #ff9900;
+  background: rgba(179, 107, 0, 0.5);
+  box-shadow: 0 0 10px #ff9900;
+  &:hover {
+    box-shadow: 0 0 12px #ff9900, 0 0 24px #ff9900;
+    background: rgba(179, 107, 0, 0.5);
+    color: #ff9900;
+    border-color: #ff9900;
+  }
+}
+
+// Side : bleu foncé transparent
+.label--side {
+  color: #00bfff;
+  border-color: #00bfff;
+  background: rgba(0, 95, 127, 0.5);
+  box-shadow: 0 0 10px #00bfff;
+  &:hover {
+    box-shadow: 0 0 12px #00bfff, 0 0 24px #00bfff;
+    background: rgba(0, 95, 127, 0.5);
+    color: #00bfff;
+    border-color: #00bfff;
+  }
+}
+
+// Bot : violet foncé discord transparent
+.label--bot {
+  color: #5865f2;
+  border-color: #5865f2;
+  background: rgba(35, 37, 90, 0.5);
+  box-shadow: 0 0 10px #5865f2;
+  &:hover {
+    box-shadow: 0 0 12px #5865f2, 0 0 24px #5865f2;
+    background: rgba(35, 37, 90, 0.5);
+    color: #5865f2;
+    border-color: #5865f2;
+  }
+}
+
+// Software : texte blanc, fond transparent, contour blanc, box-shadow noir
+.label--software {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+  box-shadow: 0 0 10px #222;
+  &:hover {
+    box-shadow: 0 0 12px #222, 0 0 24px #222;
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+}

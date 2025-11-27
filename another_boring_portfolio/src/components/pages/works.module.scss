@@ -9,9 +9,7 @@
   flex-direction: column;
   overflow: visible;
 
-  // border: 1px solid $color-accent;
-
-  justify-content: space-between;
+  justify-content: flex-start;
 
   h2 {
     color: $color-accent;
@@ -23,33 +21,28 @@
 }
 
 .center {
-  justify-content: flex-start;
-  overflow: visible;
-  gap: $spacing-lg;
-  align-items: flex-start;
-}
-
-.experiencesContainer {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: flex-start;
-  contain: layout;
-  width: 100%;
-  
-  h2 {
-    font-family: $font-display;
-    font-size: $font-size-5xl;
-    line-height: $line-height-amarante-resume;
-  }
-
-  .description {
-  font-family: $font-display;
-  font-size: $font-size-sm;
-  color: $color-text;
-  text-align: justify;
-  line-height: $line-height-relaxed;
-  padding: 0 $spacing-md;
-  margin-bottom: 0;
+  padding: $spacing-lg $spacing-md;
+  gap: $spacing-xl;
+  overflow: visible;
+  align-items: flex-end;
 }
+
+.right {
+  display: flex;
+  border: 1px solid $color-accent;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sectionTitle {
+  color: $color-accent;
+  font-size: $font-size-3xl;
+  font-family: $font-display;
+  margin-bottom: $spacing-xs;
+}
+
+.innerContent {
+  text-align: right;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './techLogos.module.scss';
+import SeparatorText from '../../common/separatorText';
 
 interface TechLogosProps {
   technologies: string[];
@@ -49,7 +50,7 @@ const TechLogos: React.FC<TechLogosProps> = ({ technologies, className }) => {
           if (!iconClass) return null;
 
           return (
-            <i
+              <i
               key={i}
               className={`${styles.icon} ${iconClass}`}
               aria-hidden="true"

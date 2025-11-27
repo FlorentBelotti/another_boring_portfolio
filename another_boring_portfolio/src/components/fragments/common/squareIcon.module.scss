@@ -31,7 +31,7 @@
   &:hover {
     transform: scale(1.12);
     background-color: $color-bg;
-    box-shadow: 0 0 15px $color-accent, 0 0 30px $color-accent;
+    box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent; // aura réduite
     border-color: $color-accent;
     z-index: 2;
   }
@@ -47,9 +47,41 @@
   width: 60%;
   height: 60%;
   object-fit: contain;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter $transition-normal, color $transition-normal;
+  color: $color-accent;
+}
+
+.square > svg.icon,
+.square > img.icon {
   filter: invert(75%) sepia(50%) saturate(800%) hue-rotate(5deg) brightness(95%);
-  transition: filter $transition-normal;
+}
+
+.square > svg.icon {
+  color: $color-accent;
+  fill: currentColor;
+}
+
+.square > .icon :global(svg) {
+  color: $color-accent;
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.square > i.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  color: $color-accent;
+  transition: color $transition-normal;
 }
 
 .container:hover .text {

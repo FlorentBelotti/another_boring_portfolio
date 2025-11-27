@@ -1,7 +1,12 @@
+@use '../../../../styles/colors.scss' as *;
+@use '../../../../styles/fonts.scss' as *;
+
+
 .embla {
   position: relative;
   width: 100%;
   margin: 0 auto;
+  // border: 1px solid white;
 }
 
 .emblaViewport {
@@ -14,6 +19,8 @@
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  border-radius: 1rem;
+  background: none;
 }
 
 .emblaSlide {
@@ -26,43 +33,44 @@
 }
 
 .slideNumber {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   transition: transform 0.3s;
+  color: $color-text;
 }
 
 .emblaControls {
   display: flex;
-  flex-direction: row; // Change de column à row
+  flex-direction: row;
   align-items: center;
   margin-top: 1rem;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .emblaButtons {
   display: flex;
   gap: 1rem;
-  margin-right: 1rem; // Ajoute un espace entre les boutons et les points
 }
 
 .emblaDots {
   display: flex;
   gap: 0.5rem;
-  // margin-top: 0.5rem; // Supprime le margin-top pour aligner horizontalement
 }
 
 .emblaDot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #ccc;
-  border: none;
+  background: none;
+  border: 1px solid $color-accent;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .emblaDotSelected {
-  background: #333;
+  background: $color-accent;
+  border-color: $color-accent;
 }
 
 .embla__button {
@@ -83,11 +91,12 @@
   cursor: not-allowed;
 }
 
-.embla__button__svg {
-  width: 32px;
-  height: 32px;
+.embla__button__svg,
+.emblaButtonSvg {
+  width: 20px;
+  height: 15px;
   display: block;
-  fill: #333;
+  fill: $color-accent;
 }
 
 .emblaButton {
@@ -98,7 +107,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #333;
+  color: $color-accent;
   transition: color 0.2s;
   font-size: 0;
 }
@@ -106,13 +115,6 @@
 .emblaButton:disabled {
   opacity: 0.3;
   cursor: not-allowed;
-}
-
-.emblaButtonSvg {
-  width: 32px;
-  height: 32px;
-  display: block;
-  fill: #333;
 }
 
 .emblaButtonPrev {
