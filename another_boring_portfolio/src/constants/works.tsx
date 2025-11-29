@@ -7,6 +7,7 @@ export const WORKS_LIST = [
     id: 0,
     name: "TRANSCENDANCE",
     title: "Transcendance",
+    company: "42 Paris",
     tag: "42",
     type: "Web application",
     description: "Un projet de jeu multijoueur en temps réel inspiré du classique Pong, développé avec des technologies web modernes.",
@@ -33,9 +34,10 @@ export const WORKS_LIST = [
     id: 1,
     name: "ODELIX",
     title: "Odelix",
+    company: "Odelix Corp",
     tag: "Pro",
     type: "Business application",
-    description: "Une plateforme innovante pour la gestion et l'optimisation des processus métier.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     role: "Développeur full-stack",
     technologies: ["Node.js", "React", "PostgreSQL", "Azure"],
     features: [
@@ -49,8 +51,8 @@ export const WORKS_LIST = [
       "Scalabilité"
     ],
     screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    sourceLink: "https://placeholder.com",
+    demoLink: "https://placeholder.com",
     year: "2024",
     projectType: "Professionnel"
   },
@@ -58,9 +60,10 @@ export const WORKS_LIST = [
     id: 2,
     name: "WOODEXCHANGE",
     title: "Wood Exchange",
+    company: "WoodXchange Ltd.",
     tag: "Side",
     type: "Marketplace",
-    description: "Une marketplace B2B dédiée au commerce du bois et des matériaux forestiers.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur cursus, nisl erat aliquam erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     role: "Développeur",
     technologies: ["Next.js", "Node.js", "MongoDB"],
     features: [
@@ -74,8 +77,8 @@ export const WORKS_LIST = [
       "Système de notification"
     ],
     screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    sourceLink: "https://placeholder.com",
+    demoLink: "https://placeholder.com",
     year: "2023",
     projectType: "Side project"
   },
@@ -83,9 +86,10 @@ export const WORKS_LIST = [
     id: 3,
     name: "NEVERBETONLEC",
     title: "Never Bet On LEC",
+    company: "LEC Analytics",
     tag: "Side",
     type: "Bot",
-    description: "Une application de pronostics et statistiques pour les compétitions e-sport League of Legends.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Nullam ac urna euismod, dictum erat at, cursus erat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     role: "Développeur",
     technologies: ["Python", "API Riot Games", "SQLite"],
     features: [
@@ -99,8 +103,8 @@ export const WORKS_LIST = [
       "Organisation des datasets"
     ],
     screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    sourceLink: "https://placeholder.com",
+    demoLink: "https://placeholder.com",
     year: "2022",
     projectType: "Side project"
   },
@@ -108,9 +112,10 @@ export const WORKS_LIST = [
     id: 4,
     name: "MINIRT",
     title: "MiniRT",
+    company: "MiniRT Studio",
     tag: "42",
     type: "Software",
-    description: "Un moteur de ray tracing développé en C, capable de générer des images photoréalistes à partir de scènes 3D.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Quisque euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
     role: "Développeur",
     technologies: ["C", "Mathématiques 3D"],
     features: [
@@ -123,8 +128,8 @@ export const WORKS_LIST = [
       "Optimisation du temps de rendu"
     ],
     screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    sourceLink: "https://placeholder.com",
+    demoLink: "https://placeholder.com",
     year: "2023",
     projectType: "Scolaire"
   },
@@ -132,9 +137,10 @@ export const WORKS_LIST = [
     id: 5,
     name: "TABULA",
     title: "Tabula",
+    company: "Tabula Analytics",
     tag: "Side",
     type: "Web application",
-    description: "Un outil de visualisation et d'analyse de données permettant de créer des tableaux de bord interactifs.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     role: "Développeur",
     technologies: ["React", "D3.js", "Node.js"],
     features: [
@@ -147,8 +153,8 @@ export const WORKS_LIST = [
       "Gestion de datasets lourds"
     ],
     screenshots: [],
-    sourceLink: "",
-    demoLink: "",
+    sourceLink: "https://placeholder.com",
+    demoLink: "https://placeholder.com",
     year: "2022",
     projectType: "Side project"
   }

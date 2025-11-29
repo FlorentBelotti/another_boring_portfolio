@@ -8,7 +8,6 @@ interface TechLogosProps {
 }
 
 const ICON_MAP: Record<string, string> = {
-  // Ajoute ici les technos que tu utilises réellement
   c: "devicon-c-plain colored",
   "c++": "devicon-cplusplus-plain colored",
   python: "devicon-python-plain colored",
@@ -42,6 +41,7 @@ const TechLogos: React.FC<TechLogosProps> = ({ technologies, className }) => {
 
   return (
     <div className={`${styles.container} ${className || ''}`}>
+      <SeparatorText title="TECHNOS" />
       <div className={styles.icons}>
         {technologies.map((tech, i) => {
           const key = tech.toLowerCase();
@@ -50,7 +50,7 @@ const TechLogos: React.FC<TechLogosProps> = ({ technologies, className }) => {
           if (!iconClass) return null;
 
           return (
-              <i
+            <i
               key={i}
               className={`${styles.icon} ${iconClass}`}
               aria-hidden="true"

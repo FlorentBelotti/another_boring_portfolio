@@ -1,0 +1,51 @@
+@use '../../../../styles' as *;
+
+.detailsContainer {
+  margin-bottom: $spacing-md;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md $spacing-lg;
+  margin-top: $spacing-xs;
+  justify-content: center; // centre horizontalement le grid
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: row; // Sur la même ligne
+  align-items: center; // Centre verticalement
+  justify-content: center;
+  margin-bottom: $spacing-xs;
+}
+
+.detailTitle {
+  font-family: $font-heading;
+  color: $color-accent;
+  font-size: $font-size-lg;
+  margin-bottom: 0;
+  margin-right: $spacing-xs;
+}
+
+.detailValue {
+  font-family: $font-display;
+  color: $color-text;
+  font-size: $font-size-sm;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text;
+
+  li {
+    margin-bottom: $spacing-xs;
+    strong {
+      color: $color-accent;
+      margin-right: $spacing-xs;
+    }
+  }
+}

@@ -4,11 +4,12 @@ import useEmblaCarousel from 'embla-carousel-react';
 import styles from './works.module.scss'
 import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
 import EmblaScreenshot from '../fragments/works/bloc-3/emblaScreenshot';
+import WorkDetails from '../fragments/works/bloc-1/workDetails';
 import { WORKS_LIST } from '../../constants/works';
-import SeparatorText from '../fragments/common/separatorText';
 import TechLogos from '../fragments/works/bloc-2/techLogos';
 import ProjectMeta from '../fragments/works/bloc-2/projectMeta';
 import EmblaCarousel from '../fragments/common/emblaCarousel';
+import ProjectAccordion from '../fragments/works/bloc-2/projectAccordion';
 
 const SLIDES = WORKS_LIST
 
@@ -54,44 +55,44 @@ export default function Works() {
   };
 
   const leftBlock = (
-    <div className={styles.block}>
+    <div className={`${styles.block} ${styles.left}`}>
       <EmblaCarouselWorks
         slides={SLIDES}
         options={{ loop: true }}
         autoplayDelay={4000}
         onSlideChange={handleSlideChange}
       />
+      <WorkDetails
+        year={SLIDES[currentSlideIndex].year}
+        company={SLIDES[currentSlideIndex].company}
+        name={SLIDES[currentSlideIndex].name}
+        role={SLIDES[currentSlideIndex].role}
+      />
+      <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
     </div>
   )
   
   const centerBlock = (
     <div className={`${styles.block} ${styles.center}`}>
-      
       <ProjectMeta tag={SLIDES[currentSlideIndex].tag} type={SLIDES[currentSlideIndex].type } githubLink={SLIDES[currentSlideIndex].sourceLink} demoLink={SLIDES[currentSlideIndex].demoLink} />
-        
       <div className={styles.innerContent}>
-        <div className={styles.sectionTitle}>Description</div>
-        {SLIDES[currentSlideIndex] && (
-          <div className={styles.description}>
-            <p>{SLIDES[currentSlideIndex].description}</p>
-          </div>
-        )}
+        <ProjectAccordion
+          title="Description"
+          content={SLIDES[currentSlideIndex]?.description || ""}
+        />
       </div>
-      
       <div className={styles.innerContent}>
-        <div className={styles.sectionTitle}>Features</div>
-        {SLIDES[currentSlideIndex] && (
-          <div className={styles.description}>
-            <p>{SLIDES[currentSlideIndex].description}</p>
-          </div>
-        )}
+        <ProjectAccordion
+          title="Features"
+          content={SLIDES[currentSlideIndex]?.features || []}
+        />
       </div>
-
       <div className={styles.innerContent}>
-        <div className={styles.sectionTitle}>Technos</div>
-        <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
+        <ProjectAccordion
+          title="Challenges"
+          content={SLIDES[currentSlideIndex]?.challenges || []}
+        />
       </div>
-
     </div>
   )
   

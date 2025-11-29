@@ -18,12 +18,11 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
     }
   }, [emblaApi]);
 
-  // Ajout du défilement automatique
   useEffect(() => {
     if (!emblaApi) return;
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 3000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [emblaApi]);
 

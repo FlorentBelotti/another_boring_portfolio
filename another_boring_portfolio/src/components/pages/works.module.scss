@@ -9,8 +9,6 @@
   flex-direction: column;
   overflow: visible;
 
-  justify-content: flex-start;
-
   h2 {
     color: $color-accent;
   }
@@ -18,6 +16,12 @@
   p {
     color: $color-text;
   }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl; // Ajoute un gap fixe entre les éléments du bloc gauche
 }
 
 .center {
