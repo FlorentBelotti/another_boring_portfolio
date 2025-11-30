@@ -22,12 +22,10 @@ export default function App() {
     }, 1200)
   }
 
-  // Appeler TOUS les composants à chaque rendu (important pour React Hooks)
   const homeBlocks = Home()
   const resumeBlocks = Resume()
   const worksBlocks = Works()
 
-  // Sélectionner les blocs à afficher en fonction de la page courante
   let leftBlock, centerBlock, rightBlock
 
   switch (currentPage) {
@@ -60,7 +58,6 @@ export default function App() {
         centerBlock={centerBlock}
         rightBlock={rightBlock}
       />
-      {/* <Footer /> */}
     </>
   )
 }

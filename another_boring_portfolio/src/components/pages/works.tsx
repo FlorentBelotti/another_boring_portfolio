@@ -79,26 +79,25 @@ export default function Works() {
   
   const centerBlock = (
     <div className={`${styles.block} ${styles.center}`}>
-      <ProjectMeta tag={SLIDES[currentSlideIndex].tag} type={SLIDES[currentSlideIndex].type } githubLink={SLIDES[currentSlideIndex].sourceLink} demoLink={SLIDES[currentSlideIndex].demoLink} />
+      <ProjectMeta
+        tag={SLIDES[currentSlideIndex].tag}
+        type={SLIDES[currentSlideIndex].type}
+        githubLink={SLIDES[currentSlideIndex].sourceLink}
+        demoLink={SLIDES[currentSlideIndex].demoLink}
+      />
       <div className={styles.innerContent}>
         <ProjectAccordion
           title="Description"
           content={SLIDES[currentSlideIndex]?.description || ""}
         />
-      </div>
-      <div className={styles.innerContent}>
         <ProjectAccordion
           title="Features"
           content={SLIDES[currentSlideIndex]?.features || []}
         />
-      </div>
-      <div className={styles.innerContent}>
         <ProjectAccordion
           title="Challenges"
           content={SLIDES[currentSlideIndex]?.challenges || []}
         />
-      </div>
-      <div className={styles.innerContent}>
         <ProjectAccordion
           title="Tasks"
           content={SLIDES[currentSlideIndex]?.tasks || []}
