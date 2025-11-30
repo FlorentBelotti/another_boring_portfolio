@@ -14,52 +14,21 @@
   max-width: 100%;
 }
 
-.logo { @include neon-glow;
-
-  font-family: $font-display;
-  font-size: $font-size-3xl;
-  color: $color-accent;
-  transition: all $transition-normal;
-  
-  &:hover {
-    transform: scale(1.1);
-    text-shadow:
-      0 0 10px $color-accent,
-      0 0 20px $color-accent,
-      0 0 40px $color-accent;
-  }
-}
-
 .nav { @include flex-row($spacing-xl);
   align-items: center;
 }
 
-.navLink { @include neon-underline($color-accent);
-  position: relative;
-  cursor: pointer;
-
-  font-family: $font-heading;
-  color: $color-text;
-  font-size: $font-size-lg;
-  transition: color $transition-normal;
-
-  &:hover {
-    color: $color-accent;
-  }
+.neonUnderline {
+  @include neon-underline($color-accent);
+  
 }
 
-.navHome {
-  position: relative;
-  cursor: pointer;
+.neonGlow {
+  @include neon-glow($color-accent);
+  color: $color-accent !important;
+}
 
+.fontHeading {
   font-family: $font-heading;
-  font-size: $font-size-2xl;
-  color: $color-accent;
-  transition: color $transition-normal;
-
-  @include neon-glow;
-
-  &:hover {
-    color: $color-accent;
-  }
+  font-size: $font-size-lg;
 }
