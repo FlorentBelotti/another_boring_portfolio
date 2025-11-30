@@ -21,7 +21,7 @@
 .left {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xl; // Ajoute un gap fixe entre les éléments du bloc gauche
+  gap: $spacing-xl;
 }
 
 .center {
@@ -44,7 +44,7 @@
   color: $color-accent;
   font-size: $font-size-3xl;
   font-family: $font-display;
-  margin-bottom: $spacing-xs;
+  // margin-bottom: $spacing-xs; // Remove this line for consistent gap
 }
 
 .innerContent {

@@ -50,7 +50,7 @@ export default function ProjectAccordion({ title, content }: ProjectAccordionPro
                   ))}
                 </ul>
               )
-              : <p>{content}</p>
+              : <span>{content}</span>
             }
           </div>
         </Accordion.Content>

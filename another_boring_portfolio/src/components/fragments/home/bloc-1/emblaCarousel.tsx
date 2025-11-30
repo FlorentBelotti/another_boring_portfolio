@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Thumb } from './emblaCarouselButton'
 import styles from './emblaCarousel.module.scss'
+import { WORKS_LIST } from '../../../../constants/works' // Ajout import
 
 type PropType = {
   slides: string[]
@@ -62,6 +63,28 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     return () => clearInterval(autoplay)
   }, [emblaMainApi, autoplayDelay])
 
+  // Utilise WORKS_LIST pour récupérer screenshots et titre
+  const getSlideContent = (index: number) => {
+    const project = WORKS_LIST[index]
+    if (project && project.screenshots && project.screenshots.length > 0) {
+      return (
+        <img
+          src={project.screenshots[0]}
+          alt={project.title}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '0.5rem'
+          }}
+        />
+      )
+    }
+    return (
+      <div className={styles.embla__slide__number}>{project ? project.title : slides[index]}</div>
+    )
+  }
+
   return (
     <div className={styles.embla}>
 
@@ -72,9 +95,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
         <div className={styles.embla__viewport} ref={emblaMainRef}>
           <div className={styles.embla__container}>
-            {slides.map((slide, index) => (
+            {slides.map((_, index) => (
               <div className={styles.embla__slide} key={index}>
-                <div className={styles.embla__slide__number}>{slide}</div>
+                {getSlideContent(index)}
               </div>
             ))}
           </div>

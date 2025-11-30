@@ -5,31 +5,24 @@ import styles from "./workDetails.module.scss";
 interface WorkDetailsProps {
   year?: string;
   company?: string;
-  name?: string;
+  title?: string;
   role?: string;
+  projectType?: string;
 }
 
-export default function WorkDetails({ year, company, name, role }: WorkDetailsProps) {
+export default function WorkDetails({ year, company, title, role, projectType }: WorkDetailsProps) {
   return (
     <div className={styles.detailsContainer}>
       <SeparatorText title="DETAILS" />
       <div className={styles.detailsGrid}>
-        <div className={styles.detailItem}>
-          <span className={styles.detailTitle}>Nom :</span>
-          <span className={styles.detailValue}>{name ?? "-"}</span>
-        </div>
-        <div className={styles.detailItem}>
-          <span className={styles.detailTitle}>Année :</span>
-          <span className={styles.detailValue}>{year ?? "-"}</span>
-        </div>
-        <div className={styles.detailItem}>
-          <span className={styles.detailTitle}>Structure :</span>
-          <span className={styles.detailValue}>{company ?? "-"}</span>
-        </div>
-        <div className={styles.detailItem}>
-          <span className={styles.detailTitle}>Rôle :</span>
-          <span className={styles.detailValue}>{role ?? "-"}</span>
-        </div>
+        <span className={styles.detailTitle}>FULL NAME :</span>
+        <span className={styles.detailValue}>{title ?? "-"}</span>
+        <span className={styles.detailTitle}>YEAR :</span>
+        <span className={styles.detailValue}>{year ?? "-"}</span>
+        <span className={styles.detailTitle}>COMPANY :</span>
+        <span className={styles.detailValue}>{company ?? "-"}</span>
+        <span className={styles.detailTitle}>ROLE :</span>
+        <span className={styles.detailValue}>{role ?? "-"}</span>
       </div>
     </div>
   );

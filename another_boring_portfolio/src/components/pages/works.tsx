@@ -5,6 +5,7 @@ import styles from './works.module.scss'
 import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
 import EmblaScreenshot from '../fragments/works/bloc-3/emblaScreenshot';
 import WorkDetails from '../fragments/works/bloc-1/workDetails';
+import WorkObservations from '../fragments/works/bloc-1/workObservations';
 import { WORKS_LIST } from '../../constants/works';
 import TechLogos from '../fragments/works/bloc-2/techLogos';
 import ProjectMeta from '../fragments/works/bloc-2/projectMeta';
@@ -65,8 +66,12 @@ export default function Works() {
       <WorkDetails
         year={SLIDES[currentSlideIndex].year}
         company={SLIDES[currentSlideIndex].company}
-        name={SLIDES[currentSlideIndex].name}
+        title={SLIDES[currentSlideIndex].title}
         role={SLIDES[currentSlideIndex].role}
+        projectType={SLIDES[currentSlideIndex].projectType}
+      />
+      <WorkObservations
+        observation={SLIDES[currentSlideIndex].observation}
       />
       <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
     </div>
@@ -91,6 +96,12 @@ export default function Works() {
         <ProjectAccordion
           title="Challenges"
           content={SLIDES[currentSlideIndex]?.challenges || []}
+        />
+      </div>
+      <div className={styles.innerContent}>
+        <ProjectAccordion
+          title="Tasks"
+          content={SLIDES[currentSlideIndex]?.tasks || []}
         />
       </div>
     </div>

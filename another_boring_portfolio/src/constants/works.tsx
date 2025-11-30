@@ -6,12 +6,12 @@ export const WORKS_LIST = [
   {
     id: 0,
     name: "TRANSCENDANCE",
-    title: "Transcendance",
-    company: "42 Paris",
+    title: "ft_transcendance",
+    company: "42",
     tag: "42",
     type: "Web application",
     description: "Un projet de jeu multijoueur en temps réel inspiré du classique Pong, développé avec des technologies web modernes.",
-    role: "Développeur",
+    role: "Développeur full stack",
     technologies: ["TypeScript", "NestJS", "PostgreSQL", "WebSockets", "Docker"],
     features: [
       "Multijoueur en temps réel",
@@ -28,7 +28,13 @@ export const WORKS_LIST = [
     sourceLink: "https://fr.wikipedia.org/wiki/Wiki",
     demoLink: "https://fr.wikipedia.org/wiki/Wiki",
     year: "2023",
-    projectType: "Scolaire"
+    projectType: "Scolaire",
+    observation: "Ceci est un test",
+    tasks: [
+      "Développement backend",
+      "Intégration frontend",
+      "Tests unitaires"
+    ]
   },
   {
     id: 1,
@@ -37,7 +43,7 @@ export const WORKS_LIST = [
     company: "Odelix Corp",
     tag: "Pro",
     type: "Business application",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
+    description: "Lorem ipsum  sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     role: "Développeur full-stack",
     technologies: ["Node.js", "React", "PostgreSQL", "Azure"],
     features: [
@@ -51,10 +57,16 @@ export const WORKS_LIST = [
       "Scalabilité"
     ],
     screenshots: [],
-    sourceLink: "https://placeholder.com",
+    sourceLink: "",
     demoLink: "https://placeholder.com",
     year: "2024",
-    projectType: "Professionnel"
+    projectType: "Professionnel",
+    observation: "Ceci est un second test",
+    tasks: [
+      "Conception architecture",
+      "Déploiement cloud",
+      "Support utilisateur"
+    ]
   },
   {
     id: 2,
@@ -63,7 +75,7 @@ export const WORKS_LIST = [
     company: "WoodXchange Ltd.",
     tag: "Side",
     type: "Marketplace",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur cursus, nisl erat aliquam erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    description: "TEST Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur cursus, nisl erat aliquam erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     role: "Développeur",
     technologies: ["Next.js", "Node.js", "MongoDB"],
     features: [
@@ -80,7 +92,13 @@ export const WORKS_LIST = [
     sourceLink: "https://placeholder.com",
     demoLink: "https://placeholder.com",
     year: "2023",
-    projectType: "Side project"
+    projectType: "Side project",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    tasks: [
+      "Création du modèle de données",
+      "Développement API",
+      "UI/UX design"
+    ]
   },
   {
     id: 3,
@@ -106,7 +124,13 @@ export const WORKS_LIST = [
     sourceLink: "https://placeholder.com",
     demoLink: "https://placeholder.com",
     year: "2022",
-    projectType: "Side project"
+    projectType: "Side project",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    tasks: [
+      "Scraping de données",
+      "Automatisation des rapports",
+      "Maintenance du bot"
+    ]
   },
   {
     id: 4,
@@ -131,7 +155,13 @@ export const WORKS_LIST = [
     sourceLink: "https://placeholder.com",
     demoLink: "https://placeholder.com",
     year: "2023",
-    projectType: "Scolaire"
+    projectType: "Scolaire",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    tasks: [
+      "Implémentation du moteur de rendu",
+      "Optimisation des algorithmes",
+      "Documentation technique"
+    ]
   },
   {
     id: 5,
@@ -156,6 +186,12 @@ export const WORKS_LIST = [
     sourceLink: "https://placeholder.com",
     demoLink: "https://placeholder.com",
     year: "2022",
-    projectType: "Side project"
+    projectType: "Side project",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    tasks: [
+      "Développement des dashboards",
+      "Gestion des imports",
+      "Tests de performance"
+    ]
   }
 ];
