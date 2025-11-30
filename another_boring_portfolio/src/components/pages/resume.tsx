@@ -26,7 +26,7 @@ import ExperienceAccordion from '../fragments/resume/bloc-2/experienceAccordion'
     { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
   ];
 
-export default function Resume() {
+export default function Resume({ onSeeProject }: { onSeeProject?: () => void } = {}) {
 
   const [isFirefox, setIsFirefox] = useState(false)
 
@@ -63,10 +63,12 @@ export default function Resume() {
 
   const rightBlock = (
     <div className={styles.block}> 
-    <SeeProject></SeeProject>
-    <Summary></Summary>
-    <AboutMe text={LOREM}></AboutMe>
-    <Contact></Contact>
+      <div onClick={onSeeProject} style={{ cursor: 'pointer' }}>
+        <SeeProject />
+      </div>
+      <Summary></Summary>
+      <AboutMe text={LOREM}></AboutMe>
+      <Contact></Contact>
     </div>
   )
 

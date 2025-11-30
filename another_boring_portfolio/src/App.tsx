@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Header from './components/common/header'
 import Content from './components/common/content'
 import Home from './components/pages/home'
@@ -8,38 +8,39 @@ import { useTransitionStore } from './stores/transitionStore'
 
 type Page = 'home' | 'resume' | 'works'
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home')
+function PageContent() {
+  const navigate = useNavigate()
   const { startTransition, endTransition } = useTransitionStore()
+  const location = useLocation()
 
   const handlePageChange = (page: Page) => {
     startTransition()
     setTimeout(() => {
-      setCurrentPage(page)
+      navigate(page === 'home' ? '/' : `/${page}`)
     }, 500)
     setTimeout(() => {
       endTransition()
     }, 1200)
   }
 
-  const homeBlocks = Home()
-  const resumeBlocks = Resume()
+  const homeBlocks = Home({ onNextPage: () => handlePageChange('resume') })
+  const resumeBlocks = Resume({ onSeeProject: () => handlePageChange('works') })
   const worksBlocks = Works()
 
   let leftBlock, centerBlock, rightBlock
 
-  switch (currentPage) {
-    case 'home':
+  switch (location.pathname) {
+    case '/':
       leftBlock = homeBlocks.leftBlock
       centerBlock = homeBlocks.centerBlock
       rightBlock = homeBlocks.rightBlock
       break
-    case 'resume':
+    case '/resume':
       leftBlock = resumeBlocks.leftBlock
       centerBlock = resumeBlocks.centerBlock
       rightBlock = resumeBlocks.rightBlock
       break
-    case 'works':
+    case '/works':
       leftBlock = worksBlocks.leftBlock
       centerBlock = worksBlocks.centerBlock
       rightBlock = worksBlocks.rightBlock
@@ -52,12 +53,28 @@ export default function App() {
 
   return (
     <>
-      <Header currentPage={currentPage} onPageChange={handlePageChange} />
+      <Header currentPage={
+        location.pathname === '/' ? 'home' :
+        location.pathname === '/resume' ? 'resume' :
+        location.pathname === '/works' ? 'works' : 'home'
+      } onPageChange={handlePageChange} />
       <Content 
         leftBlock={leftBlock}
         centerBlock={centerBlock}
         rightBlock={rightBlock}
       />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<PageContent />} />
+        <Route path="/resume" element={<PageContent />} />
+        <Route path="/works" element={<PageContent />} />
+      </Routes>
+    </Router>
   )
 }

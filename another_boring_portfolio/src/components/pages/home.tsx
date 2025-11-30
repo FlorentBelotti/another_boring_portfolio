@@ -13,7 +13,7 @@ import PointCloudImage from '../animations/pointCloudImage'
 
 const SLIDES = WORKS_LIST.map(work => work.name)
 
-export default function Home() {
+export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
   const [isFirefox, setIsFirefox] = useState(false)
 
@@ -48,9 +48,11 @@ export default function Home() {
 
   const rightBlock = (
     <div className={styles.block}>
-      <NextPage />
+      <div onClick={onNextPage} style={{ cursor: 'pointer' }}>
+        <NextPage />
+      </div>
       <Marquee speed={40} pauseOnHover className={styles.marquee}>
-      CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
+        CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
       </Marquee>
       <Icons></Icons>
       <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
