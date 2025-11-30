@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-
 import styles from './works.module.scss'
 import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
 import EmblaScreenshot from '../fragments/works/bloc-3/emblaScreenshot';
@@ -9,7 +8,6 @@ import WorkObservations from '../fragments/works/bloc-1/workObservations';
 import { WORKS_LIST } from '../../constants/works';
 import TechLogos from '../fragments/works/bloc-2/techLogos';
 import ProjectMeta from '../fragments/works/bloc-2/projectMeta';
-import EmblaCarousel from '../fragments/common/emblaCarousel';
 import ProjectAccordion from '../fragments/works/bloc-2/projectAccordion';
 
 const SLIDES = WORKS_LIST
@@ -20,11 +18,8 @@ export default function Works() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
-
-  // Embla carousel pour les images du projet
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-
   const screenshots = SLIDES[currentSlideIndex].screenshots || [];
 
   useEffect(() => {
@@ -68,11 +63,8 @@ export default function Works() {
         company={SLIDES[currentSlideIndex].company}
         title={SLIDES[currentSlideIndex].title}
         role={SLIDES[currentSlideIndex].role}
-        projectType={SLIDES[currentSlideIndex].projectType}
-      />
-      <WorkObservations
-        observation={SLIDES[currentSlideIndex].observation}
-      />
+        projectType={SLIDES[currentSlideIndex].projectType} />
+      <WorkObservations observation={SLIDES[currentSlideIndex].observation} />
       <TechLogos technologies={SLIDES[currentSlideIndex].technologies} />
     </div>
   )
@@ -86,22 +78,10 @@ export default function Works() {
         demoLink={SLIDES[currentSlideIndex].demoLink}
       />
       <div className={styles.innerContent}>
-        <ProjectAccordion
-          title="Description"
-          content={SLIDES[currentSlideIndex]?.description || ""}
-        />
-        <ProjectAccordion
-          title="Features"
-          content={SLIDES[currentSlideIndex]?.features || []}
-        />
-        <ProjectAccordion
-          title="Challenges"
-          content={SLIDES[currentSlideIndex]?.challenges || []}
-        />
-        <ProjectAccordion
-          title="Tasks"
-          content={SLIDES[currentSlideIndex]?.tasks || []}
-        />
+        <ProjectAccordion title="Description" content={SLIDES[currentSlideIndex]?.description || ""} />
+        <ProjectAccordion title="Features" content={SLIDES[currentSlideIndex]?.features || []} />
+        <ProjectAccordion title="Challenges" content={SLIDES[currentSlideIndex]?.challenges || []} />
+        <ProjectAccordion title="Tasks" content={SLIDES[currentSlideIndex]?.tasks || []} />
       </div>
     </div>
   )
@@ -110,9 +90,7 @@ export default function Works() {
     <div className={`${styles.block} ${styles.right}`}>
       {screenshots.length > 0 ? (
         <EmblaScreenshot screenshots={screenshots} onImageClick={handleImageClick} />
-      ) : (
-        <div className={styles.noImage}>Aucune image disponible</div>
-      )}
+      ) : ( <div className={styles.noImage}>No image available</div> )}
       {isImageModalOpen && modalImageSrc && (
         <div className={styles.imageModal} onClick={handleCloseModal}>
           <img src={modalImageSrc} alt="fullscreen" className={styles.fullscreenImage} />

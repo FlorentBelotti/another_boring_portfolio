@@ -3,6 +3,8 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { Thumb } from './emblaCarouselButton'
 import styles from './emblaCarousel.module.scss'
 import { WORKS_LIST } from '../../../../constants/works' // Ajout import
+import { useNavigate } from 'react-router-dom'
+import { useTransitionStore } from '../../../../stores/transitionStore'
 
 type PropType = {
   slides: string[]
@@ -24,6 +26,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     containScroll: 'keepSnaps',
   })
   const [isHovered, setIsHovered] = useState(false)
+  const navigate = useNavigate()
+  const { startTransition, endTransition } = useTransitionStore()
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -89,6 +93,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     )
   }
 
+  // Ajoute la navigation vers la page projet au clic sur le container avec animation de transition
+  const handleContainerClick = useCallback(() => {
+    startTransition()
+    setTimeout(() => {
+      navigate(`/works/${selectedIndex}`)
+    }, 500)
+    setTimeout(() => {
+      endTransition()
+    }, 1200)
+  }, [navigate, selectedIndex, startTransition, endTransition])
+
   return (
     <div className={styles.embla}>
       <div className={styles.display}>
@@ -101,6 +116,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ref={emblaMainRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onClick={handleContainerClick}
+          style={{ cursor: isHovered ? 'pointer' : 'default' }}
         >
           <div className={styles.embla__container}>
             {slides.map((_, index) => (

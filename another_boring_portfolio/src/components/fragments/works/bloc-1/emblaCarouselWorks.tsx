@@ -11,6 +11,8 @@ import {
   DotButton,
   useDotButton
 } from './emblaCarouselButtonWorks'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useTransitionStore } from '../../../../stores/transitionStore'
 
 const TWEEN_FACTOR_BASE = 0.52
 
@@ -32,6 +34,34 @@ const EmblaCarouselWorks: React.FC<PropType> = ({
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { startTransition, endTransition } = useTransitionStore()
+
+  // Récupère l'index depuis l'URL
+  const match = location.pathname.match(/^\/works\/(\d+)$/)
+  const urlIndex = match ? parseInt(match[1], 10) : undefined
+
+  // Positionne le carrousel sur le slide correspondant à l'index de l'URL
+  useEffect(() => {
+    if (emblaApi && typeof urlIndex === 'number' && urlIndex >= 0 && urlIndex < slides.length) {
+      emblaApi.scrollTo(urlIndex)
+    }
+  }, [emblaApi, urlIndex, slides.length])
+
+  // Met à jour l'URL lors du changement de slide si l'index n'est pas présent ou incorrect
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on('select', () => {
+        const selected = emblaApi.selectedScrollSnap()
+        if (typeof urlIndex !== 'number' || urlIndex !== selected) {
+          // Suppression de l'animation de transition ici
+          navigate(`/works/${selected}`, { replace: true })
+        }
+        if (onSlideChange) onSlideChange(selected)
+      })
+    }
+  }, [emblaApi, urlIndex, navigate, onSlideChange])
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
   const {
