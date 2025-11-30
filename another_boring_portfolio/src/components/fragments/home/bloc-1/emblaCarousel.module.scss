@@ -60,6 +60,7 @@
   flex: 0 0 var(--slide-size);
   min-width: 0;
   padding-left: 0;
+  position: relative;
 }
 
 .embla__slide__number {
@@ -135,5 +136,31 @@
   color: colors.$color-text;
   margin: 0;
   padding: 0;
+}
+
+.emblaOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: fonts.$font-size-2xl;
+  font-family: fonts.$font-heading;
+  color: colors.$color-accent;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  text-align: center;
+  z-index: 2;
+  white-space: pre-line;
+  user-select: none;
+}
+
+.embla__slide:hover .emblaOverlay {
+  opacity: 1;
+}
+
+.embla__slide:hover img {
+  opacity: 0.25;
+  transition: opacity 0.2s;
 }
 

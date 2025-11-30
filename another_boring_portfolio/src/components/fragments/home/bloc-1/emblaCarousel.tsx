@@ -23,6 +23,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const [emblaDescRef, emblaDescApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
   })
+  const [isHovered, setIsHovered] = useState(false)
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -43,14 +44,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaMainApi, emblaThumbsApi, emblaDescApi, setSelectedIndex])
 
   useEffect(() => {
-    if (!emblaMainApi) return
+    if (!emblaMainApi || isHovered) return
     onSelect()
 
     emblaMainApi.on('select', onSelect).on('reInit', onSelect)
-  }, [emblaMainApi, onSelect])
+  }, [emblaMainApi, onSelect, isHovered])
 
   useEffect(() => {
-    if (!emblaMainApi) return
+    if (!emblaMainApi || isHovered) return
 
     const autoplay = setInterval(() => {
       if (emblaMainApi.canScrollNext()) {
@@ -61,23 +62,26 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, autoplayDelay)
 
     return () => clearInterval(autoplay)
-  }, [emblaMainApi, autoplayDelay])
+  }, [emblaMainApi, autoplayDelay, isHovered])
 
   // Utilise WORKS_LIST pour récupérer screenshots et titre
   const getSlideContent = (index: number) => {
     const project = WORKS_LIST[index]
     if (project && project.screenshots && project.screenshots.length > 0) {
       return (
-        <img
-          src={project.screenshots[0]}
-          alt={project.title}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '0.5rem'
-          }}
-        />
+        <>
+          <img
+            src={project.screenshots[0]}
+            alt={project.title}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '0.5rem'
+            }}
+          />
+          <div className={styles.emblaOverlay}>CLICK HERE TO SEE MY PROJECT PAGE</div>
+        </>
       )
     }
     return (
@@ -87,13 +91,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   return (
     <div className={styles.embla}>
-
       <div className={styles.display}>
         <div className={styles.works_container}>
           <div className={styles.title}> WORKS </div>
           <div className={styles.square}></div>
         </div>
-        <div className={styles.embla__viewport} ref={emblaMainRef}>
+        <div
+          className={styles.embla__viewport}
+          ref={emblaMainRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div className={styles.embla__container}>
             {slides.map((_, index) => (
               <div className={styles.embla__slide} key={index}>

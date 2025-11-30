@@ -79,3 +79,29 @@
 .emblaNext {
   right: 0.5rem;
 }
+
+.clickOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $font-size-5xl;
+  font-family: $font-heading;
+  color: $color-accent;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  text-align: center;
+  z-index: 2;
+  white-space: pre-line;
+  user-select: none;
+}
+
+.emblaWrapper:hover .clickOverlay {
+  opacity: 1;
+}
+
+.emblaWrapper:hover .projectImage {
+  opacity: 0.25;
+  transition: opacity 0.2s;
+}

@@ -10,6 +10,7 @@ interface EmblaScreenshotProps {
 const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageClick }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (emblaApi) {
@@ -19,12 +20,12 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
   }, [emblaApi]);
 
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi || isHovered) return;
     const interval = setInterval(() => {
       emblaApi.scrollNext();
     }, 8000);
     return () => clearInterval(interval);
-  }, [emblaApi]);
+  }, [emblaApi, isHovered]);
 
   const scrollPrev = useCallback(() => {
     emblaApi && emblaApi.scrollPrev();
@@ -35,7 +36,12 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
   }, [emblaApi]);
 
   return (
-    <div className={styles.emblaWrapper}>
+    <div
+      className={styles.emblaWrapper}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className={styles.clickOverlay}>CLICK HERE</div>
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.emblaContainer}>
           {screenshots.map((src, idx) => (

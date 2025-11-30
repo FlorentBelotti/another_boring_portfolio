@@ -22,13 +22,20 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-xl;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+
+  > * {
+    min-height: 0;
+    flex-shrink: 1;
+  }
 }
 
 .center {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: $spacing-lg $spacing-md;
-  gap: $spacing-xl;
   overflow: visible;
   align-items: flex-end;
 }
@@ -44,7 +51,6 @@
   color: $color-accent;
   font-size: $font-size-3xl;
   font-family: $font-display;
-  // margin-bottom: $spacing-xs; // Remove this line for consistent gap
 }
 
 .innerContent {

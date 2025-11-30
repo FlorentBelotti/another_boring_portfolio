@@ -29,7 +29,7 @@ export const WORKS_LIST = [
     demoLink: "https://fr.wikipedia.org/wiki/Wiki",
     year: "2023",
     projectType: "Scolaire",
-    observation: "Ceci est un test",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     tasks: [
       "Développement backend",
       "Intégration frontend",
@@ -61,7 +61,7 @@ export const WORKS_LIST = [
     demoLink: "https://placeholder.com",
     year: "2024",
     projectType: "Professionnel",
-    observation: "Ceci est un second test",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     tasks: [
       "Conception architecture",
       "Déploiement cloud",
@@ -93,7 +93,7 @@ export const WORKS_LIST = [
     demoLink: "https://placeholder.com",
     year: "2023",
     projectType: "Side project",
-    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu cursus cursus, nisl erat aliquam erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat.",
     tasks: [
       "Création du modèle de données",
       "Développement API",
@@ -125,7 +125,7 @@ export const WORKS_LIST = [
     demoLink: "https://placeholder.com",
     year: "2022",
     projectType: "Side project",
-    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Nullam ac urna euismod, dictum erat at, cursus erat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
     tasks: [
       "Scraping de données",
       "Automatisation des rapports",
@@ -156,7 +156,7 @@ export const WORKS_LIST = [
     demoLink: "https://placeholder.com",
     year: "2023",
     projectType: "Scolaire",
-    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Quisque euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat.",
     tasks: [
       "Implémentation du moteur de rendu",
       "Optimisation des algorithmes",
@@ -187,7 +187,7 @@ export const WORKS_LIST = [
     demoLink: "https://placeholder.com",
     year: "2022",
     projectType: "Side project",
-    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros.",
+    observation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Mauris euismod, nisi eu cursus cursus, nisl erat aliquam erat. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam eros, vitae aliquam erat nisl euismod erat.",
     tasks: [
       "Développement des dashboards",
       "Gestion des imports",
