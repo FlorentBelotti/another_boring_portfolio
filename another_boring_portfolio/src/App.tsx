@@ -9,7 +9,7 @@ import { useTransitionStore } from './stores/transitionStore'
 type Page = 'home' | 'resume' | 'works'
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('works')
+  const [currentPage, setCurrentPage] = useState<Page>('home')
   const { startTransition, endTransition } = useTransitionStore()
 
   const handlePageChange = (page: Page) => {
