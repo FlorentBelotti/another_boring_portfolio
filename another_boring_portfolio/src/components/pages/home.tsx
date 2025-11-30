@@ -1,41 +1,33 @@
+import { useEffect, useState } from 'react';
 import styles from './home.module.scss'
-import building from '../../assets/images/img_building.png'
-import icon1 from '../../assets/icons/Brutalism 27.svg'
-import Logo from '../fragments/home/logo'
-import EmblaCarousel from '../fragments/home/emblaCarousel'
+import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
+import Marquee from "react-fast-marquee";
+import building from '../../assets/images/img_brutal_build.jpg'
 import { WORKS_LIST } from '../../constants/works'
-import Contact from '../fragments/home/contact'
-import Marquee from '../fragments/home/marquee'
-import Introduction from '../fragments/home/introduction'
-import SeparatorIcon from '../fragments/common/separatorIcon'
-import NextPage from '../fragments/home/nextPage'
+import Logo from '../fragments/home/bloc-1/logo'
+import Contact from '../fragments/common/contact';
+import Introduction from '../fragments/home/bloc-2/introduction'
+import NextPage from '../fragments/home/bloc-2/nextPage'
+import Icons from '../fragments/home/bloc-2/icons'
+import PointCloudImage from '../animations/pointCloudImage'
 
-const OPTIONS = { 
-  loop: true,
-  duration: 25,
-  skipSnaps: false,
-  dragFree: false,
-  containScroll: 'trimSnaps'
-}
-const SLIDES = WORKS_LIST
-
-const DESCRIPTIONS = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
-  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
-  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-]
+const SLIDES = WORKS_LIST.map(work => work.name)
 
 export default function Home() {
+
+  const [isFirefox, setIsFirefox] = useState(false)
+
+  useEffect(() => {
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+    setIsFirefox(/firefox/i.test(ua))
+  }, []) 
+
   const leftBlock = (
     <div className={styles.block}>
       <Logo />
       <EmblaCarousel 
         slides={SLIDES} 
-        options={OPTIONS} 
         autoplayDelay={4000}
-        descriptions={DESCRIPTIONS}
       />
       <Contact />
     </div>
@@ -43,16 +35,25 @@ export default function Home() {
 
   const centerBlock = (
     <div className={styles.block}>
-      <img src={building} alt="Placeholder" className={styles.image} />
+      {/* {isFirefox ? (
+        <img src={building} className={styles.image}/>
+      ) : ( */}
+      <PointCloudImage src={building}
+          particleSize={4}
+          particleStep={12}
+          mouseRadius={3000}/>
+      {/* )} */}
     </div>
   )
 
   const rightBlock = (
     <div className={styles.block}>
       <NextPage />
-      <Marquee text="Lorem ipsum dolor sit amet" duration={32} />
-      {/* <SeparatorIcon iconPath={icon1} iconAlt="separator icon" /> */}
-      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
+      <Marquee speed={40} pauseOnHover className={styles.marquee}>
+      CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
+      </Marquee>
+      <Icons></Icons>
+      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
     </div>
   )
 

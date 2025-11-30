@@ -1,0 +1,96 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/spacing.scss' as *;
+@use '../../../styles/transitions.scss' as *;
+@use '../../../styles/fonts.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-lg;
+  transition: color $transition-normal;
+}
+
+.square {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-accent;
+  background: transparent;
+  transition: all $transition-normal;
+  box-shadow: 0 0 10px $color-accent;
+  border-radius: 0;
+
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+
+  &:hover {
+    transform: scale(1.12);
+    background-color: $color-bg;
+    box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent; // aura réduite
+    border-color: $color-accent;
+    z-index: 2;
+  }
+
+  & > svg,
+  & > i,
+  & > img {
+    pointer-events: none;
+  }
+}
+
+.icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter $transition-normal, color $transition-normal;
+  color: $color-accent;
+}
+
+.square > svg.icon,
+.square > img.icon {
+  filter: invert(75%) sepia(50%) saturate(800%) hue-rotate(5deg) brightness(95%);
+}
+
+.square > svg.icon {
+  color: $color-accent;
+  fill: currentColor;
+}
+
+.square > .icon :global(svg) {
+  color: $color-accent;
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.square > i.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  color: $color-accent;
+  transition: color $transition-normal;
+}
+
+.container:hover .text {
+  @include neon-glow();
+  color: $color-accent;
+  transform: scale(1.12);
+}
+
+.text {
+  font-family: $font-display;
+  font-size: $font-size-sm;
+}

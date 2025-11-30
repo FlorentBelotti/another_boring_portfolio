@@ -1,0 +1,28 @@
+@use '../../../../styles' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 12rem; // Ajuste selon besoin
+  overflow-y: auto;
+  width: 100%;
+}
+
+.icons {
+  display: flex;
+  gap: $spacing-logo;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $spacing-lg;
+  height: $spacing-lg;
+}

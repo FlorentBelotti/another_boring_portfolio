@@ -1,0 +1,33 @@
+@use '../../../../styles' as *;
+
+.triggerRight {
+  flex-direction: row-reverse !important;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  gap: $spacing-lg;
+}
+
+.titleRight {
+  text-align: right;
+  width: 100%;
+  flex: 1;
+  transition: none;
+  font-size: $font-size-2xl;
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-amarante-resume;
+}
+
+.rightBorderContent {
+  border-right: 1px solid $color-accent;
+  padding: 0 $spacing-xs;
+  margin-top: $spacing-xs;
+  font-size: $font-size-sm;
+  background: transparent;
+}
+
+.rightBorderText {
+  text-align: right;
+}

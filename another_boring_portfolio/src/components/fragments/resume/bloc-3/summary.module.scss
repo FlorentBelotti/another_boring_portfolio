@@ -1,0 +1,51 @@
+@use '../../../../styles' as *;
+
+.introduction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.container {
+  padding: 0 $spacing-md;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.tech-row {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  justify-content: flex-start;
+}
+
+.tech-label {
+  min-width: calc(#{$spacing-3xl} + #{$spacing-md});
+  font-weight: 600;
+  color: $color-text;
+  font-size: $font-size-sm;
+  text-align: left;
+  padding-left: $spacing-sm;
+}
+
+.icons {
+  display: flex;
+  gap: $spacing-logo;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $spacing-lg;
+  height: $spacing-lg;
+}

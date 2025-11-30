@@ -1,0 +1,57 @@
+@use '../../../../styles' as *;
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: $spacing-xs;
+  column-gap: $spacing-lg;
+  margin-top: $spacing-xs;
+  justify-content: stretch;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  max-width: none;
+  align-items: center;
+}
+
+.detailItem {
+  display: contents;
+}
+
+.detailTitle {
+  font-family: $font-heading;
+  color: $color-accent;
+  font-size: $font-size-lg;
+  margin-bottom: 0;
+  margin-right: $spacing-xs;
+  grid-column: 1;
+  min-width: 0;
+  width: 100%; // occupe toute la largeur de la colonne
+  text-align: right; // aligner le texte à droite
+  vertical-align: middle; // optionnel, mais align-items suffit
+}
+
+.detailValue {
+  font-family: $font-display;
+  color: $color-text;
+  font-size: $font-size-sm;
+  grid-column: 2;
+  width: 100%; // occupe toute la largeur de la colonne
+  vertical-align: middle; // optionnel
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text;
+
+  li {
+    margin-bottom: $spacing-xs;
+    strong {
+      color: $color-accent;
+      margin-right: $spacing-xs;
+    }
+  }
+}

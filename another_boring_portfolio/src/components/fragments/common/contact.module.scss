@@ -1,0 +1,46 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/spacing.scss' as *;
+
+.contact {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: $spacing-sm;
+}
+
+.socialContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: $spacing-3xl;
+}
+
+.socialIcon {
+  font-size: 1.25rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  
+  box-shadow: 0 0 10px $color-accent;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px $color-accent, 0 0 30px $color-accent;
+    background-color: $color-accent;
+    color: $color-bg;
+    border-color: $color-accent;
+  }
+}
