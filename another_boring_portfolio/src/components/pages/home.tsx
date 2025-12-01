@@ -35,14 +35,10 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
   const centerBlock = (
     <div className={styles.block}>
-      {/* {isFirefox ? (
-        <img src={building} className={styles.image}/>
-      ) : ( */}
       <PointCloudImage src={building}
           particleSize={4}
           particleStep={12}
           mouseRadius={3000}/>
-      {/* )} */}
     </div>
   )
 

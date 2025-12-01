@@ -90,6 +90,14 @@
   transform: scale(1.12);
 }
 
+.container:hover .square {
+  transform: scale(1.12);
+  background-color: $color-bg;
+  box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent;
+  border-color: $color-accent;
+  z-index: 2;
+}
+
 .text {
   font-family: $font-display;
   font-size: $font-size-sm;

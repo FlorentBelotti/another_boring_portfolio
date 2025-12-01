@@ -4,11 +4,12 @@ import styles from './squareIcon.module.scss';
 interface SquareIconProps {
   className?: string;
   title?: string;
-  iconPath?: string;        // reste optionnel
-  deviconClass?: string;    // NEW
+  iconPath?: string;
+  deviconClass?: string;
   iconAlt?: string;
   text?: string;
-  customIcon?: React.ReactNode; // Ajouté
+  customIcon?: React.ReactNode;
+  onClick?: () => void;
 }
 
 const SquareIcon: React.FC<SquareIconProps> = ({
@@ -18,10 +19,11 @@ const SquareIcon: React.FC<SquareIconProps> = ({
   deviconClass,
   iconAlt = 'icon',
   text,
-  customIcon
+  customIcon,
+  onClick
 }) => {
-  return (
-    <div className={`${styles.container} ${className || ''}`} title={title}>
+  const content = (
+    <>
       <div className={styles.square}>
         {customIcon ? (
           <span className={styles.icon}>{customIcon}</span>
@@ -32,6 +34,17 @@ const SquareIcon: React.FC<SquareIconProps> = ({
         )}
       </div>
       {text && <span className={styles.text}>{text}</span>}
+    </>
+  );
+
+  return (
+    <div 
+      className={`${styles.container} ${className || ''}`} 
+      title={title}
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : 'default' }}
+    >
+      {content}
     </div>
   );
 };

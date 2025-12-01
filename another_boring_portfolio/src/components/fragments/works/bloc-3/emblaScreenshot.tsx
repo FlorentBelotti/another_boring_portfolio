@@ -41,7 +41,7 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={styles.clickOverlay}>CLICK HERE</div>
+      <div className={styles.clickOverlay}>CLICK HERE TO SEE THE FULL PICTURE</div>
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.emblaContainer}>
           {screenshots.map((src, idx) => (
