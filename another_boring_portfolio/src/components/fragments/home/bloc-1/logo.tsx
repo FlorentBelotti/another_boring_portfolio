@@ -1,6 +1,7 @@
 import styles from './logo.module.scss'
 import nero from '../../../../assets/images/img_nero_new.png'
 import PointCloudImage from '../../../animations/pointCloudImage'
+import Eye from './eye'
 
 export default function Logo() {
   return (
@@ -17,7 +18,9 @@ export default function Logo() {
                 <div className={styles.text_1_1}> ANOTHER </div>
                 <div className={styles.text_1_2}> BORING </div>
               </div>
-                <div className={styles.eye}> </div>
+                <div className={styles.eye}>
+                  <Eye />
+                </div>
             </div>
             <div className={styles.text_2}>PORTFOLIO</div>
         </div>

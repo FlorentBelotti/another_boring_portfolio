@@ -1,0 +1,128 @@
+@use '../../../../styles/colors.scss' as colors;
+
+$animation-duration: 0.15s;
+
+@mixin eye($child, $eye-lid-height, $pupil-x, $pupil-y) {
+  &:nth-child(#{$child}):hover ~ .eyeball {
+    &::before {
+      height: $eye-lid-height;
+    }
+
+    &::after {
+      transform: translate($pupil-x, $pupil-y);
+    }
+  }
+}
+
+.eye_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.eyeball {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  width: 85%;
+  height: 60%;
+  border-radius: 48% 52% 43% 57% / 58% 47% 53% 42%;
+  border: 0.30vw solid colors.$color-bg;
+  box-sizing: border-box;
+  background-color: colors.$color-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // eyelid
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: var(--eyelid-height, 60%);
+    width: 100%;
+    background-color: colors.$color-accent;
+    border-radius: 48% 52% 0 0 / 100% 100% 0 0;
+    border-bottom: 0.30vw solid colors.$color-bg;
+    box-sizing: border-box;
+    z-index: 1;
+    transition: height $animation-duration ease-out;
+  }
+
+  // pupil - forme plus allongée comme l'œil d'Horus
+  &::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 70%;
+    border-radius: 45% 55% 48% 52% / 50% 50% 50% 50%;
+    background-color: colors.$color-bg;
+    transform: translate(var(--pupil-x, 0), var(--pupil-y, 0));
+    transition: transform $animation-duration ease-out;
+  }
+
+  &.sleeping {
+    &::before {
+      transition: height 1.5s ease-in-out;
+    }
+  }
+
+  &.blinking {
+    &::before {
+      transition: height 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+
+  &.shaking {
+    animation: shake 0.4s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    10% { transform: translate(-48%, -50%) rotate(-2deg); }
+    20% { transform: translate(-52%, -50%) rotate(2deg); }
+    30% { transform: translate(-48%, -50%) rotate(-2deg); }
+    40% { transform: translate(-52%, -50%) rotate(2deg); }
+    50% { transform: translate(-48%, -50%) rotate(-1deg); }
+    60% { transform: translate(-52%, -50%) rotate(1deg); }
+    70% { transform: translate(-49%, -50%) rotate(-1deg); }
+    80% { transform: translate(-51%, -50%) rotate(1deg); }
+    90% { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+}
+
+.event_listener {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25%;
+  width: 25%;
+  box-sizing: border-box;
+  opacity: 0;
+  user-select: none;
+  z-index: 2;
+  
+  // animation
+  @include eye(1, 25%, -30%, -50%);
+  @include eye(2, 25%, -15%, -50%);
+  @include eye(3, 25%, 15%, -50%);
+  @include eye(4, 25%, 30%, -50%);
+  
+  @include eye(5, 45%, -40%, -20%);
+  @include eye(6, 45%, -25%, -20%);
+  @include eye(7, 45%, 25%, -20%);
+  @include eye(8, 45%, 40%, -20%);
+  
+  @include eye(9, 70%, -40%, 20%);
+  @include eye(10, 70%, -25%, 20%);
+  @include eye(11, 70%, 25%, 20%);
+  @include eye(12, 70%, 40%, 20%);
+  
+  @include eye(13, 75%, -30%, 30%);
+  @include eye(14, 75%, -10%, 30%);
+  @include eye(15, 75%, 10%, 30%);
+  @include eye(16, 75%, 30%, 30%);
+}
