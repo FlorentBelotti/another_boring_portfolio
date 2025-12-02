@@ -18,40 +18,23 @@
   display: contents;
 }
 
-.detailTitle {
-  font-family: $font-heading;
-  color: $color-accent;
-  font-size: $font-size-lg;
+.detailTitle { @include gradient-title($gradient-accent);
   margin-bottom: 0;
-  margin-right: $spacing-xs;
   grid-column: 1;
   min-width: 0;
-  width: 100%; // occupe toute la largeur de la colonne
-  text-align: right; // aligner le texte à droite
-  vertical-align: middle; // optionnel, mais align-items suffit
+  width: 100%;
+  text-align: right;
+  vertical-align: middle;
+  font-size: $font-size-lg;
+  margin-right: $spacing-xs;
+  font-family: $font-heading;
 }
 
-.detailValue {
+.detailValue { @include gradient-title($gradient-text);
+  width: 100%;
+  grid-column: 2;
+  vertical-align: middle;
   font-family: $font-display;
   color: $color-text;
   font-size: $font-size-sm;
-  grid-column: 2;
-  width: 100%; // occupe toute la largeur de la colonne
-  vertical-align: middle; // optionnel
-}
-
-.detailsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: $font-size-sm;
-  color: $color-text;
-
-  li {
-    margin-bottom: $spacing-xs;
-    strong {
-      color: $color-accent;
-      margin-right: $spacing-xs;
-    }
-  }
 }

@@ -11,13 +11,36 @@ $color-light: #ffffff;
 // Varients
 $color-bg-dark: #040609;
 $color-accent-dark: #6C520D;
+$color-accent-darker: #4a3709;
 $color-text-dark: #5C5C5C;  
 $color-text-blue: #2d60e5;
 $color-text-yellow-400: #d7b150;
 
 // gradients
-$gradient-accent: linear-gradient(135deg, $color-accent 0%, $color-accent-dark 100%);
-$gradient-text: linear-gradient(135deg, $color-text 0%, $color-text-dark 100%);
-$gradient-accent-45: linear-gradient(45deg, $color-accent 0%, $color-accent-dark 100%);
-$gradient-accent-90: linear-gradient(90deg, $color-accent 0%, $color-accent-dark 100%);
+$gradient-accent: linear-gradient(135deg, $color-accent-dark 0%, $color-accent 70%);
+$gradient-text: linear-gradient(135deg, $color-text-dark 0%, $color-text 70%);
+$gradient-accent-45: linear-gradient(45deg, $color-accent-dark 0%, $color-accent 70%);
+$gradient-accent-90: linear-gradient(90deg, $color-accent-dark 0%, $color-accent 70%);
+$gradient-accent-dark: linear-gradient(135deg, $color-accent-darker 0%, $color-accent-dark 70%);
+$gradient-accent-horizontal: linear-gradient(90deg, $color-accent-dark 0%, $color-accent 100%);
+
+// Mixins réutilisables
+@mixin gradient-border($gradient: $gradient-accent, $width: 1px) {
+  border: $width solid transparent;
+  border-image: $gradient;
+  border-image-slice: 1;
+}
+
+@mixin gradient-title($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-block: 0.05em;
+  margin-block: -0.05em;
+}
+
+@mixin gradient-background($gradient) {
+  background: $gradient;
+}
 

@@ -11,25 +11,35 @@
 }
 
 .diamond {
+  position: relative;
   width: 0.8rem;
   height: 0.8rem;
-  background-color: transparent;
-  border: 1px solid $color-accent;
   transform: rotate(45deg);
   flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $gradient-accent;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+  }
 }
 
 .line {
   flex: 1;
   height: 1px;
-  background-color: $color-accent;
+  @include gradient-background($gradient-accent-horizontal);
 }
 
 .title {
   flex-shrink: 0;
   white-space: nowrap;
-  color: $color-accent;
   padding: 0 $spacing-sm;
   font-family: $font-display;
   font-size: $font-size-xl;
+  @include gradient-title($gradient-accent);
 }

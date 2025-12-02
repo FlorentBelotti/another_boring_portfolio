@@ -19,6 +19,7 @@ $animation-duration: 0.15s;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: colors.$gradient-accent;
 }
 
 .eyeball {
@@ -32,7 +33,7 @@ $animation-duration: 0.15s;
   border-radius: 48% 52% 43% 57% / 58% 47% 53% 42%;
   border: 0.30vw solid colors.$color-bg;
   box-sizing: border-box;
-  background-color: colors.$color-accent;
+  background: colors.$gradient-accent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +45,7 @@ $animation-duration: 0.15s;
     top: 0;
     height: var(--eyelid-height, 60%);
     width: 100%;
-    background-color: colors.$color-accent;
+    background: colors.$gradient-accent;
     border-radius: 48% 52% 0 0 / 100% 100% 0 0;
     border-bottom: 0.30vw solid colors.$color-bg;
     box-sizing: border-box;
@@ -59,7 +60,7 @@ $animation-duration: 0.15s;
     width: 30%;
     height: 70%;
     border-radius: 45% 55% 48% 52% / 50% 50% 50% 50%;
-    background-color: colors.$color-bg;
+    background: colors.$color-bg;
     transform: translate(var(--pupil-x, 0), var(--pupil-y, 0));
     transition: transform $animation-duration ease-out;
   }
