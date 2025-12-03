@@ -12,27 +12,23 @@
   transition: color $transition-normal;
 }
 
-.square {
+.square { @include gradient-border();
   width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid $color-accent;
   background: transparent;
   transition: all $transition-normal;
   box-shadow: 0 0 10px $color-accent;
-  border-radius: 0;
-
   position: relative;
   z-index: 0;
   isolation: isolate;
 
-  &:hover {
+  &:hover { @include gradient-border();
     transform: scale(1.12);
     background-color: $color-bg;
     box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent; // aura réduite
-    border-color: $color-accent;
     z-index: 2;
   }
 
@@ -43,7 +39,8 @@
   }
 }
 
-.icon {
+.icon { 
+  @include gradient-title($gradient-accent);
   width: 60%;
   height: 60%;
   object-fit: contain;
@@ -84,21 +81,24 @@
   transition: color $transition-normal;
 }
 
-.container:hover .text {
-  @include neon-glow();
-  color: $color-accent;
-  transform: scale(1.12);
+.text {
+  font-family: $font-display;
+  @include gradient-title($gradient-text);
+  font-size: $font-size-sm;
+  transition: all $transition-normal;
+  // filter: brightness(0.7);
 }
 
-.container:hover .square {
+.container:hover .text {
+  @include neon-glow();
+  @include gradient-title($gradient-accent);
+  transform: scale(1.12);
+  filter: brightness(1);
+}
+
+.container:hover .square { @include gradient-border();
   transform: scale(1.12);
   background-color: $color-bg;
   box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent;
-  border-color: $color-accent;
   z-index: 2;
-}
-
-.text {
-  font-family: $font-display;
-  font-size: $font-size-sm;
 }

@@ -1,16 +1,27 @@
 @use '../../../../styles' as *;
 
 .container {
-    width: 100%;
+  width: 100%;
   position: relative;
   height: auto;
-  border: 1px solid $color-accent;
   overflow: hidden;
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: $spacing-xs $spacing-sm;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $gradient-accent;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+  }
 }
 
 .overlay {
@@ -32,21 +43,29 @@
 }
 
 .text1 {
-    margin: 0;
+  margin: 0;
   font-family: $font-heading;
   font-size: $font-size-2xl;
   line-height: $line-height-tight;
-  color: $color-text;
   padding-right: $spacing-sm;
   text-align: right;
-  border-right: 1px solid $color-text;
+  position: relative;
+  @include gradient-title($gradient-text);
+
+  &::after { @include gradient-background($gradient-text);
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+  }
 }
 
-.text2 {
-    margin: 0;
+.text2 { @include gradient-title($gradient-accent);
+  margin: 0;
   font-family: $font-display;
   font-size: $font-size-2xl;
   line-height: $line-height-tight;
-  color: $color-accent !important;
   text-align: left;
 }

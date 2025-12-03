@@ -7,10 +7,9 @@
   gap: $spacing-sm;
 }
 
-.text {
+.text { @include gradient-title($gradient-text);
   font-family: $font-display;
   font-size: $font-size-sm;
-  color: $color-text;
   text-align: justify;
   line-height: $line-height-relaxed;
   padding: 0 $spacing-md;
