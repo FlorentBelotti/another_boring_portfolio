@@ -27,7 +27,7 @@
 .tech-label {
   min-width: calc(#{$spacing-3xl} + #{$spacing-md});
   font-weight: 600;
-  color: $color-text;
+  @include gradient-title($gradient-accent);
   font-size: $font-size-sm;
   text-align: left;
   padding-left: $spacing-sm;
@@ -48,4 +48,5 @@
   justify-content: center;
   width: $spacing-lg;
   height: $spacing-lg;
+  filter: drop-shadow(0 0 2px rgba($color-accent, 0.3));
 }

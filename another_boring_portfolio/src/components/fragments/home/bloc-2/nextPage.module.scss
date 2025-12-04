@@ -29,7 +29,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: $color-accent;
+  @include gradient-background($gradient-accent);
   z-index: 2;
   pointer-events: none;
   will-change: clip-path, transform;
@@ -52,7 +52,8 @@
   position: relative;
   @include gradient-title($gradient-text);
 
-  &::after { @include gradient-background($gradient-text);
+  &::after {
+    @include gradient-background($gradient-text);
     content: '';
     position: absolute;
     right: 0;
@@ -62,7 +63,8 @@
   }
 }
 
-.text2 { @include gradient-title($gradient-accent);
+.text2 {
+  @include gradient-title($gradient-accent);
   margin: 0;
   font-family: $font-display;
   font-size: $font-size-2xl;

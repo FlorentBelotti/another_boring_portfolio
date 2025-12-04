@@ -69,7 +69,7 @@ h3 {
 
 .title {
     font-family: $font-heading;
-    color: $color-text;
+    @include gradient-title($gradient-text);
     font-size: $font-size-xl;
     font-weight: $font-weight-semibold;
     line-height: $line-height-amarante-resume;
@@ -98,7 +98,10 @@ h3 {
 }
 
 .AccordionContentText {
-    border-left: 1px solid $color-accent;
+    @include gradient-border($gradient-accent-horizontal, 1px);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
     padding: 0 $spacing-xs;
     margin-top: $spacing-xs;
     font-size: $font-size-sm;
@@ -113,7 +116,7 @@ h3 {
 }
 
 .AccordionTrigger[data-state="open"] .title {
-    color: $color-accent-dark;
+    @include gradient-title($gradient-accent);
 }
 
 @keyframes slideDown {

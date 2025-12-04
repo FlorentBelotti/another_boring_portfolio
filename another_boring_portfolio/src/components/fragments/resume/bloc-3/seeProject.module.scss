@@ -4,7 +4,7 @@
     width: 100%;
   position: relative;
   height: auto;
-  border: 1px solid $color-accent;
+  @include gradient-border($gradient-accent, 1px);
   overflow: hidden;
   background-color: transparent;
   display: flex;
@@ -18,7 +18,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: $color-accent;
+  @include gradient-background($gradient-accent-horizontal);
   z-index: 2;
   pointer-events: none;
   will-change: clip-path, transform;
@@ -36,10 +36,13 @@
   font-family: $font-heading;
   font-size: $font-size-2xl;
   line-height: $line-height-tight;
-  color: $color-text;
+  @include gradient-title($gradient-text);
   padding-right: $spacing-sm;
   text-align: right;
-  border-right: 1px solid $color-text;
+  @include gradient-border($gradient-text, 1px);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
 }
 
 .text2 {
@@ -47,6 +50,6 @@
   font-family: $font-display;
   font-size: $font-size-2xl;
   line-height: $line-height-tight;
-  color: $color-accent !important;
+  @include gradient-title($gradient-accent);
   text-align: left;
 }

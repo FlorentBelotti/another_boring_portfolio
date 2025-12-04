@@ -18,11 +18,13 @@
   display: contents;
 }
 
-.detailTitle { @include gradient-title($gradient-accent);
+.detailTitle {
+  @include gradient-title($gradient-accent);
   margin-bottom: 0;
   grid-column: 1;
   min-width: 0;
-  width: 100%;
+  width: fit-content;
+  justify-self: end;
   text-align: right;
   vertical-align: middle;
   font-size: $font-size-lg;
@@ -30,11 +32,11 @@
   font-family: $font-heading;
 }
 
-.detailValue { @include gradient-title($gradient-text);
+.detailValue {
+  @include gradient-title($gradient-text);
   width: 100%;
   grid-column: 2;
   vertical-align: middle;
   font-family: $font-display;
-  color: $color-text;
   font-size: $font-size-sm;
 }

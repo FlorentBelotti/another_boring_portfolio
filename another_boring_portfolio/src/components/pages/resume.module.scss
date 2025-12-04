@@ -36,10 +36,12 @@
   justify-content: flex-start;
   contain: layout;
   width: 100%;
-  
+  gap: $spacing-md;
+
   h2 {
     font-family: $font-display;
     font-size: $font-size-5xl;
     line-height: $line-height-amarante-resume;
+    @include gradient-title($gradient-accent);
   }
 }

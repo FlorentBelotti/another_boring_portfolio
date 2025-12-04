@@ -78,10 +78,30 @@ export default function Works() {
         demoLink={SLIDES[currentSlideIndex].demoLink}
       />
       <div className={styles.innerContent}>
-        <ProjectAccordion title="Description" content={SLIDES[currentSlideIndex]?.description || ""} />
-        <ProjectAccordion title="Features" content={SLIDES[currentSlideIndex]?.features || []} />
-        <ProjectAccordion title="Challenges" content={SLIDES[currentSlideIndex]?.challenges || []} />
-        <ProjectAccordion title="Tasks" content={SLIDES[currentSlideIndex]?.tasks || []} />
+        <ProjectAccordion projects={[
+          {
+            title: "Description",
+            details: SLIDES[currentSlideIndex]?.description || ""
+          }
+        ]} />
+        <ProjectAccordion projects={[
+          {
+            title: "Features",
+            details: (SLIDES[currentSlideIndex]?.features || []).join('\n')
+          }
+        ]} />
+        <ProjectAccordion projects={[
+          {
+            title: "Challenges",
+            details: (SLIDES[currentSlideIndex]?.challenges || []).join('\n')
+          }
+        ]} />
+        <ProjectAccordion projects={[
+          {
+            title: "Tasks",
+            details: (SLIDES[currentSlideIndex]?.tasks || []).join('\n')
+          }
+        ]} />
       </div>
     </div>
   )

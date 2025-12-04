@@ -3,58 +3,57 @@ import * as Accordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import styles from "./projectAccordion.module.scss";
-import resumeAccordionStyles from "../../resume/bloc-2/experienceAccordion.module.scss";
+import resumeStyles from "../../resume/bloc-2/experienceAccordion.module.scss";
 
-interface ProjectAccordionProps {
-  title: string;
-  content: string | string[];
-}
+type Project = { 
+  date?: string; 
+  title: string; 
+  subtitle?: string; 
+  details?: string 
+};
 
-export default function ProjectAccordion({ title, content }: ProjectAccordionProps) {
+export default function ProjectAccordion({ projects }: { projects: Project[] }) {
   return (
     <Accordion.Root
-      className={resumeAccordionStyles.AccordionRoot}
+      className={resumeStyles.AccordionRoot}
       type="single"
-      defaultValue="item-0"
+      defaultValue={projects.length ? "item-0" : undefined}
       collapsible
     >
-      <Accordion.Item className={resumeAccordionStyles.AccordionItem} value="item-0">
-        <Accordion.Header className={resumeAccordionStyles.AccordionHeader}>
-          <Accordion.Trigger
-            className={classNames(resumeAccordionStyles.AccordionTrigger, styles.triggerRight)}
-            aria-controls="content-0"
-          >
-            {/* Flèche à gauche */}
-            <ChevronDownIcon className={resumeAccordionStyles.AccordionChevron} aria-hidden />
-            <div className={resumeAccordionStyles.triggerInner} style={{ flex: 1 }}>
-              {/* Titre justifié à droite */}
-              <div
-                className={classNames(resumeAccordionStyles.title, styles.titleRight)}
-                style={{ fontWeight: 600 }}
+      {projects.map((project, i) => {
+        const value = `item-${i}`;
+        return (
+          <Accordion.Item className={resumeStyles.AccordionItem} value={value} key={value}>
+            <Accordion.Header className={resumeStyles.AccordionHeader}>
+              <Accordion.Trigger
+                className={classNames(resumeStyles.AccordionTrigger, styles.triggerRightReverse)}
+                aria-controls={`content-${i}`}
               >
-                {title}
+                <ChevronDownIcon className={resumeStyles.AccordionChevron} aria-hidden />
+                <div className={classNames(resumeStyles.triggerInner, styles.triggerRight)}>
+                  <div className={classNames(resumeStyles.title, styles.titleRight)} style={{ fontWeight: 600 }}>
+                    {project.title}{project.subtitle ? ` — ${project.subtitle}` : ''}
+                  </div>
+                  {project.date && (
+                    <div className={classNames(resumeStyles.meta, styles.metaRight)}>
+                      {project.date}
+                    </div>
+                  )}
+                </div>
+              </Accordion.Trigger>
+            </Accordion.Header>
+
+            <Accordion.Content
+              id={`content-${i}`}
+              className={resumeStyles.AccordionContent}
+            >
+              <div className={classNames(resumeStyles.AccordionContentText, styles.contentRight)} style={{ whiteSpace: 'pre-line' }}>
+                {project.details}
               </div>
-            </div>
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content
-          id="content-0"
-          className={classNames(resumeAccordionStyles.AccordionContent, styles.rightBorderContent)}
-        >
-          <div className={styles.rightBorderText} style={{ textAlign: "right" }}>
-            {Array.isArray(content)
-              ? (
-                <ul style={{ paddingLeft: 0, margin: 0, listStyle: "none" }}>
-                  {content.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              )
-              : <span>{content}</span>
-            }
-          </div>
-        </Accordion.Content>
-      </Accordion.Item>
+            </Accordion.Content>
+          </Accordion.Item>
+        );
+      })}
     </Accordion.Root>
   );
 }
