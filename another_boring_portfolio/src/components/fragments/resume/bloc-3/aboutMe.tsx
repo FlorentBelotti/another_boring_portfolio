@@ -4,17 +4,19 @@ import SeparatorText from '../../common/separatorText';
 // import Separator from '../../common/separator';
 
 interface AboutMeProps {
-  text: string;
+  text: string | string[];
   className?: string;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({ text, className }) => {
+  const textContent = Array.isArray(text) ? text.join(' ') : text;
+  
   return (
     <div className={`${styles.introduction} ${className || ''}`}>
       <SeparatorText title="ABOUT ME" />
       
       <p className={styles.text}>
-        {text}
+        {textContent}
       </p>
 
     </div>

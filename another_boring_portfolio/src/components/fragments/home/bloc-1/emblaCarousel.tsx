@@ -14,7 +14,7 @@ type PropType = {
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options, autoplayDelay = 3000, descriptions } = props
+  const { slides, options, autoplayDelay = 3000 } = props
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
@@ -22,7 +22,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     dragFree: true,
     align: 'center'
   })
-  const [emblaDescRef, emblaDescApi] = useEmblaCarousel({
+  const [_emblaDescRef, emblaDescApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
   })
   const [isHovered, setIsHovered] = useState(false)

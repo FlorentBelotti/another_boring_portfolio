@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import type { HeaderProps } from '../../interfaces/header'
 import styles from './header.module.scss'
-import PointCloudImage from '../animations/pointCloudImage'
-import nero from '../../assets/images/img_nero_new.png'
+
 import Eye from '../fragments/home/bloc-1/eye'
 
 export default function Header({ currentPage, onPageChange }: HeaderProps & { currentPage: string }) {

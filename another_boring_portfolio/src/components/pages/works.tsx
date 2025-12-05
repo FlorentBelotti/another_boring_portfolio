@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import styles from './works.module.scss'
 import EmblaCarouselWorks from '../fragments/works/bloc-1/emblaCarouselWorks';
@@ -14,12 +14,12 @@ const SLIDES = WORKS_LIST
 
 export default function Works() {
 
-  const [isFirefox, setIsFirefox] = useState(false)
+  const [_isFirefox, setIsFirefox] = useState(false)
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState<string | null>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [_emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [_selectedIndex, setSelectedIndex] = useState(0);
   const screenshots = SLIDES[currentSlideIndex].screenshots || [];
 
   useEffect(() => {
@@ -36,9 +36,6 @@ export default function Works() {
   const handleSlideChange = (index: number) => {
     setCurrentSlideIndex(index)
   }
-
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   const handleImageClick = (src: string) => {
     setModalImageSrc(src);

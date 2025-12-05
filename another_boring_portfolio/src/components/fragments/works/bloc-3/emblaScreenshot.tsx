@@ -9,7 +9,7 @@ interface EmblaScreenshotProps {
 
 const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageClick }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [_selectedIndex, setSelectedIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {

@@ -27,7 +27,7 @@ import ExperienceAccordion from '../fragments/resume/bloc-2/experienceAccordion'
 
 export default function ResumeMobile({ onSeeProject }: { onSeeProject?: () => void } = {}) {
 
-  const [isFirefox, setIsFirefox] = useState(false)
+  const [_isFirefox, setIsFirefox] = useState(false)
 
   useEffect(() => {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''

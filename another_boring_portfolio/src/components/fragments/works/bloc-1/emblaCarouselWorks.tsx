@@ -36,7 +36,7 @@ const EmblaCarouselWorks: React.FC<PropType> = ({
   const tweenNodes = useRef<HTMLElement[]>([])
   const location = useLocation()
   const navigate = useNavigate()
-  const { startTransition, endTransition } = useTransitionStore()
+  const { startTransition: _startTransition, endTransition: _endTransition } = useTransitionStore()
 
   // Récupère l'index depuis l'URL
   const match = location.pathname.match(/^\/works\/(\d+)$/)

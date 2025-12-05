@@ -1,5 +1,5 @@
 import React from 'react';
-import SeparatorIcon from '../../common/separatorIcon';
+
 import IconBrutalism from '../../../../assets/icons/Brutalism 27.svg';
 import styles from './actions.module.scss';
 import SquareIcon from '../../common/squareIcon';

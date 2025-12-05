@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTransitionStore } from '../../stores/transitionStore'
 import styles from './pageTransitionOverlay.module.scss'

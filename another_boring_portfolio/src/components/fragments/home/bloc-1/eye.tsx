@@ -7,7 +7,7 @@ export default function Eye() {
   const [isSleeping, setIsSleeping] = useState(false)
   const [isBlinking, setIsBlinking] = useState(false)
   const [isShaking, setIsShaking] = useState(false)
-  const sleepTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const sleepTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

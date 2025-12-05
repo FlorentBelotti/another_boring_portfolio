@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef, useCallback, useEffect, useState } from 'react'
+import React, { type ComponentPropsWithRef, useCallback, useEffect, useState } from 'react'
 // Remplace l'import du type par import type
 import type { EmblaCarouselType } from 'embla-carousel'
 import styles from './emblaCarouselWorks.module.scss'

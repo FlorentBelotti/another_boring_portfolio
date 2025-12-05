@@ -15,7 +15,7 @@ const SLIDES = WORKS_LIST.map(work => work.name)
 
 export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
-  const [isFirefox, setIsFirefox] = useState(false)
+  const [_isFirefox, setIsFirefox] = useState(false)
 
   useEffect(() => {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''

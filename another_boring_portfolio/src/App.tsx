@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, useParams } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Header from './components/common/header'
 import Content from './components/common/content'
 import Home from './components/pages/home'
@@ -16,7 +16,6 @@ function PageContent() {
   const navigate = useNavigate()
   const { startTransition, endTransition } = useTransitionStore()
   const location = useLocation()
-  const params = useParams<{ index?: string }>()
   const isMobile = useIsMobile(768)
 
   const handlePageChange = (page: Page, index?: number) => {
@@ -42,10 +41,9 @@ function PageContent() {
     ? ResumeMobile({ onSeeProject: () => handlePageChange('works') })
     : Resume({ onSeeProject: () => handlePageChange('works') })
 
-  const worksIndex = params.index ? parseInt(params.index, 10) : undefined
   const worksBlocks = isMobile
     ? WorksMobile()
-    : Works({ index: worksIndex, onSelectProject: (i: number) => handlePageChange('works', i) })
+    : Works()
 
   let leftBlock, centerBlock, rightBlock
 

@@ -1,4 +1,4 @@
-import React from "react";
+
 import SeparatorText from "../../common/separatorText";
 import styles from "./workDetails.module.scss";
 
@@ -10,7 +10,7 @@ interface WorkDetailsProps {
   projectType?: string;
 }
 
-export default function WorkDetails({ year, company, title, role, projectType }: WorkDetailsProps) {
+export default function WorkDetails({ year, company, title, role }: WorkDetailsProps) {
   return (
     <div className={styles.detailsContainer}>
       <SeparatorText title="DETAILS" />

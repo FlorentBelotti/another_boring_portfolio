@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './projectMeta.module.scss';
 import SquareIcon from '../../common/squareIcon';
 import { LinkExternalIcon } from '@primer/octicons-react';
-import SeparatorText from '../../common/separatorText';
+
 
 interface ProjectMetaProps {
   tag: string;
