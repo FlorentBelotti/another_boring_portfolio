@@ -42,4 +42,8 @@
   font-family: $font-display;
   font-size: $font-size-xl;
   @include gradient-title($gradient-accent);
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
 }

@@ -7,15 +7,189 @@
 
   height: $header-height;
   padding: $spacing-lg;
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+    position: sticky;
+    top: 0;
+    background: rgba($color-bg, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba($color-accent, 0.1);
+  }
 }
 
 .container { @include flex-end;
   width: 100%;
   max-width: 100%;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.mobileHeader {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: $spacing-md;
+  }
+}
+
+.mobileTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-sm;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.img_container {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    overflow: hidden;
+    @include gradient-background($gradient-accent);
+  }
+}
+
+.titleText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
+}
+
+.titleHeading {
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  color: $color-text;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
+}
+
+.titleDisplay {
+  font-family: $font-display;
+  font-size: $font-size-xl;
+  color: $color-accent;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
+}
+
+.logo { @include flex-center;
+  z-index: 10;
+
+  position: relative;
+
+  height: $header-height;
+  padding: $spacing-lg;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+    padding: $spacing-md;
+    height: auto;
+  }
 }
 
 .nav { @include flex-row($spacing-xl);
   align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background: rgba($color-bg, 0.98);
+    backdrop-filter: blur(10px);
+    padding: $spacing-xl $spacing-lg;
+    padding-top: calc($header-height + $spacing-xl);
+    gap: $spacing-xl;
+    min-width: 250px;
+    border-left: 1px solid rgba($color-accent, 0.2);
+    transform: translateX(100%);
+    transition: transform $transition-normal;
+    z-index: 9;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    justify-content: flex-start;
+  }
+
+  button {
+    text-align: right;
+    width: 100%;
+  }
+}
+
+.mobileNavOpen {
+  @media (max-width: 768px) {
+    transform: translateX(0);
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: $color-accent;
+    border-radius: 2px;
+    transition: all $transition-normal;
+
+    &.open:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    &.open:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.open:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+
+  &:hover span:not(.open) {
+    background: $color-text;
+  }
 }
 
 .neonUnderline {
@@ -31,4 +205,8 @@
 .fontHeading {
   font-family: $font-heading;
   font-size: $font-size-lg;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-xl;
+  }
 }

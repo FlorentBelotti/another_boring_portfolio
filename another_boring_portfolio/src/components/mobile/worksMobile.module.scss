@@ -13,14 +13,23 @@
     min-height: auto;
     height: auto;
     gap: $spacing-lg;
+    padding-top: $spacing-md;
   }
 
   h2 {
     color: $color-accent;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-lg;
+    }
   }
 
   p {
     color: $color-text;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-sm;
+    }
   }
 }
 

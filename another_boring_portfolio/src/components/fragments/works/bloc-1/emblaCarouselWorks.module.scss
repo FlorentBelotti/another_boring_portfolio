@@ -34,10 +34,10 @@
 }
 
 .slideNumber {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   transition: transform 0.3s;
-  color: $color-text;
+  @include gradient-title($gradient-text);
 }
 
 .emblaControls {

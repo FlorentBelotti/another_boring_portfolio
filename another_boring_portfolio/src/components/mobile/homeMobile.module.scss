@@ -12,32 +12,43 @@
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    min-height: calc(100vh - $header-height - $spacing-xl);
+    min-height: auto;
     height: auto;
     overflow: visible;
     gap: $spacing-xl;
+    padding-top: $spacing-md;
   }
 
   h2 {
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
     color: $color-accent;
+    font-size: $font-size-xl;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-lg;
+    }
   }
 
   p {
     color: $color-text;
+    font-size: $font-size-base;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-sm;
+    }
   }
 }
 
 .marquee {
   height: fit-content;
-  margin-top: 1rem;
+  margin-top: 0;
   font-family: $font-heading;
   color: $color-text;
   font-size: $font-size-marquee;
   line-height: $line-height-staal-marquee;
 
   @media (max-width: 768px) {
-    font-size: $font-size-2xl;
-    margin-top: $spacing-md;
+    font-size: $font-size-xl;
+    margin-top: 0;
   }
 }

@@ -6,6 +6,16 @@
   display: flex;
   height: $content-height;
   gap: $spacing-sm;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - $header-height);
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 0;
+    padding-bottom: 0;
+  }
 }
 
 .leftBlock,
@@ -14,17 +24,32 @@
   flex: 1;
   overflow: hidden;
   position: relative;
-  padding-bottom: $spacing-sm;
+
+  @media (max-width: 768px) {
+    overflow: visible;
+  }
 }
 
 .leftBlock {
   padding-left: $spacing-sm;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+  }
 }
 
 .centerBlock {
-  // border: 1px solid $color-accent;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .rightBlock {
   padding-right: $spacing-sm;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

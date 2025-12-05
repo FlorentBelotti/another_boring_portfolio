@@ -7,17 +7,30 @@
   --slide-height: 19rem;
   --slide-size: 100%;
   gap: $spacing-sm;
+
+  @media (max-width: 768px) {
+    --slide-height: 15rem;
+    gap: $spacing-xs;
+  }
 }
 
 .embla__viewport { @include gradient-border();
   flex: 1;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    border-width: 2px;
+  }
 }
 
 .display {
   display: flex;
   align-items: flex-end;
   gap: $spacing-xs;
+
+  @media (max-width: 768px) {
+    gap: 0;
+  }
 }
 
 .works_container {
@@ -27,11 +40,19 @@
   align-items: center;
   justify-content: flex-end;
   gap: $spacing-xs;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .square { @include gradient-background($gradient-accent);
   width: 100%;
   aspect-ratio: 1 / 1;
+
+  @media (max-width: 768px) {
+    min-width: 40px;
+  }
 }
 
 .title { @include gradient-title($gradient-text);
@@ -40,12 +61,20 @@
   font-family:$font-heading;
   font-size:$font-size-big;
   line-height:$line-height-staal;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-3xl;
+  }
 }
 
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: 0;
+
+  @media (max-width: 768px) {
+    touch-action: pan-x pinch-zoom;
+  }
 }
 
 .embla__slide {
@@ -67,6 +96,11 @@
   font-weight: $font-weight-semibold;
   font-family: $font-heading;
   height: var(--slide-height);
+
+  @media (max-width: 768px) {
+    font-size: $font-size-2xl;
+    border-radius: $spacing-sm;
+  }
 }
 
 .embla-thumbs {
@@ -75,6 +109,10 @@
 
 .embla-thumbs__viewport {
   overflow: visible;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 }
 
 .embla-thumbs__container {
@@ -84,6 +122,10 @@
 
 .embla-thumbs__slide {
   padding-left: var(--thumbs-slide-spacing);
+
+  @media (max-width: 768px) {
+    padding-left: $spacing-xs;
+  }
 }
 
 .embla-thumbs__slide__number { @include gradient-title($gradient-text);
@@ -98,6 +140,11 @@
   font-family: $font-heading;
   color: var(--detail-high-contrast);
   height: var(--thumbs-slide-height);
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+    padding: 0 $spacing-xs;
+  }
 }
 
 .embla-thumbs__slide--selected .embla-thumbs__slide__number { @include gradient-title($gradient-accent);
@@ -145,6 +192,11 @@
   z-index: 2;
   white-space: pre-line;
   user-select: none;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+    padding: $spacing-sm;
+  }
 }
 
 .embla__slide:hover .emblaOverlay {

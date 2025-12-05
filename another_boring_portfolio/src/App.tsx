@@ -4,7 +4,11 @@ import Content from './components/common/content'
 import Home from './components/pages/home'
 import Resume from './components/pages/resume'
 import Works from './components/pages/works'
+import HomeMobile from './components/mobile/homeMobile'
+import ResumeMobile from './components/mobile/resumeMobile'
+import WorksMobile from './components/mobile/worksMobile'
 import { useTransitionStore } from './stores/transitionStore'
+import { useIsMobile } from './hooks/useIsMobile'
 
 type Page = 'home' | 'resume' | 'works'
 
@@ -13,6 +17,7 @@ function PageContent() {
   const { startTransition, endTransition } = useTransitionStore()
   const location = useLocation()
   const params = useParams<{ index?: string }>()
+  const isMobile = useIsMobile(768)
 
   const handlePageChange = (page: Page, index?: number) => {
     startTransition()
@@ -28,12 +33,19 @@ function PageContent() {
     }, 1200)
   }
 
-  const homeBlocks = Home({ onNextPage: () => handlePageChange('resume') })
-  const resumeBlocks = Resume({ onSeeProject: () => handlePageChange('works') })
+  // Utiliser les composants mobile ou desktop selon la taille d'écran
+  const homeBlocks = isMobile 
+    ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
+    : Home({ onNextPage: () => handlePageChange('resume') })
+    
+  const resumeBlocks = isMobile
+    ? ResumeMobile({ onSeeProject: () => handlePageChange('works') })
+    : Resume({ onSeeProject: () => handlePageChange('works') })
 
-  // Ajout de la gestion de l'index pour Works
   const worksIndex = params.index ? parseInt(params.index, 10) : undefined
-  const worksBlocks = Works({ index: worksIndex, onSelectProject: (i: number) => handlePageChange('works', i) })
+  const worksBlocks = isMobile
+    ? WorksMobile()
+    : Works({ index: worksIndex, onSelectProject: (i: number) => handlePageChange('works', i) })
 
   let leftBlock, centerBlock, rightBlock
 

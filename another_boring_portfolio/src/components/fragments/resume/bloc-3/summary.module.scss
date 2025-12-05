@@ -9,6 +9,10 @@
 
 .container {
   padding: 0 $spacing-md;
+
+  @media (max-width: 768px) {
+    padding: 0 $spacing-sm;
+  }
 }
 
 .tech-list {
@@ -22,6 +26,12 @@
   align-items: center;
   gap: $spacing-sm;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xs;
+  }
 }
 
 .tech-label {
@@ -31,6 +41,12 @@
   font-size: $font-size-sm;
   text-align: left;
   padding-left: $spacing-sm;
+
+  @media (max-width: 768px) {
+    min-width: auto;
+    font-size: $font-size-xs;
+    padding-left: 0;
+  }
 }
 
 .icons {
@@ -38,6 +54,10 @@
   gap: $spacing-logo;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: $spacing-sm;
+  }
 }
 
 .icon {
@@ -49,4 +69,10 @@
   width: $spacing-lg;
   height: $spacing-lg;
   filter: drop-shadow(0 0 2px rgba($color-accent, 0.3));
+
+  @media (max-width: 768px) {
+    font-size: $font-size-base;
+    width: $spacing-md;
+    height: $spacing-md;
+  }
 }

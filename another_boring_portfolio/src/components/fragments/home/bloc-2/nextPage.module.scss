@@ -52,6 +52,10 @@
   position: relative;
   @include gradient-title($gradient-text);
 
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
+
   &::after {
     @include gradient-background($gradient-text);
     content: '';
@@ -70,4 +74,8 @@
   font-size: $font-size-2xl;
   line-height: $line-height-tight;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-lg;
+  }
 }

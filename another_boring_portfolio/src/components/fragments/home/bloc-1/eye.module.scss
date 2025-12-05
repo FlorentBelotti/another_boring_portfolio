@@ -20,6 +20,10 @@ $animation-duration: 0.15s;
   height: 100%;
   overflow: hidden;
   background: colors.$gradient-accent;
+
+  @media (max-width: 768px) {
+    background: colors.$gradient-accent;
+  }
 }
 
 .eyeball {
@@ -38,6 +42,12 @@ $animation-duration: 0.15s;
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 768px) {
+    width: 75%;
+    height: 55%;
+    border: 2px solid colors.$color-bg;
+  }
+
   // eyelid
   &::before {
     content: "";
@@ -51,6 +61,10 @@ $animation-duration: 0.15s;
     box-sizing: border-box;
     z-index: 1;
     transition: height $animation-duration ease-out;
+
+    @media (max-width: 768px) {
+      border-bottom: 2px solid colors.$color-bg;
+    }
   }
 
   // pupil - forme plus allongée comme l'œil d'Horus
@@ -63,6 +77,10 @@ $animation-duration: 0.15s;
     background: colors.$gradient-accent;
     transform: translate(var(--pupil-x, 0), var(--pupil-y, 0));
     transition: transform $animation-duration ease-out;
+
+    @media (max-width: 768px) {
+      background: colors.$color-accent;
+    }
   }
 
   &.sleeping {

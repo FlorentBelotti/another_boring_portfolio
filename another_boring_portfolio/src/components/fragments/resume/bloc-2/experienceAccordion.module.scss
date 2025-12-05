@@ -73,12 +73,20 @@ h3 {
     font-size: $font-size-xl;
     font-weight: $font-weight-semibold;
     line-height: $line-height-amarante-resume;
+
+    @media (max-width: 768px) {
+        font-size: $font-size-lg;
+    }
 }
 
 .meta {
     font-size: $font-size-sm;
     color: $color-text;
     margin-top: $spacing-xs;
+
+    @media (max-width: 768px) {
+        font-size: $font-size-xs;
+    }
 }
 
 .AccordionContent {
@@ -87,6 +95,10 @@ h3 {
     font-size: $font-size-sm;
     color: $color-text;
     font-family: $font-display;
+
+    @media (max-width: 768px) {
+        font-size: $font-size-xs;
+    }
 }
 
 .AccordionContent[data-state="open"] {
@@ -105,6 +117,10 @@ h3 {
     padding: 0 $spacing-xs;
     margin-top: $spacing-xs;
     font-size: $font-size-sm;
+
+    @media (max-width: 768px) {
+        font-size: $font-size-xs;
+    }
 }
 
 .AccordionChevron {
