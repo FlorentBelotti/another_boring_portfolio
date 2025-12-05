@@ -83,7 +83,7 @@ function PageContent() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/another_boring_portfolio">
       <Routes>
         <Route path="/" element={<PageContent />} />
         <Route path="/resume" element={<PageContent />} />
