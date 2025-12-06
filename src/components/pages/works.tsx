@@ -33,6 +33,10 @@ export default function Works() {
     }
   }, [emblaApi, currentSlideIndex]);
 
+  const formatArrayDetails = (arr: string[] | undefined, fallback: string = 'No data available'): string => {
+    return arr && Array.isArray(arr) && arr.length > 0 ? arr.join('\n') : fallback;
+  };
+
   const handleSlideChange = (index: number) => {
     setCurrentSlideIndex(index)
   }
@@ -78,25 +82,25 @@ export default function Works() {
         <ProjectAccordion projects={[
           {
             title: "Description",
-            details: SLIDES[currentSlideIndex]?.description || ""
+            details: SLIDES[currentSlideIndex]?.description || "No description available"
           }
         ]} />
         <ProjectAccordion projects={[
           {
             title: "Features",
-            details: (SLIDES[currentSlideIndex]?.features || []).join('\n')
+            details: formatArrayDetails(SLIDES[currentSlideIndex]?.features, 'No features available')
           }
         ]} />
         <ProjectAccordion projects={[
           {
             title: "Challenges",
-            details: (SLIDES[currentSlideIndex]?.challenges || []).join('\n')
+            details: formatArrayDetails(SLIDES[currentSlideIndex]?.challenges, 'No challenges available')
           }
         ]} />
         <ProjectAccordion projects={[
           {
             title: "Tasks",
-            details: (SLIDES[currentSlideIndex]?.tasks || []).join('\n')
+            details: formatArrayDetails(SLIDES[currentSlideIndex]?.tasks, 'No tasks available')
           }
         ]} />
       </div>

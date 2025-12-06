@@ -10,19 +10,23 @@ export const WORKS_LIST = [
     company: "42",
     tag: "42",
     type: "Web application",
-    description: "Un projet de jeu multijoueur en temps réel inspiré du classique Pong, développé avec des technologies web modernes.",
+    description: "Un projet de jeu multijoueur en temps réel inspiré du classique Pong, développé avec des technologies web sans framework.",
     role: "Développeur full stack",
-    technologies: ["TypeScript", "NestJS", "PostgreSQL", "WebSockets", "Docker"],
+    technologies: ["JavaScript", "Django", "PostgreSQL", "WebSockets", "Docker"],
     features: [
       "Multijoueur en temps réel",
-      "Système de chat et matchmaking",
+      "Implémentation d'un jeu serveur side",
+      "Système de matchmaking",
       "Parties classées",
-      "Profil utilisateur"
+      "Profil utilisateur",
+      "Sessions utilisateurs",
     ],
     challenges: [
+      "Élaboration d'un moteur SPA sans framework frontend",
+      "Gestion des tokens utilisateurs",
       "Synchronisation temps réel",
       "Gestion des latences réseau",
-      "Séparation back/front propre"
+      "Séparation back/front propre",
     ],
     screenshots: [tr_1, tr_2],
     sourceLink: "https://fr.wikipedia.org/wiki/Wiki",
