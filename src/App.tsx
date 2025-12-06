@@ -1,5 +1,4 @@
-import { useMemo } from 'react'
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom'
 import Header from './components/common/header'
 import Content from './components/common/content'
 import Home from './components/pages/home'
@@ -22,8 +21,9 @@ function PageContent() {
   const handlePageChange = (page: Page, index?: number) => {
     startTransition()
     setTimeout(() => {
-      if (page === 'works' && typeof index === 'number') {
-        navigate(`/works/${index}`)
+      if (page === 'works') {
+        // Si c'est works, utiliser l'index fourni ou 0 par défaut
+        navigate(`/works/${typeof index === 'number' ? index : 0}`)
       } else {
         navigate(page === 'home' ? '/' : `/${page}`)
       }
@@ -33,33 +33,33 @@ function PageContent() {
     }, 1200)
   }
 
-  // Utiliser useMemo pour éviter de recalculer les blocs inutilement
-  const { leftBlock, centerBlock, rightBlock } = useMemo(() => {
-    if (location.pathname === '/') {
-      return isMobile 
-        ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
-        : Home({ onNextPage: () => handlePageChange('resume') })
-    } else if (location.pathname === '/resume') {
-      return isMobile
-        ? ResumeMobile({ onSeeProject: () => handlePageChange('works') })
-        : Resume({ onSeeProject: () => handlePageChange('works') })
-    } else if (location.pathname.startsWith('/works')) {
-      return isMobile
-        ? WorksMobile()
-        : Works()
-    } else {
-      return isMobile 
-        ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
-        : Home({ onNextPage: () => handlePageChange('resume') })
-    }
-  }, [location.pathname, isMobile])
+  // Normaliser le pathname pour enlever le basename si présent
+  const currentPath = location.pathname.replace('/another_boring_portfolio', '') || '/'
+
+  // Appeler tous les composants pour respecter les règles des hooks
+  const homeBlocks = (isMobile ? HomeMobile : Home)({ onNextPage: () => handlePageChange('resume') })
+  const resumeBlocks = (isMobile ? ResumeMobile : Resume)({ onSeeProject: () => handlePageChange('works') })
+  const worksBlocks = (isMobile ? WorksMobile : Works)()
+
+  // Sélectionner les blocs à afficher selon la page
+  let leftBlock, centerBlock, rightBlock
+
+  if (currentPath === '/') {
+    ({ leftBlock, centerBlock, rightBlock } = homeBlocks)
+  } else if (currentPath === '/resume') {
+    ({ leftBlock, centerBlock, rightBlock } = resumeBlocks)
+  } else if (currentPath.startsWith('/works')) {
+    ({ leftBlock, centerBlock, rightBlock } = worksBlocks)
+  } else {
+    ({ leftBlock, centerBlock, rightBlock } = homeBlocks)
+  }
 
   return (
     <>
       <Header currentPage={
-        location.pathname === '/' ? 'home' :
-        location.pathname === '/resume' ? 'resume' :
-        location.pathname.startsWith('/works') ? 'works' : 'home'
+        currentPath === '/' ? 'home' :
+        currentPath === '/resume' ? 'resume' :
+        currentPath.startsWith('/works') ? 'works' : 'home'
       } onPageChange={handlePageChange} />
       <Content 
         leftBlock={leftBlock}
@@ -76,7 +76,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<PageContent />} />
         <Route path="/resume" element={<PageContent />} />
-        <Route path="/works" element={<PageContent />} />
+        <Route path="/works" element={<Navigate to="/works/0" replace />} />
         <Route path="/works/:index" element={<PageContent />} />
       </Routes>
     </Router>
