@@ -32,38 +32,28 @@ function PageContent() {
     }, 1200)
   }
 
-  // Utiliser les composants mobile ou desktop selon la taille d'écran
-  const homeBlocks = isMobile 
-    ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
-    : Home({ onNextPage: () => handlePageChange('resume') })
-    
-  const resumeBlocks = isMobile
-    ? ResumeMobile({ onSeeProject: () => handlePageChange('works') })
-    : Resume({ onSeeProject: () => handlePageChange('works') })
-
-  const worksBlocks = isMobile
-    ? WorksMobile()
-    : Works()
-
-  let leftBlock, centerBlock, rightBlock
-
-  if (location.pathname === '/') {
-    leftBlock = homeBlocks.leftBlock
-    centerBlock = homeBlocks.centerBlock
-    rightBlock = homeBlocks.rightBlock
-  } else if (location.pathname === '/resume') {
-    leftBlock = resumeBlocks.leftBlock
-    centerBlock = resumeBlocks.centerBlock
-    rightBlock = resumeBlocks.rightBlock
-  } else if (location.pathname.startsWith('/works')) {
-    leftBlock = worksBlocks.leftBlock
-    centerBlock = worksBlocks.centerBlock
-    rightBlock = worksBlocks.rightBlock
-  } else {
-    leftBlock = homeBlocks.leftBlock
-    centerBlock = homeBlocks.centerBlock
-    rightBlock = homeBlocks.rightBlock
+  // Déterminer quelle page afficher et utiliser le bon composant
+  const getCurrentPage = () => {
+    if (location.pathname === '/') {
+      return isMobile 
+        ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
+        : Home({ onNextPage: () => handlePageChange('resume') })
+    } else if (location.pathname === '/resume') {
+      return isMobile
+        ? ResumeMobile({ onSeeProject: () => handlePageChange('works') })
+        : Resume({ onSeeProject: () => handlePageChange('works') })
+    } else if (location.pathname.startsWith('/works')) {
+      return isMobile
+        ? WorksMobile()
+        : Works()
+    } else {
+      return isMobile 
+        ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
+        : Home({ onNextPage: () => handlePageChange('resume') })
+    }
   }
+
+  const { leftBlock, centerBlock, rightBlock } = getCurrentPage()
 
   return (
     <>
