@@ -6,6 +6,7 @@
   display: flex;
   height: $content-height;
   gap: $spacing-sm;
+  padding-bottom: $spacing-sm;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -14,7 +15,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     gap: 0;
-    padding-bottom: 0;
   }
 }
 
