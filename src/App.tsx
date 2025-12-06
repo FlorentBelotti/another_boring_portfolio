@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Header from './components/common/header'
 import Content from './components/common/content'
@@ -32,8 +33,8 @@ function PageContent() {
     }, 1200)
   }
 
-  // Déterminer quelle page afficher et utiliser le bon composant
-  const getCurrentPage = () => {
+  // Utiliser useMemo pour éviter de recalculer les blocs inutilement
+  const { leftBlock, centerBlock, rightBlock } = useMemo(() => {
     if (location.pathname === '/') {
       return isMobile 
         ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
@@ -51,9 +52,7 @@ function PageContent() {
         ? HomeMobile({ onNextPage: () => handlePageChange('resume') })
         : Home({ onNextPage: () => handlePageChange('resume') })
     }
-  }
-
-  const { leftBlock, centerBlock, rightBlock } = getCurrentPage()
+  }, [location.pathname, isMobile])
 
   return (
     <>
