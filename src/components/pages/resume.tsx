@@ -38,8 +38,8 @@ export default function Resume({ onSeeProject }: { onSeeProject?: () => void } =
   const leftBlock = (
     <div className={styles.block}>
         <PointCloudImage src={me}
-        particleSize={2}
-        particleStep={5}
+        particleSize={3}
+        particleStep={10}
         mouseRadius={3000}/>
     </div>
   )
