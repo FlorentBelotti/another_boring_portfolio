@@ -83,21 +83,15 @@ export default function Works() {
           {
             title: "Description",
             details: SLIDES[currentSlideIndex]?.description || "No description available"
-          }
-        ]} />
-        <ProjectAccordion projects={[
+          },
           {
             title: "Features",
             details: formatArrayDetails(SLIDES[currentSlideIndex]?.features, 'No features available')
-          }
-        ]} />
-        <ProjectAccordion projects={[
+          },
           {
             title: "Challenges",
             details: formatArrayDetails(SLIDES[currentSlideIndex]?.challenges, 'No challenges available')
-          }
-        ]} />
-        <ProjectAccordion projects={[
+          },
           {
             title: "Tasks",
             details: formatArrayDetails(SLIDES[currentSlideIndex]?.tasks, 'No tasks available')

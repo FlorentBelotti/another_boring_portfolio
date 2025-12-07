@@ -51,7 +51,7 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
         CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
       </Marquee>
       <Icons></Icons>
-      <Introduction text="v0.1.11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
+      <Introduction text="v0.1.13 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
     </div>
   )
 
