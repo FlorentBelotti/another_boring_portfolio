@@ -4,6 +4,7 @@ import Content from './components/common/content'
 import Home from './components/pages/home'
 import Resume from './components/pages/resume'
 import Works from './components/pages/works'
+import NotFound from './components/pages/notFound'
 import HomeMobile from './components/mobile/homeMobile'
 import ResumeMobile from './components/mobile/resumeMobile'
 import WorksMobile from './components/mobile/worksMobile'
@@ -40,6 +41,7 @@ function PageContent() {
   const homeBlocks = (isMobile ? HomeMobile : Home)({ onNextPage: () => handlePageChange('resume') })
   const resumeBlocks = (isMobile ? ResumeMobile : Resume)({ onSeeProject: () => handlePageChange('works') })
   const worksBlocks = (isMobile ? WorksMobile : Works)()
+  const notFoundBlocks = NotFound()
 
   // Sélectionner les blocs à afficher selon la page
   let leftBlock, centerBlock, rightBlock
@@ -51,7 +53,7 @@ function PageContent() {
   } else if (currentPath.startsWith('/works')) {
     ({ leftBlock, centerBlock, rightBlock } = worksBlocks)
   } else {
-    ({ leftBlock, centerBlock, rightBlock } = homeBlocks)
+    ({ leftBlock, centerBlock, rightBlock } = notFoundBlocks)
   }
 
   return (
@@ -59,7 +61,7 @@ function PageContent() {
       <Header currentPage={
         currentPath === '/' ? 'home' :
         currentPath === '/resume' ? 'resume' :
-        currentPath.startsWith('/works') ? 'works' : 'home'
+        currentPath.startsWith('/works') ? 'works' : '404'
       } onPageChange={handlePageChange} />
       <Content 
         leftBlock={leftBlock}
@@ -78,6 +80,7 @@ export default function App() {
         <Route path="/resume" element={<PageContent />} />
         <Route path="/works" element={<Navigate to="/works/0" replace />} />
         <Route path="/works/:index" element={<PageContent />} />
+        <Route path="*" element={<PageContent />} />
       </Routes>
     </Router>
   )

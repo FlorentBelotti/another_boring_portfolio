@@ -1,0 +1,41 @@
+@use '../../styles/fonts' as *;
+@use '../../styles/colors' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: $font-size-big;
+  color: $color-accent;
+  line-height: $line-height-staal;
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-family: $font-sans;
+  font-size: $font-size-lg;
+  color: $color-text;
+}
+
+.link {
+  margin-top: 2rem;
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  color: $color-text;
+  text-decoration: none;
+  border-bottom: 2px solid $color-accent;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $color-accent;
+  }
+}
