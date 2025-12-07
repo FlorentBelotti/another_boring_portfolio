@@ -4,6 +4,37 @@ import tr_2 from '../assets/works/transcandence/tr_homepage.png'
 export const WORKS_LIST = [
   {
     id: 0,
+    name: "ODELIX",
+    title: "Odélix",
+    company: "RTE",
+    tag: "Pro",
+    type: "Business application",
+    description: `TEST`,
+    role: "Full stack developer / Data engineer",
+    technologies: [
+      "Python (Django)", 
+      "Typescript", 
+      "PostgreSQL", 
+      "Docker", 
+    ],
+    features: [
+      "TEST",
+    ],
+    challenges: [
+      "TEST",
+    ],
+    screenshots: [tr_1, tr_2],
+    sourceLink: "https://github.com/FlorentBelotti/42_cursus_ft_transcendence",
+    demoLink: "",
+    year: "2025",
+    projectType: "Pro",
+    observation: ``,
+    tasks: [
+      "Test",
+    ]
+  },
+  {
+    id: 1,
     name: "TRANSCENDANCE",
     title: "ft_transcendance",
     company: "42",
@@ -58,7 +89,7 @@ export const WORKS_LIST = [
     ]
   },
   {
-    id: 1,
+    id: 2,
     name: "MINIRT",
     title: "MiniRT",
     company: "42",
@@ -88,7 +119,7 @@ export const WORKS_LIST = [
       "Performance and robustness (memory leak fixes, multi-algo)",
       "Custom scene parsing and error management"
     ],
-    screenshots: [/* Add images later if needed */],
+    screenshots: [],
     sourceLink: "https://github.com/FlorentBelotti/42_cursus_miniRT",
     demoLink: "",
     year: "2024",
@@ -103,10 +134,10 @@ export const WORKS_LIST = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     name: "NEVERBETONLEC",
     title: "Never Bet On LEC",
-    company: "LEC Analytics",
+    company: "-",
     tag: "Side",
     type: "Discord Bot",
     description: `NeverBetOnLEC is a Discord bot written in TypeScript, designed to let users virtually bet on League of Legends European Championship (LEC) match results, while automating the statistical tracking of competitions. The bot uses official Riot Games API and PandaScore, syncs matches in real time, provides a full points/leaderboard system, lets users vote/predict outcomes and scores, view next matches/current match, see the community leaderboard, and triggers automatic result announcements. It uses SQLite for user/bet/match management, and Discord commands are deployed dynamically per environment (prod/test).`,
@@ -139,7 +170,7 @@ export const WORKS_LIST = [
       "Dynamic Discord command deployment",
       "Software quality (strict TypeScript, robustness)"
     ],
-    screenshots: [/* Add Discord screens or charts later */],
+    screenshots: [],
     sourceLink: "https://github.com/romlambe/bot-lol-discord",
     demoLink: "",
     year: "2024",
@@ -154,10 +185,10 @@ export const WORKS_LIST = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     name: "HUGINN",
     title: "Huginn",
-    company: "",
+    company: "-",
     tag: "Side",
     type: "Data Application",
     description: `Huginn is an interactive Python tool for French electoral data exploration, focusing on legislative results between 1958 and 2012. Users select a year, department, and district; the app downloads official data.gouv.fr archives, filters relevant data, and displays key stats: turnout, abstention, candidate scores, etc. Several visualization modes are available: first/second round, cross-round comparisons, participation rates. The program handles the full process: remote queries, extraction, CSV parsing, filtering, result formatting, all with robust error handling and file naming. Huginn provides a CLI-driven analysis and generates charts for results.`,
@@ -185,7 +216,7 @@ export const WORKS_LIST = [
       "Handling diversity of years/elections",
       "Software quality and user-flow error management"
     ],
-    screenshots: [/* Add screenshots/charts later */],
+    screenshots: [],
     sourceLink: "https://github.com/Rrodor/huginn",
     demoLink: "",
     year: "2023",
@@ -200,10 +231,10 @@ export const WORKS_LIST = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     name: "PORTFOLIO",
     title: "Personal Portfolio",
-    company: "",
+    company: "-",
     tag: "Side",
     type: "Web application",
     description: `Personal portfolio built in TypeScript with React and SCSS, showcasing all my projects, experiences and technical skills. Features smooth navigation by section (projects, journey, skills), minimalist typographic design, responsive structure for all devices, and dynamic content management through constant files. Lightweight visual effects (shimmer, fade-in) and thematic customization make browsing elegant and readable. The codebase is designed to be easily extensible (add projects/content), with strict TypeScript for technical robustness. Project is fully open-source.`,
@@ -231,9 +262,9 @@ export const WORKS_LIST = [
       "Code scalability for dynamic project addition",
       "Clean design without heavy CSS frameworks"
     ],
-    screenshots: [/* Add portfolio screenshots if needed */],
+    screenshots: [],
     sourceLink: "https://github.com/FlorentBelotti/another_boring_portfolio",
-    demoLink: "",
+    demoLink: "https://florentbelotti.github.io/another_boring_portfolio/",
     year: "2024",
     projectType: "Personal",
     observation: `The portfolio serves as a tech showcase and playground for React/TS patterns on real projects, while staying fit for professional presentation.`,
