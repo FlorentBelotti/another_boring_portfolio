@@ -8,8 +8,8 @@ export default function Logo() {
     <div className={styles.logo_container}>
         <div className={styles.img_container}>
             <PointCloudImage src={nero}
-            particleSize={3}
-            particleStep={6}
+            particleSize={2}
+            particleStep={5}
             mouseRadius={3000}/>
         </div>
         <div className={styles.logo_title}>

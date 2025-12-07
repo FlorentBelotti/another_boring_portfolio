@@ -13,11 +13,10 @@ import { useIsMobile } from './hooks/useIsMobile'
 
 type Page = 'home' | 'resume' | 'works'
 
-function PageContent() {
+function PageContent({ isMobile }: { isMobile: boolean }) {
   const navigate = useNavigate()
   const { startTransition, endTransition } = useTransitionStore()
   const location = useLocation()
-  const isMobile = useIsMobile(768)
 
   const handlePageChange = (page: Page, index?: number) => {
     startTransition()
@@ -73,14 +72,16 @@ function PageContent() {
 }
 
 export default function App() {
+  const isMobile = useIsMobile(768)
+
   return (
     <Router basename="/another_boring_portfolio">
       <Routes>
-        <Route path="/" element={<PageContent />} />
-        <Route path="/resume" element={<PageContent />} />
+        <Route path="/" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
+        <Route path="/resume" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
         <Route path="/works" element={<Navigate to="/works/0" replace />} />
-        <Route path="/works/:index" element={<PageContent />} />
-        <Route path="*" element={<PageContent />} />
+        <Route path="/works/:index" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
+        <Route path="*" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
       </Routes>
     </Router>
   )

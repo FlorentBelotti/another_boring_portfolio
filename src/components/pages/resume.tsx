@@ -37,14 +37,10 @@ export default function Resume({ onSeeProject }: { onSeeProject?: () => void } =
 
   const leftBlock = (
     <div className={styles.block}>
-      {/* {isFirefox ? (
-        <img src={me} className={styles.image}/>
-      ) : ( */}
         <PointCloudImage src={me}
-        particleSize={4}
-        particleStep={12}
+        particleSize={2}
+        particleStep={5}
         mouseRadius={3000}/>
-      {/* )} */}
     </div>
   )
 

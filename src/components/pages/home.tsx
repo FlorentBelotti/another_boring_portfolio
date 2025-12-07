@@ -36,8 +36,8 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
   const centerBlock = (
     <div className={styles.block}>
       <PointCloudImage src={building}
-          particleSize={4}
-          particleStep={12}
+          particleSize={3}
+          particleStep={10}
           mouseRadius={3000}/>
     </div>
   )
@@ -51,7 +51,7 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
         CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
       </Marquee>
       <Icons></Icons>
-      <Introduction text="v0.0.3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
+      <Introduction text="v0.0.7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
     </div>
   )
 
