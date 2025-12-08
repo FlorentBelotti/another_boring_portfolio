@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './aboutMe.module.scss';
 import SeparatorText from '../../common/separatorText';
-// import Separator from '../../common/separator';
 
 interface AboutMeProps {
   text: string | string[];

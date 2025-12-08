@@ -22,7 +22,6 @@ function PageContent({ isMobile }: { isMobile: boolean }) {
     startTransition()
     setTimeout(() => {
       if (page === 'works') {
-        // Si c'est works, utiliser l'index fourni ou 0 par défaut
         navigate(`/works/${typeof index === 'number' ? index : 0}`)
       } else {
         navigate(page === 'home' ? '/' : `/${page}`)
@@ -33,16 +32,13 @@ function PageContent({ isMobile }: { isMobile: boolean }) {
     }, 1200)
   }
 
-  // Normaliser le pathname pour enlever le basename si présent
   const currentPath = location.pathname.replace('/another_boring_portfolio', '') || '/'
 
-  // Appeler tous les composants pour respecter les règles des hooks
   const homeBlocks = (isMobile ? HomeMobile : Home)({ onNextPage: () => handlePageChange('resume') })
   const resumeBlocks = (isMobile ? ResumeMobile : Resume)({ onSeeProject: () => handlePageChange('works') })
   const worksBlocks = (isMobile ? WorksMobile : Works)()
   const notFoundBlocks = NotFound()
 
-  // Sélectionner les blocs à afficher selon la page
   let leftBlock, centerBlock, rightBlock
 
   if (currentPath === '/') {

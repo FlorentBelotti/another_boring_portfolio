@@ -2,7 +2,12 @@ import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTransitionStore } from '../../../../stores/transitionStore';
 import SeparatorIcon from '../../common/separatorIcon';
-import IconBrutalism from '../../../../assets/icons/Brutalism 27.svg';
+
+import IconBrutalism from '../../../../assets/icons/Brutalism 105.svg';
+import IconStack from '../../../../assets/icons/Bauhaus 34.svg';
+import IconAuto from '../../../../assets/icons/Brutalism 21.svg';
+import IconSoftware from '../../../../assets/icons/Brutalism 65.svg';
+
 import styles from './icons.module.scss';
 import SquareIcon from '../../common/squareIcon';
 
@@ -29,17 +34,17 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
       <SeparatorIcon
         className={className}
         iconPath={IconBrutalism}
-        iconAlt="Sun icon"
+        iconAlt="Circles"
       />
 
       <div className={styles.iconRow}>
         <SquareIcon
           className={className}
           title="SquareIcon"
-          iconPath={IconBrutalism}
-          iconAlt="Brutalism27"
-          text="Ceci est un test"
-          onClick={() => handleNavigation('/resume')}
+          iconPath={IconStack}
+          iconAlt="Bauhaus34"
+          text="FULLSTACK"
+          onClick={() => handleNavigation('/works/5')}
         />
       </div>
 
@@ -47,10 +52,10 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
         <SquareIcon
           className={className}
           title="SquareIcon"
-          iconPath={IconBrutalism}
-          iconAlt="Brutalism27"
-          text="Ceci est un second test"
-          onClick={() => handleNavigation('/resume')}
+          iconPath={IconAuto}
+          iconAlt="Brutalism21"
+          text="BOT && AUTOMATION"
+          onClick={() => handleNavigation('/works/2')}
         />
       </div>
 
@@ -58,10 +63,10 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
         <SquareIcon
           className={className}
           title="SquareIcon"
-          iconPath={IconBrutalism}
-          iconAlt="Brutalism27"
-          text="Ceci est un troisième test"
-          onClick={() => handleNavigation('/resume')}
+          iconPath={IconSoftware}
+          iconAlt="Brutalism65"
+          text="SOFTWARE && ALGORITHM"
+          onClick={() => handleNavigation('/works/1')}
         />
       </div>
     </div>

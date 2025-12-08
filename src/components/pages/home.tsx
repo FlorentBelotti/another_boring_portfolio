@@ -10,6 +10,7 @@ import Introduction from '../fragments/home/bloc-2/introduction'
 import NextPage from '../fragments/home/bloc-2/nextPage'
 import Icons from '../fragments/home/bloc-2/icons'
 import PointCloudImage from '../animations/pointCloudImage'
+import { introduction } from '../../constants/contents';
 
 const SLIDES = WORKS_LIST.map(work => work.name)
 
@@ -47,11 +48,9 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
       <div onClick={onNextPage} style={{ cursor: 'pointer' }}>
         <NextPage />
       </div>
-      <Marquee speed={40} pauseOnHover className={styles.marquee}>
-        CECI EST UN TEST DE TEXTE ÉCRIS SUFFISAMMENT LONG
-      </Marquee>
+      <Marquee speed={40} pauseOnHover className={styles.marquee}> FULLSTACK DEVELOPER • DATA ENGINEER • CREATIVE DESIGNED • HISTORY ENJOYER • </Marquee>
       <Icons></Icons>
-      <Introduction text="v0.1.13 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
+      <Introduction text={introduction}/>
     </div>
   )
 

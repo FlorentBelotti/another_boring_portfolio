@@ -81,7 +81,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              borderRadius: '0.5rem'
+              // borderRadius: '0.5rem'
             }}
           />
           <div className={styles.emblaOverlay}>CLICK HERE TO SEE MY PROJECT PAGE</div>
