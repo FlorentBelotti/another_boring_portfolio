@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { WORKS_LIST } from '../../constants/works'
+import { introduction } from '../../constants/contents';
 
 import styles from './homeMobile.module.scss'
-
 import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
 import Contact from '../fragments/common/contact';
 import Introduction from '../fragments/home/bloc-2/introduction'
@@ -25,7 +25,7 @@ export default function HomeMobile({ onNextPage }: { onNextPage?: () => void } =
         slides={SLIDES} 
         autoplayDelay={4000}
       />
-      <Introduction text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." />
+      <Introduction text={introduction}/>
       <Contact />
       <div onClick={onNextPage} style={{ cursor: 'pointer' }}>
         <NextPage />

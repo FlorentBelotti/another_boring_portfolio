@@ -14,7 +14,16 @@ const Introduction: React.FC<IntroductionProps> = ({ text, className }) => {
       <SeparatorText title="AVANT-PROPOS" />
       
       <p className={styles.text}>
-        {text}
+        {text.split(/(<strong>.*?<\/strong>)/g).map((part, index) => {
+          if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+            return (
+              <span key={index} className={styles.highlight}>
+                {part.replace(/<\/?strong>/g, '')}
+              </span>
+            );
+          }
+          return part;
+        })}
       </p>
 
       <Separator />

@@ -16,6 +16,9 @@ import odlx_4 from '../assets/works/odlx_gap3.webp'
 import odlx_5 from '../assets/works/odlx_log.webp'
 import odlx_6 from '../assets/works/odlx_matching.webp'
 import odlx_7 from '../assets/works/odlx_rules.webp'
+import odlx_8 from '../assets/works/odlx_pilote1.webp'
+import odlx_9 from '../assets/works/odlx_pilote2.webp'
+import odlx_10 from '../assets/works/odlx_pilote3.webp'
 
 import minirt_1 from '../assets/works/minirt_eclipse.webp'
 import minirt_2 from '../assets/works/minirt_temple.webp'
@@ -32,52 +35,47 @@ export const WORKS_LIST = [
     company: "42",
     tag: "42",
     type: "Web application",
-    description: `Final project of the 42 curriculum: a real-time multiplayer Pong platform with tournaments, matchmaking, chat, profiles and 2FA. Built as a full SPA (JS) with a Django backend, PostgreSQL and WebSockets for live sync, plus monitoring and devops tooling.`,
-    role: "Full stack developer (backend Django, SPA JS, devsecops, user management)",
+    description: `<strong>Transcendence</strong> is the 42 final project: a <strong>SPA</strong> that hosts a <strong>real-time multiplayer</strong> Pong-inspired game with tournaments, matchmaking and profiles. Backend is <strong>Python/Django</strong>; frontend is a <strong>custom JavaScript SPA</strong>. Uses <strong>PostgreSQL</strong> and <strong>WebSockets</strong> for live games. <strong>Security</strong> (hashed passwords, JWT), <strong>containerization</strong> (Docker) and monitoring were considered from the start.`,
+    role: "Full stack developer (Django backend, vanilla JS SPA, devops)",
     technologies: [
       "Docker",
-      "Django", 
-      "JavaScript", 
-      "PostgreSQL", 
-      "WebSockets", 
-      "Redis", 
-      "JWT", 
-      "HashiCorp Vault", 
+      "Django",
+      "JavaScript",
+      "PostgreSQL",
+      "WebSockets",
+      "Redis",
+      "JWT",
+      "HashiCorp Vault",
       "Bootstrap"
     ],
     features: [
-      "Real-time multiplayer (classic Pong and Snake mode)",
-      "Server-side game engine",
-      "Organized tournaments with ranking and score management",
-      "Matchmaking and friend invitations",
-      "Strong authentication (2FA), OAuth42",
-      "Profile management, avatars, Elo statistics",
-      "User chat, invitation messaging",
-      "Dashboard with personal and global statistics",
-      "Mobile compatibility & responsive",
-      "GDPR account deletion",
-      "Monitoring & Prometheus metrics"
+      "• <strong>Real-time multiplayer</strong> (Pong & Snake modes)",
+      "• <strong>Server-side game engine</strong>",
+      "• <strong>Tournaments</strong> with ranking",
+      "• <strong>Matchmaking</strong> and friend invitations",
+      "• <strong>Profile management</strong> and Elo stats",
+      "• <strong>In-app chat</strong> and notifications",
+      "• <strong>Responsive UI</strong>"
     ],
     challenges: [
-      "Synchronizing games via WebSocket",
-      "Custom SPA without JS framework",
-      "OAuth42, JWT, and security integration",
-      "Microservices and containerization",
-      "Real-time latency and game state management",
-      "Strong frontend/back separation"
+      "• <strong>Reliable WebSocket synchronization</strong>",
+      "• <strong>Custom SPA</strong> without framework",
+      "• <strong>OAuth42 / JWT</strong> authentication flows",
+      "• <strong>Containerized deployment</strong> and monitoring",
+      "• <strong>Mitigating network latency</strong> for gameplay"
     ],
     screenshots: [tr_2, tr_2, tr_3, tr_4, tr_5, tr_6, tr_7, tr_8, tr_9, tr_10],
     sourceLink: "https://github.com/FlorentBelotti/42_cursus_ft_transcendence",
     demoLink: "",
     year: "2023",
     projectType: "School",
-    observation: `Team project combining real-time gameplay, strict security requirements and a full SPA/backend architecture.`,
+    observation: `This project taught me how to build an SPA from scratch and ship a full product under time pressure. <strong>Key wins:</strong> the custom SPA engine, robust backend, and a <strong>modular architecture</strong> that made features incremental and testable.`,
     tasks: [
-      "Backend Django development and API (User, Auth, Tournament, Games)",
-      "Native JS SPA, dynamic content loader, pages and animations",
-      "Security: password hash, JWT, GDPR, OAuth2",
-      "DevOps: Dockerization, monitoring, CI",
-      "Unit and functional testing"
+      "• <strong>Backend API</strong> for users, auth, tournaments and matches",
+      "• <strong>Frontend SPA engine</strong> and dynamic page loader",
+      "• Implement <strong>auth</strong> (OAuth42, JWT) and security measures",
+      "• <strong>Dockerize</strong> the app and add basic monitoring",
+      "• Write <strong>unit and integration tests</strong>"
     ]
   },
   {
@@ -87,44 +85,41 @@ export const WORKS_LIST = [
     company: "42",
     tag: "42",
     type: "Software",
-    description: `Minimalist RayTracer in C generating 3D images from .rt scenes. Implements intersections, lighting, shadows and procedural textures with miniLibX for rendering.`,
-    role: "Algorithm Developer (3D math, lighting, texture, low-level C)",
+    description: `<strong>MiniRT</strong> is a minimal <strong>ray tracer in C</strong> that renders scenes from .rt files using miniLibX. It implements <strong>ray-object intersections</strong> (spheres, planes, cylinders, cones), <strong>lighting</strong> (ambient/diffuse/specular), shadows and <strong>procedural textures</strong> (Perlin noise, checkerboard). The code is focused on <strong>performance</strong>, stability and strict <strong>memory handling</strong>.`,
+    role: "Algorithm developer (3D math, lighting, Perlin, C)",
     technologies: [
       "C",
       "miniLibX",
       "Libft",
       "Makefile",
-      "Git",
-      "Github"
+      "Git"
     ],
     features: [
-      "RayTracing for spheres, planes, cylinders, cones",
-      "Advanced lighting: ambient, diffuse, specular, shadows",
-      "Procedural textures (Perlin noise, checker, normal perturbation)",
-      "Event engine: moving camera, image loader, scene parser",
-      "Z-buffer for occlusion/depth",
-      "Complies with 42 programming standards",
-      "Multiple scene templates"
+      "• <strong>Ray tracing</strong> (spheres, planes, cylinders, cones)",
+      "• <strong>Ambient/diffuse/specular lighting</strong> and shadows",
+      "• <strong>Perlin noise</strong> and checkerboard patterns",
+      "• <strong>Camera controls</strong> and scene parser",
+      "• <strong>Z-buffering</strong> and multiple scene templates"
     ],
     challenges: [
-      "Low-level RayTracing: ray-object intersection in C",
-      "Lighting and realistic shadows with multiple sources",
-      "Procedural Perlin noise generation",
-      "Performance and robustness (memory leak fixes, multi-algo)",
-      "Custom scene parsing and error management"
+      "• <strong>Robust ray-object intersection</strong> math in C",
+      "• <strong>Accurate lighting</strong> and shadow computations",
+      "• Implementing <strong>Perlin noise</strong> procedurally",
+      "• <strong>Optimizing for performance</strong> and eliminating leaks",
+      "• <strong>Parsing varied scene file formats</strong>"
     ],
     screenshots: [minirt_1, minirt_2],
     sourceLink: "https://github.com/FlorentBelotti/42_cursus_miniRT",
     demoLink: "",
     year: "2024",
     projectType: "School",
-    observation: `Duo project focused on performance and rigorous C/math implementation for realistic rendering.`,
+    observation: `A project where <strong>mathematics and low-level C</strong> met to produce visual results. I particularly enjoyed implementing the <strong>ray-tracing core</strong> and the <strong>Perlin noise</strong> for richer surfaces.`,
     tasks: [
-      "Coding intersection and lighting algorithms",
-      "RayTracer implementation and optimization",
-      "Custom .rt file parsing and opening",
-      "Software quality & memory management",
-      "Creating scene templates & documentation"
+      "• <strong>Implement intersection</strong> and lighting routines",
+      "• Add <strong>Perlin noise</strong> and surface patterns",
+      "• <strong>Parser for .rt scenes</strong> and image output",
+      "• <strong>Profile and optimize</strong> for memory/performance",
+      "• <strong>Document scenes</strong> and usage"
     ]
   },
   {
@@ -134,8 +129,8 @@ export const WORKS_LIST = [
     company: "-",
     tag: "Side",
     type: "Bot",
-    description: `TypeScript Discord bot allowing virtual bets on LEC matches with live sync to Riot/PandaScore APIs, leaderboards, predictions and automated results.`,
-    role: "Lead Developer (API, Discord, data processing, points system)",
+    description: `<strong>NeverBetOnLEC</strong> is a <strong>TypeScript Discord bot</strong> for friendly betting on LEC matches. It polls match data (PandaScore / Riot), exposes <strong>slash commands</strong> to view and bet on matches, stores bets in <strong>SQLite</strong> and publishes <strong>announcements and leaderboards</strong> automatically.`,
+    role: "Lead developer (Discord bot, APIs, points system)",
     technologies: [
       "TypeScript",
       "Docker",
@@ -145,39 +140,34 @@ export const WORKS_LIST = [
       "PandaScore API",
       "Riot API",
       "Shell",
-      "Git",
-      "Github"
+      "Git"
     ],
     features: [
-      "Automated match data and announcements for LEC",
-      "Virtual betting on scores/winners before each match",
-      "Leaderboard & live-calculated points",
-      "Discord slash commands (/match, /current, /leaderboard, /ping, etc.)",
-      "Multi-environment detection/management (test/prod)",
-      "Persistent DB for users/bets/matches",
-      "Automated deployment and installation",
-      "Docker and Shell integration",
-      "Live result and points announcements"
+      "• <strong>Automated match fetching</strong> and announcements",
+      "• <strong>Slash commands</strong> for matches, current game and leaderboard",
+      "• <strong>Virtual betting</strong> with score/winner predictions",
+      "• <strong>Live leaderboard</strong> and points calculation",
+      "• <strong>Dockerized deployment</strong> and env-based config"
     ],
     challenges: [
-      "Real-time sync with score APIs",
-      "Automation of announcements and point calculations",
-      "Secure voting (one user = one bet per match)",
-      "Dynamic Discord command deployment",
-      "Software quality (strict TypeScript, robustness)"
+      "• <strong>Reliable polling and sync</strong> with external APIs",
+      "• <strong>Ensuring one bet per user</strong> and secure handling",
+      "• <strong>Announcing results</strong> and calculating points reliably",
+      "• <strong>Dynamic command deployment</strong> for test/prod environments",
+      "• <strong>Keeping TypeScript types</strong> and DB state consistent"
     ],
     screenshots: [bot_1, bot_2, bot_3],
     sourceLink: "https://github.com/romlambe/bot-lol-discord",
     demoLink: "",
     year: "2024",
     projectType: "Side project",
-    observation: `Project combining API automation, event handling and community interaction through Discord.`,
+    observation: `Built for the 2025 Worlds to engage a community; the bot was quick to become functional and is evolving. <strong>Top takeaways:</strong> reliable API integration and a working points system kept users engaged.`,
     tasks: [
-      "Development of all Discord commands/interactivity",
-      "Integration and polling with Riot Games & PandaScore APIs",
-      "TypeScript architecture, SQLite database management",
-      "Automated points calculation, leaderboard, and announcements",
-      "Docker/Shell deployment, CI/CD"
+      "• <strong>Implement slash commands</strong> and interactions",
+      "• <strong>Poll PandaScore / Riot</strong> and store matches",
+      "• <strong>Design betting workflow</strong> and DB schema",
+      "• <strong>Automate announcements</strong> and scoring",
+      "• <strong>Setup Docker-based deployment</strong>"
     ]
   },
   {
@@ -187,47 +177,39 @@ export const WORKS_LIST = [
     company: "-",
     tag: "Side",
     type: "Data Application",
-    description: `Python tool exploring French electoral data (1958–2012) with filtering, statistics and charts, using automated data retrieval from data.gouv.fr.`,
-    role: "Lead developer",
+    description: `<strong>Huginn</strong> is a <strong>Python CLI tool</strong> that downloads legislative election data from data.gouv.fr (1958–2012), extracts CSVs, filters by year/department/district and displays stats like turnout and candidate shares. It also generates <strong>charts for comparisons</strong> between rounds.`,
+    role: "Lead developer (data pipeline & visualization)",
     technologies: [
       "Python",
-      "Docker",
       "pandas",
       "matplotlib",
       "requests",
-      "data.gouv.fr API",
-      "Sqlite",
-      "Git",
-      "Github"
+      "data.gouv.fr API"
     ],
     features: [
-      "Download and extract official data from data.gouv.fr",
-      "Interactive filtering by year, department, district",
-      "Display of electoral statistics (turnout, abstention, scores, ...)",
-      "Round comparison",
-      "CLI and chart visualizations",
-      "Advanced CSV parsing",
-      "Error and file naming management"
+      "• <strong>Download and extract</strong> official archives",
+      "• <strong>Interactive filters</strong> by year/department/district",
+      "• <strong>Turnout and candidate results</strong> display",
+      "• <strong>Round comparisons</strong> and chart exports",
+      "• <strong>Robust CSV parsing</strong> and error handling"
     ],
     challenges: [
-      "Automated access/extraction for official archives",
-      "Robust/flexible CSV parsing across formats",
-      "CLI interactivity for data exploration",
-      "Handling diversity of years/elections",
-      "Software quality and user-flow error management"
+      "• <strong>Automating downloads</strong> and archive extraction",
+      "• <strong>Parsing inconsistent CSV formats</strong> across years",
+      "• Designing a <strong>smooth CLI flow</strong> for exploration",
+      "• Ensuring <strong>reproducible charts</strong> and file handling"
     ],
     screenshots: [],
     sourceLink: "https://github.com/Rrodor/huginn",
     demoLink: "",
     year: "2023",
     projectType: "Side project",
-    observation: `Showcases a full data pipeline: acquisition, cleaning, exploration and visualization.`,
+    observation: `Started as a student tool to make election data accessible; it's a <strong>citizen-focused</strong>, <strong>open-source</strong> collector that deals with messy public datasets from <strong>data.gouv</strong>. I plan to expose it via a simple web UI next.`,
     tasks: [
-      "Automated data download, parsing and structuring",
-      "CLI interface development",
-      "Analysis and visualization of election results",
-      "File/workflow management evolution",
-      "Creation of chart modules"
+      "• <strong>Automate download</strong>, extraction and CSV loading",
+      "• Add <strong>CLI prompts</strong> and interactive filters",
+      "• Implement <strong>charting modules</strong> for exports",
+      "• <strong>Harden parsing</strong> and error recovery"
     ]
   },
   {
@@ -237,45 +219,42 @@ export const WORKS_LIST = [
     company: "-",
     tag: "Side",
     type: "Web application",
-    description: `Personal portfolio built with React/TS and SCSS, featuring dynamic project listing, smooth navigation, responsive layout and a modular structure for easy content updates.`,
-    role: "Fullstack developer && data engineer",
+    description: `<strong>Personal portfolio</strong> built with <strong>TypeScript, React and SCSS</strong> to showcase projects, skills and experience. It uses a <strong>modular data structure</strong> for projects, a <strong>minimal typographic design</strong>, responsive layout and light animations for clarity.`,
+    role: "Fullstack developer & product owner",
     technologies: [
       "TypeScript",
       "React",
       "SCSS",
       "Vite",
-      "Embla carrousel",
+      "Embla carousel",
       "Radix UI",
-      "Framermotion",
+      "Framer Motion",
       "Git",
-      "Docker",
+      "Docker"
     ],
     features: [
-      "Dynamic listing of both my professionnal and side projects",
-      "My resume",
-      "Modern typographic and a brutalist/ post modern approach of it design",
-      "Mobile responsive",
-      "Animations",
+      "• <strong>Dynamic project listing</strong> from constants",
+      "• <strong>Resume and project pages</strong>",
+      "• <strong>Minimal typographic design</strong> and responsive layout",
+      "• <strong>Light animations</strong> and theme support"
     ],
     challenges: [
-      "Modularity",
-      "Responsive",
-      "Scalability",
-      "Design"
+      "• <strong>Keeping components modular</strong> and typed",
+      "• <strong>Responsive design</strong> and accessibility",
+      "• Maintaining a <strong>small, dependency-light stack</strong>",
+      "• Designing an <strong>extendable content model</strong>"
     ],
     screenshots: [],
     sourceLink: "https://github.com/FlorentBelotti/another_boring_portfolio",
     demoLink: "https://florentbelotti.github.io/another_boring_portfolio/",
     year: "2024",
     projectType: "Personal",
-    observation: `A technical and design showcase used to experiment with React/TS patterns.`,
+    observation: `The portfolio is my <strong>technical showcase</strong> and an experimental playground for React/TS patterns. It balances a clean design with practical maintainability and easy content updates.`,
     tasks: [
-      "React/TypeScript conception and development",
-      "Architecture",
-      "Three blocks layout", 
-      "Responsive, accessibility",
-      "Continuous deployment and improvement",
-      "Design"
+      "• <strong>Implement React/TypeScript components</strong> and data model",
+      "• Design <strong>responsive layouts</strong> and accessibility",
+      "• Integrate <strong>animations and carousel</strong>",
+      "• <strong>Deploy and iterate</strong> content"
     ]
   },
   {
@@ -285,48 +264,41 @@ export const WORKS_LIST = [
     company: "RTE",
     tag: "Pro",
     type: "Business application",
-    description: `Business application for aggregating and monitoring RTE’s GIS and asset data. Built with Django/Angular, offering dashboards, discrepancy tracking, data manipulation and integration with internal RTE services.`,
-    role: "Full stack developer && Data engineer",
+    description: `<strong>Odelix</strong> aggregates RTE GIS asset data from cloud sources, computes discrepancies and exposes <strong>dashboards</strong> for operational teams and managers to monitor and edit data state. The app connects to <strong>RTE platforms</strong> and supports reporting workflows.`,
+    role: "Full stack developer & data engineer",
     technologies: [
       "Docker",
       "Django",
       "Angular",
       "Oracle",
-      "Typescript",
-      "Angular material",
-      "Echarts",
-      "Gitlab",
-      "Git",
+      "TypeScript",
+      "Angular Material",
+      "ECharts",
+      "GitLab"
     ],
     features: [
-      "Aggregation of RTE asset GIS data",
-      "Connection with the RTE environment (DEVIN)",
-      "Data storage on the RTE cloud",
-      "Data monitoring (Dashboard with Echarts)",
-      "Data manipulation",
-      "Data linking with other RTE services (OPTIMISCO)"
+      "• <strong>Aggregation and normalization</strong> of GIS asset data",
+      "• <strong>Dashboards with ECharts</strong> for monitoring",
+      "• <strong>Data editing workflows</strong> and state propagation",
+      "• <strong>Integration with RTE services</strong> and cloud storage"
     ],
     challenges: [
-      "Getting familiar with the RTE environment (INCA, DEVIN, WIPILICK, OPTIMISCO)",
-      "Developing components capable of aggregating large amounts of data",
-      "Fluidity",
-      "Execution speed and component optimization for business use",
-      "Collaborative work with other RTE services",
-      "Workflow with MR validation and ticket management"
+      "• <strong>Adapting to RTE internal platforms</strong> and policies",
+      "• <strong>Processing and aggregating large datasets</strong>",
+      "• <strong>Optimizing performance</strong> for business UIs",
+      "• <strong>Coordinating with multiple teams</strong> and tools"
     ],
-    screenshots: [odlx_1, odlx_2, odlx_3, odlx_4, odlx_5, odlx_6, odlx_7],
+    screenshots: [odlx_1, odlx_2, odlx_3, odlx_4, odlx_5, odlx_6, odlx_7, odlx_8, odlx_9, odlx_10],
     sourceLink: "",
     demoLink: "https://odelix.rte-france.com/",
     year: "2025",
     projectType: "Pro",
-    observation: `Introduction to Angular and to RTE’s complex engineering environment, involving many internal tools and strict workflows.`,
+    observation: `Working at RTE exposed me to a <strong>demanding enterprise environment</strong> and many internal services. I learned Angular and TypeScript while navigating complex integrations across RTE platforms.`,
     tasks: [
-      "Development of the data managers’ dashboard",
-      "Refactoring of the main data aggregation table",
-      "Creation of new backend rules for data management",
-      "Refactoring of the export feature (optimization)",
-      "Creation of new tables and links to handle new imports resulting from the evolution of RTE data",
-      "Design and development of new charts for chronological data visualization"
+      "• <strong>Develop dashboards</strong> and data aggregation components",
+      "• <strong>Refactor large tables</strong> and optimize exports",
+      "• <strong>Implement backend rules</strong> for new imports",
+      "• <strong>Design visualization</strong> for chronological data"
     ]
-  },
+  }
 ]

@@ -48,7 +48,16 @@ export default function ProjectAccordion({ projects }: { projects: Project[] }) 
               className={resumeStyles.AccordionContent}
             >
               <div className={classNames(resumeStyles.AccordionContentText, styles.contentRight)} style={{ whiteSpace: 'pre-line' }}>
-                {project.details}
+                {project.details?.split(/(<strong>.*?<\/strong>)/g).map((part, index) => {
+                  if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+                    return (
+                      <span key={index} className={styles.highlight}>
+                        {part.replace(/<\/?strong>/g, '')}
+                      </span>
+                    );
+                  }
+                  return part;
+                })}
               </div>
             </Accordion.Content>
           </Accordion.Item>

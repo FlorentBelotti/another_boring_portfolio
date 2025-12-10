@@ -74,15 +74,23 @@ h3 {
     font-weight: $font-weight-semibold;
     line-height: $line-height-amarante-resume;
 
+    @media (max-width: 1600px) {
+      font-size: $font-size-lg;
+    }
+
     @media (max-width: 768px) {
         font-size: $font-size-lg;
     }
 }
 
 .meta {
-    font-size: $font-size-sm;
+    font-size: $font-size-lg;
     color: $color-text;
     margin-top: $spacing-xs;
+
+    @media (max-width: 1600px) {
+      font-size: $font-size-sm;
+    }
 
     @media (max-width: 768px) {
         font-size: $font-size-xs;
@@ -92,9 +100,13 @@ h3 {
 .AccordionContent {
     overflow: hidden;
     background-color: transparent;
-    font-size: $font-size-sm;
+    font-size: $font-size-lg;
     color: $color-text;
     font-family: $font-display;
+
+    @media (max-width: 1600px) {
+      font-size: $font-size-sm;
+    }
 
     @media (max-width: 768px) {
         font-size: $font-size-xs;
@@ -116,7 +128,11 @@ h3 {
     border-bottom: none;
     padding: 0 $spacing-xs;
     margin-top: $spacing-xs;
-    font-size: $font-size-sm;
+    font-size: $font-size-lg;
+
+    @media (max-width: 1600px) {
+      font-size: $font-size-sm;
+    }
 
     @media (max-width: 768px) {
         font-size: $font-size-xs;

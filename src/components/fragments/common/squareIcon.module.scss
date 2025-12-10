@@ -90,10 +90,14 @@
 }
 
 .text {
-  font-family: $font-display;
+  font-family: $font-heading;
   @include gradient-title($gradient-text);
-  font-size: $font-size-sm;
+  font-size: $font-size-lg;
   transition: all $transition-normal;
+
+  @media (max-width: 1600px) {
+    font-size: $font-size-sm;
+  }
 }
 
 .container:hover .text {

@@ -1,5 +1,5 @@
 import styles from './logo.module.scss'
-import nero from '../../../../assets/images/img_nero_new.png'
+import nero from '../../../../assets/images/Nero.webp'
 import PointCloudImage from '../../../animations/pointCloudImage'
 import Eye from './eye'
 

@@ -20,5 +20,5 @@
   position: absolute;
   pointer-events: none;
 
-  background-color: $color-accent;
+  @include gradient-background($color-accent);
 }

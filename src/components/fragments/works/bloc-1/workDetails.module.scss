@@ -30,6 +30,10 @@
   font-size: $font-size-lg;
   margin-right: $spacing-xs;
   font-family: $font-heading;
+
+  @media (max-width: 1600px) {
+    font-size: $font-size-sm;
+  }
 }
 
 .detailValue {
@@ -38,5 +42,9 @@
   grid-column: 2;
   vertical-align: middle;
   font-family: $font-display;
-  font-size: $font-size-sm;
+  font-size: $font-size-lg;
+
+  @media (max-width: 1600px) {
+    font-size: $font-size-sm;
+  }
 }

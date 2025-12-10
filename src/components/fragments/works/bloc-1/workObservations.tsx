@@ -12,7 +12,16 @@ const WorkObservation: React.FC<WorkObservationProps> = ({ observation, classNam
     <div className={`${styles.introduction} ${className || ''}`}>
       <SeparatorText title="OBSERVATION" />
       <p className={styles.text}>
-        {observation}
+        {observation.split(/(<strong>.*?<\/strong>)/g).map((part, index) => {
+          if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+            return (
+              <span key={index} className={styles.highlight}>
+                {part.replace(/<\/?strong>/g, '')}
+              </span>
+            );
+          }
+          return part;
+        })}
       </p>
     </div>
   );

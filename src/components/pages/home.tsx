@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './home.module.scss'
 import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
 import Marquee from "react-fast-marquee";
-import building from '../../assets/images/img_brutal_build.jpg'
+import seneca from '../../assets/images/Seneca.webp'
 import { WORKS_LIST } from '../../constants/works'
 import Logo from '../fragments/home/bloc-1/logo'
 import Contact from '../fragments/common/contact';
@@ -36,7 +36,7 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
   const centerBlock = (
     <div className={styles.block}>
-      <PointCloudImage src={building}
+      <PointCloudImage src={seneca}
           particleSize={3}
           particleStep={8}
           mouseRadius={3000}/>

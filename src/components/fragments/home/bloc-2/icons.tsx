@@ -54,7 +54,7 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
           title="SquareIcon"
           iconPath={IconAuto}
           iconAlt="Brutalism21"
-          text="BOT && AUTOMATION"
+          text="BOT & AUTOMATION"
           onClick={() => handleNavigation('/works/2')}
         />
       </div>
@@ -65,7 +65,7 @@ const Icons: React.FC<IconsProps> = ({ className }) => {
           title="SquareIcon"
           iconPath={IconSoftware}
           iconAlt="Brutalism65"
-          text="SOFTWARE && ALGORITHM"
+          text="SOFTWARE & ALGORITHM"
           onClick={() => handleNavigation('/works/1')}
         />
       </div>

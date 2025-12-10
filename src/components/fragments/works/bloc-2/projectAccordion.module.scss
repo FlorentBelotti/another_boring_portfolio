@@ -32,3 +32,10 @@
   text-align: right;
   margin-top: $spacing-xs;
 }
+
+.highlight {
+  font-family: $font-heading;
+  font-size: 1.3em;
+  color: $color-accent;
+  display: inline;
+}

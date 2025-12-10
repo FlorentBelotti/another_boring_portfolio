@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import styles from './resume.module.scss'
 
-import me from '../../assets/photos/me_2.png'
+import me from '../../assets/photos/Me.webp'
 
 import PointCloudImage from '../animations/pointCloudImage'
 import SeeProject from '../fragments/resume/bloc-3/seeProject';

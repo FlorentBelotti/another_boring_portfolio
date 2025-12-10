@@ -9,15 +9,25 @@
 
 .text {
   font-family: $font-display;
-  font-size: $font-size-sm;
+  font-size: $font-size-lg;
   @include gradient-title($gradient-text);
   text-align: justify;
-  line-height: $line-height-relaxed;
   padding: 0 $spacing-md;
   margin-bottom: 0;
+
+  @media (max-width: 1600px) {
+    font-size: $font-size-sm;
+  }
 
   @media (max-width: 768px) {
     font-size: $font-size-xs;
     padding: 0 $spacing-sm;
   }
+}
+
+.highlight {
+  font-family: $font-heading;
+  font-size: 1.3em;
+  color:$color-accent;
+  display: inline;
 }

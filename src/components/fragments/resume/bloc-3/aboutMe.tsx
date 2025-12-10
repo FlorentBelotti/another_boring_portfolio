@@ -15,7 +15,16 @@ const AboutMe: React.FC<AboutMeProps> = ({ text, className }) => {
       <SeparatorText title="ABOUT ME" />
       
       <p className={styles.text}>
-        {textContent}
+        {textContent.split(/(<strong>.*?<\/strong>)/g).map((part, index) => {
+          if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+            return (
+              <span key={index} className={styles.highlight}>
+                {part.replace(/<\/?strong>/g, '')}
+              </span>
+            );
+          }
+          return part;
+        })}
       </p>
 
     </div>

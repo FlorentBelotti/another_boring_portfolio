@@ -11,19 +11,9 @@ import AboutMe from '../fragments/resume/bloc-3/aboutMe';
 import { LOREM } from '../../constants/texts';
 import Summary from '../fragments/resume/bloc-3/summary';
 import ExperienceAccordion from '../fragments/resume/bloc-2/experienceAccordion';
-
-  const experiences = [
-    { date: '2023 — 2025', title: 'Senior Frontend Engineer', company: 'Acme Corp', pole: 'Web', details: "Conception et maintenance d'interfaces React; optimisation des performances; mentoring d'équipe." },
-    { date: '2021 — 2023', title: 'Frontend Engineer', company: 'Beta Studio', pole: 'UI/UX', details: "Refonte UI, amélioration de l'accessibilité, mise en place de tests et workflows CI." },
-    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
-    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
-  ];
-
-  const formations = [
-    { date: '2023 — 2025', title: 'Senior Frontend Engineer', company: 'Acme Corp', pole: 'Web', details: "Conception et maintenance d'interfaces React; optimisation des performances; mentoring d'équipe." },
-    { date: '2021 — 2023', title: 'Frontend Engineer', company: 'Beta Studio', pole: 'UI/UX', details: "Refonte UI, amélioration de l'accessibilité, mise en place de tests et workflows CI." },
-    { date: '2019 — 2021', title: 'Junior Developer', company: 'Gamma Labs', pole: 'Fullstack', details: "Développement de features, intégration d'API Node.js et déploiements automatisés." },
-  ];
+import { experiences } from '../../constants/experiences';
+import { formations } from '../../constants/formations';
+import { aboutMe } from '../../constants/contents';
 
 export default function ResumeMobile({ onSeeProject }: { onSeeProject?: () => void } = {}) {
 
@@ -42,7 +32,7 @@ export default function ResumeMobile({ onSeeProject }: { onSeeProject?: () => vo
           particleStep={12}
           mouseRadius={3000}/>
         </div>
-        <AboutMe text={LOREM}></AboutMe>
+        <AboutMe text={aboutMe}></AboutMe>
         <Summary></Summary>
         <Contact></Contact>
         <div className={styles.experiencesContainer}>
@@ -51,7 +41,7 @@ export default function ResumeMobile({ onSeeProject }: { onSeeProject?: () => vo
         </div>
         <div className={styles.experiencesContainer}>
           <h2>FORMATIONS</h2>
-          <ExperienceAccordion experiences={formations} ></ExperienceAccordion>
+            <ExperienceAccordion experiences={formations} ></ExperienceAccordion>
         </div>
         <div onClick={onSeeProject} style={{ cursor: 'pointer' }}>
           <SeeProject />

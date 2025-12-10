@@ -28,12 +28,15 @@
 
 .center {
   justify-content: flex-start;
-  overflow: visible;
+  overflow-y: auto;
   gap: $spacing-lg;
   align-items: flex-start;
+  max-height: 100vh;
 
   @media (max-width: 768px) {
     gap: $spacing-xl;
+    max-height: none;
+    overflow-y: visible;
   }
 }
 
