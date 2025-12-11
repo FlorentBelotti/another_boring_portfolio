@@ -11,12 +11,15 @@ import NextPage from '../fragments/home/bloc-2/nextPage'
 import Icons from '../fragments/home/bloc-2/icons'
 import PointCloudImage from '../animations/pointCloudImage'
 import { introduction } from '../../constants/contents';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 const SLIDES = WORKS_LIST.map(work => work.name)
 
 export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
   const [_isFirefox, setIsFirefox] = useState(false)
+  const isSmallScreen = useIsMobile(1600)
+  console.log({isSmallScreen});
 
   useEffect(() => {
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
@@ -36,9 +39,11 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
 
   const centerBlock = (
     <div className={styles.block}>
-      <PointCloudImage src={seneca}
-          particleSize={3}
-          particleStep={8}
+            <PointCloudImage 
+          key={isSmallScreen ? 'mobile' : 'desktop'}
+          src={seneca}
+          particleSize={isSmallScreen ? 5 : 3}
+          particleStep={isSmallScreen ? 6 : 5}
           mouseRadius={3000}/>
     </div>
   )

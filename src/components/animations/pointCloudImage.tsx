@@ -51,6 +51,8 @@ export default function PointCloudImage({
       const img = loadedImageRef.current;
       if (!img) return;
 
+      if (canvas.width === 0 || canvas.height === 0) return;
+
       // Draw image to temp canvas
       const tempCanvas = document.createElement('canvas');
       tempCanvas.width = canvas.width;
