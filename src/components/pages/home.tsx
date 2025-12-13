@@ -1,63 +1,71 @@
-import { useEffect, useState } from 'react';
-import styles from './home.module.scss'
-import EmblaCarousel from '../fragments/home/bloc-1/emblaCarousel'
+import { useEffect, useState } from "react";
+import styles from "./home.module.scss";
+import EmblaCarousel from "../fragments/home/bloc-1/emblaCarousel";
 import Marquee from "react-fast-marquee";
-import seneca from '../../assets/images/Seneca.webp'
-import { WORKS_LIST } from '../../constants/works'
-import Logo from '../fragments/home/bloc-1/logo'
-import Contact from '../fragments/common/contact';
-import Introduction from '../fragments/home/bloc-2/introduction'
-import NextPage from '../fragments/home/bloc-2/nextPage'
-import Icons from '../fragments/home/bloc-2/icons'
-import PointCloudImage from '../animations/pointCloudImage'
-import { introduction } from '../../constants/contents';
-import { useIsMobile } from '../../hooks/useIsMobile';
+// import seneca from "../../assets/images/Seneca.webp";
+import building from "../../assets/images/building.webp";
+import { WORKS_LIST } from "../../constants/works";
+import Logo from "../fragments/home/bloc-1/logo";
+import Contact from "../fragments/common/contact";
+import Introduction from "../fragments/home/bloc-2/introduction";
+import NextPage from "../fragments/home/bloc-2/nextPage";
+import Icons from "../fragments/home/bloc-2/icons";
+import PointCloudImage from "../animations/pointCloudImage";
+import { introduction } from "../../constants/contents";
+import { useIsMobile } from "../../hooks/useIsMobile";
+import {
+  particleSize,
+  particleSizeLabtop,
+  particleStep,
+  particleStepLabtop,
+} from "../../constants/var";
 
-const SLIDES = WORKS_LIST.map(work => work.name)
+const SLIDES = WORKS_LIST.map((work) => work.name);
 
 export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
-
-  const [_isFirefox, setIsFirefox] = useState(false)
-  const isSmallScreen = useIsMobile(1600)
-  console.log({isSmallScreen});
+  const [_isFirefox, setIsFirefox] = useState(false);
+  const isSmallScreen = useIsMobile(1600);
+  console.log({ isSmallScreen });
 
   useEffect(() => {
-    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
-    setIsFirefox(/firefox/i.test(ua))
-  }, []) 
+    const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+    setIsFirefox(/firefox/i.test(ua));
+  }, []);
 
   const leftBlock = (
     <div className={styles.block}>
       <Logo />
-      <EmblaCarousel 
-        slides={SLIDES} 
-        autoplayDelay={4000}
-      />
+      <EmblaCarousel slides={SLIDES} autoplayDelay={4000} />
       <Contact />
     </div>
-  )
+  );
 
   const centerBlock = (
     <div className={styles.block}>
-            <PointCloudImage 
-          key={isSmallScreen ? 'mobile' : 'desktop'}
-          src={seneca}
-          particleSize={isSmallScreen ? 5 : 3}
-          particleStep={isSmallScreen ? 6 : 5}
-          mouseRadius={3000}/>
+      <PointCloudImage
+        key={isSmallScreen ? "mobile" : "desktop"}
+        src={building}
+        particleSize={isSmallScreen ? particleSizeLabtop : particleSize}
+        particleStep={isSmallScreen ? particleStepLabtop : particleStep}
+        mouseRadius={3000}
+      />
     </div>
-  )
+  );
 
   const rightBlock = (
     <div className={styles.block}>
-      <div onClick={onNextPage} style={{ cursor: 'pointer' }}>
+      <div onClick={onNextPage} style={{ cursor: "pointer" }}>
         <NextPage />
       </div>
-      <Marquee speed={40} pauseOnHover className={styles.marquee}> FULLSTACK DEVELOPER • DATA ENGINEER • CREATIVE DESIGNED • HISTORY ENJOYER • </Marquee>
+      <Marquee speed={40} pauseOnHover className={styles.marquee}>
+        {" "}
+        FULLSTACK DEVELOPER • DATA ENGINEER • CREATIVE DESIGNED • HISTORY
+        ENJOYER •{" "}
+      </Marquee>
       <Icons></Icons>
-      <Introduction text={introduction}/>
+      <Introduction text={introduction} />
     </div>
-  )
+  );
 
-  return { leftBlock, centerBlock, rightBlock }
+  return { leftBlock, centerBlock, rightBlock };
 }

@@ -4,12 +4,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  --slide-height: 19rem;
   --slide-size: 100%;
   gap: $spacing-sm;
 
   @media (max-width: 768px) {
-    --slide-height: 15rem;
     gap: $spacing-xs;
   }
 }
@@ -17,6 +15,7 @@
 .embla__viewport { @include gradient-border();
   flex: 1;
   overflow: hidden;
+  aspect-ratio: 4/3;
 
   @media (max-width: 768px) {
     border-width: 2px;
@@ -70,6 +69,7 @@
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
+  height: 100%;
   margin-left: 0;
 
   @media (max-width: 768px) {
@@ -81,6 +81,7 @@
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   min-width: 0;
+  height: 100%;
   padding-left: 0;
   position: relative;
 }
@@ -97,7 +98,7 @@
   font-size: $font-size-4xl;
   font-weight: $font-weight-semibold;
   font-family: $font-heading;
-  height: var(--slide-height);
+  height: 100%;
 
   @media (max-width: 768px) {
     font-size: $font-size-2xl;

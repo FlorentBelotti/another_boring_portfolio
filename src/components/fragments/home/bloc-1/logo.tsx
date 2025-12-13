@@ -1,29 +1,41 @@
-import styles from './logo.module.scss'
-import nero from '../../../../assets/images/Nero.webp'
-import PointCloudImage from '../../../animations/pointCloudImage'
-import Eye from './eye'
+import styles from "./logo.module.scss";
+import nero from "../../../../assets/images/Nero.webp";
+import PointCloudImage from "../../../animations/pointCloudImage";
+import Eye from "./eye";
+import { useIsMobile } from "../../../../hooks/useIsMobile";
+import {
+  particleSize,
+  particleSizeLabtop,
+  particleStep,
+  particleStepLabtop,
+} from "../../../../constants/var";
 
 export default function Logo() {
+  const isSmallScreen = useIsMobile(1600);
+
   return (
     <div className={styles.logo_container}>
-        <div className={styles.img_container}>
-            <PointCloudImage src={nero}
-            particleSize={2}
-            particleStep={5}
-            mouseRadius={3000}/>
+      <div className={styles.img_container}>
+        <PointCloudImage
+          key={isSmallScreen ? "mobile" : "desktop"}
+          src={nero}
+          particleSize={isSmallScreen ? particleSizeLabtop : particleSize}
+          particleStep={isSmallScreen ? particleStepLabtop : particleStep}
+          mouseRadius={3000}
+        />
+      </div>
+      <div className={styles.logo_title}>
+        <div className={styles.logo_title_1}>
+          <div className={styles.logo_title_1_text}>
+            <div className={styles.text_1_1}> ANOTHER </div>
+            <div className={styles.text_1_2}> BORING </div>
+          </div>
+          <div className={styles.eye}>
+            <Eye />
+          </div>
         </div>
-        <div className={styles.logo_title}>
-            <div className={styles.logo_title_1}>
-              <div className={styles.logo_title_1_text}>
-                <div className={styles.text_1_1}> ANOTHER </div>
-                <div className={styles.text_1_2}> BORING </div>
-              </div>
-                <div className={styles.eye}>
-                  <Eye />
-                </div>
-            </div>
-            <div className={styles.text_2}>PORTFOLIO</div>
-        </div>
+        <div className={styles.text_2}>PORTFOLIO</div>
+      </div>
     </div>
-  )
+  );
 }
