@@ -30,6 +30,7 @@
     transform: scale(1.12);
     background-color: $color-bg;
     box-shadow: 0 0 8px $color-accent, 0 0 16px $color-accent;
+    cursor: pointer;
     z-index: 2;
   }
 
@@ -40,7 +41,7 @@
   }
 }
 
-.icon { 
+.icon {
   @include gradient-title($gradient-accent);
   width: 60%;
   height: 60%;
