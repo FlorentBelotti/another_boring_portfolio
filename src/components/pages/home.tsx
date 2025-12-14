@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./home.module.scss";
 import EmblaCarousel from "../fragments/home/bloc-1/emblaCarousel";
 import Marquee from "react-fast-marquee";
-// import seneca from "../../assets/images/Seneca.webp";
-import building from "../../assets/images/building.webp";
+import seneca from "../../assets/images/Seneca.webp";
+// import building from "../../assets/images/building.webp";
 import { WORKS_LIST } from "../../constants/works";
 import Logo from "../fragments/home/bloc-1/logo";
 import Contact from "../fragments/common/contact";
@@ -44,7 +44,7 @@ export default function Home({ onNextPage }: { onNextPage?: () => void } = {}) {
     <div className={styles.block}>
       <PointCloudImage
         key={isSmallScreen ? "mobile" : "desktop"}
-        src={building}
+        src={seneca}
         particleSize={isSmallScreen ? particleSizeLabtop : particleSize}
         particleStep={isSmallScreen ? particleStepLabtop : particleStep}
         mouseRadius={3000}
