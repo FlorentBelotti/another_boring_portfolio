@@ -107,7 +107,8 @@
   }
 }
 
-.nav { @include flex-row($spacing-xl);
+.nav {
+  @include flex-row($spacing-xl);
   align-items: center;
 
   @media (max-width: 768px) {
@@ -194,7 +195,7 @@
 
 .neonUnderline {
   @include neon-underline($color-accent);
-  
+
 }
 
 .neonGlow {
