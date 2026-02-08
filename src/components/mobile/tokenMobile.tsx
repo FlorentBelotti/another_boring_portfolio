@@ -6,25 +6,14 @@ import { NFT_CONTRACT_ADDRESS } from "../../contracts/NFTContract";
 export default function TokenMobile() {
   const [recipientAddress, setRecipientAddress] = useState("");
   const [metadataUri, setMetadataUri] = useState(
-    "ipfs://bafybeih6gu7caabyc4nzkz72tfsn4v7s5mupkk5ffrl3rhyuvjks55knq4",
+    "ipfs://bafkreidfsarcwuobdocbfbfeiflwbwkltnxdkh2jq6upswthwq5ahkj4c4",
   );
-  const [name, setName] = useState("42 Art by fbelotti");
-  const [imageIPFS, setImageIPFS] = useState(
-    "bafybeih6gu7caabyc4nzkz72tfsn4v7s5mupkk5ffrl3rhyuvjks55knq4",
-  );
-  const [mintType, setMintType] = useState<"uri" | "metadata">("uri");
   const [status, setStatus] = useState("");
   const [totalSupply, setTotalSupply] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {
-    account,
-    isConnected,
-    connectWallet,
-    mintNFT,
-    mintWithMetadata,
-    getTotalSupply,
-  } = useWeb3();
+  const { account, isConnected, connectWallet, mintNFT, getTotalSupply } =
+    useWeb3();
 
   useEffect(() => {
     if (isConnected) {
@@ -49,21 +38,10 @@ export default function TokenMobile() {
     setStatus("Minting in progress...");
 
     try {
-      if (mintType === "uri") {
-        const receipt = await mintNFT(recipientAddress, metadataUri);
-        setStatus(
-          `✅ NFT minted successfully! Tx: ${receipt?.hash?.slice(0, 10) || "completed"}...`,
-        );
-      } else {
-        const receipt = await mintWithMetadata(
-          recipientAddress,
-          name,
-          imageIPFS,
-        );
-        setStatus(
-          `✅ NFT minted successfully! Tx: ${receipt?.hash?.slice(0, 10) || "completed"}...`,
-        );
-      }
+      const receipt = await mintNFT(recipientAddress, metadataUri);
+      setStatus(
+        `✅ NFT minted successfully! Tx: ${receipt?.hash?.slice(0, 10) || "completed"}...`,
+      );
 
       await loadTotalSupply();
       setRecipientAddress("");
@@ -116,21 +94,6 @@ export default function TokenMobile() {
               </p>
             </div>
 
-            <div className={styles.typeSelector}>
-              <button
-                className={`${styles.typeButton} ${mintType === "uri" ? styles.active : ""}`}
-                onClick={() => setMintType("uri")}
-              >
-                Mint with URI
-              </button>
-              <button
-                className={`${styles.typeButton} ${mintType === "metadata" ? styles.active : ""}`}
-                onClick={() => setMintType("metadata")}
-              >
-                Mint with Metadata
-              </button>
-            </div>
-
             <div className={styles.form}>
               <div className={styles.inputGroup}>
                 <label htmlFor="recipient">Recipient Address</label>
@@ -144,54 +107,23 @@ export default function TokenMobile() {
                 />
               </div>
 
-              {mintType === "uri" ? (
-                <div className={styles.inputGroup}>
-                  <label htmlFor="uri">Metadata URI</label>
-                  <input
-                    id="uri"
-                    type="text"
-                    placeholder="ipfs://..."
-                    value={metadataUri}
-                    onChange={(e) => setMetadataUri(e.target.value)}
-                    className={styles.input}
-                  />
-                  <p className={styles.hint}>Default IPFS metadata provided</p>
-                </div>
-              ) : (
-                <>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor="name">NFT Name</label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="42 Art by fbelotti"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor="ipfs">Image IPFS Hash</label>
-                    <input
-                      id="ipfs"
-                      type="text"
-                      placeholder="bafybeih..."
-                      value={imageIPFS}
-                      onChange={(e) => setImageIPFS(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                </>
-              )}
+              <div className={styles.inputGroup}>
+                <label htmlFor="uri">Metadata URI (IPFS)</label>
+                <input
+                  id="uri"
+                  type="text"
+                  placeholder="ipfs://..."
+                  value={metadataUri}
+                  onChange={(e) => setMetadataUri(e.target.value)}
+                  className={styles.input}
+                />
+                <p className={styles.hint}>Default IPFS metadata provided</p>
+              </div>
 
               <button
                 className={styles.mintButton}
                 onClick={handleMint}
-                disabled={
-                  isLoading ||
-                  !recipientAddress ||
-                  (mintType === "uri" ? !metadataUri : !name || !imageIPFS)
-                }
+                disabled={isLoading || !recipientAddress || !metadataUri}
               >
                 {isLoading ? "MINTING..." : "MINT NFT"}
               </button>

@@ -125,23 +125,6 @@ export function useWeb3() {
     }
   };
 
-  const mintWithMetadata = async (
-    to: string,
-    name: string,
-    imageIPFS: string,
-  ) => {
-    if (!contract) throw new Error("Contract not initialized");
-
-    try {
-      const tx = await contract.mintWithOnChainMetadata(to, name, imageIPFS);
-      const receipt = await tx.wait();
-      return receipt;
-    } catch (error) {
-      console.error("Error minting NFT with metadata:", error);
-      throw error;
-    }
-  };
-
   const getTotalSupply = async () => {
     if (!contract) return 0;
 
@@ -161,7 +144,6 @@ export function useWeb3() {
     connectWallet,
     disconnectWallet,
     mintNFT,
-    mintWithMetadata,
     getTotalSupply,
     contract,
   };
