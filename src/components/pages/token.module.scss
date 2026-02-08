@@ -1,0 +1,331 @@
+@use "../../styles" as *;
+
+.block {
+  @include flex-column;
+  gap: $spacing-xl;
+  padding: $spacing-lg;
+  height: 100%;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+    gap: $spacing-lg;
+  }
+}
+
+.projectInfo {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.title {
+  @include gradient-title($gradient-accent);
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.mainTitle {
+  @include gradient-title($gradient-accent);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.subtitle {
+  @include gradient-title($gradient-accent);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-md;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.details,
+.metadata {
+  @include flex-column;
+  gap: $spacing-sm;
+  color: $color-text;
+  font-family: $font-heading;
+
+  p {
+    display: flex;
+    gap: $spacing-sm;
+    line-height: 1.6;
+  }
+}
+
+.label {
+  color: $color-accent;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.address {
+  flex-direction: column !important;
+  gap: $spacing-xs !important;
+}
+
+.contractAddress {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: $color-text-dark;
+  word-break: break-all;
+}
+
+.mintContainer {
+  @include flex-column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.typeSelector {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.typeButton {
+  padding: $spacing-sm $spacing-lg;
+  background: transparent;
+  border: 2px solid $color-accent-dark;
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+
+  &.active {
+    background: $gradient-accent;
+    border-color: $color-accent;
+    color: $color-bg;
+    box-shadow: 0 0 20px rgba($color-accent, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.inputGroup {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    color: $color-accent;
+    font-family: $font-heading;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.input {
+  padding: $spacing-md;
+  background: rgba($color-accent-dark, 0.1);
+  border: 1px solid $color-accent-dark;
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    background: rgba($color-accent-dark, 0.15);
+    box-shadow: 0 0 10px rgba($color-accent, 0.2);
+  }
+
+  &::placeholder {
+    color: $color-text-dark;
+  }
+}
+
+.hint {
+  color: $color-text-dark;
+  font-size: 0.85rem;
+  font-family: $font-heading;
+  font-style: italic;
+}
+
+.mintButton {
+  padding: $spacing-md $spacing-xl;
+  background: $gradient-accent;
+  border: none;
+  color: $color-bg;
+  font-family: $font-heading;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: $spacing-md;
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 0 30px rgba($color-accent, 0.5);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: $spacing-sm $spacing-lg;
+  }
+}
+
+.status {
+  padding: $spacing-md;
+  background: rgba($color-accent, 0.1);
+  border: 1px solid $color-accent;
+  color: $color-accent;
+  font-family: $font-heading;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metadataInfo {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.links {
+  @include flex-column;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.link {
+  color: $color-accent;
+  font-family: $font-heading;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    color: $color-light;
+    text-shadow: 0 0 10px rgba($color-accent, 0.5);
+    transform: translateX(5px);
+  }
+}
+
+.walletSection {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  background: rgba($color-accent-dark, 0.05);
+  border: 2px dashed $color-accent-dark;
+  border-radius: 8px;
+}
+
+.walletPrompt {
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.connectButton {
+  padding: $spacing-md $spacing-xl;
+  background: $gradient-accent;
+  border: none;
+  color: $color-bg;
+  font-family: $font-heading;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 30px rgba($color-accent, 0.5);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: $spacing-sm $spacing-lg;
+  }
+}
+
+.walletInfo {
+  @include flex-column;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: rgba($color-accent-dark, 0.05);
+  border: 1px solid $color-accent-dark;
+  border-radius: 4px;
+  margin-bottom: $spacing-lg;
+
+  p {
+    color: $color-text;
+    font-family: $font-heading;
+    font-size: 0.9rem;
+    display: flex;
+    gap: $spacing-sm;
+  }
+}
+
+.walletConnected,
+.supplyInfo,
+.contractInfo {
+  font-family: monospace;
+}

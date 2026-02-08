@@ -1,84 +1,151 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom'
-import Header from './components/common/header'
-import Content from './components/common/content'
-import Home from './components/pages/home'
-import Resume from './components/pages/resume'
-import Works from './components/pages/works'
-import NotFound from './components/pages/notFound'
-import HomeMobile from './components/mobile/homeMobile'
-import ResumeMobile from './components/mobile/resumeMobile'
-import WorksMobile from './components/mobile/worksMobile'
-import { useTransitionStore } from './stores/transitionStore'
-import { useIsMobile } from './hooks/useIsMobile'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import Header from "./components/common/header";
+import Content from "./components/common/content";
+import Home from "./components/pages/home";
+import Resume from "./components/pages/resume";
+import Works from "./components/pages/works";
+import Token from "./components/pages/token";
+import NotFound from "./components/pages/notFound";
+import HomeMobile from "./components/mobile/homeMobile";
+import ResumeMobile from "./components/mobile/resumeMobile";
+import WorksMobile from "./components/mobile/worksMobile";
+import TokenMobile from "./components/mobile/tokenMobile";
+import { useTransitionStore } from "./stores/transitionStore";
+import { useIsMobile } from "./hooks/useIsMobile";
 
-type Page = 'home' | 'resume' | 'works'
+type Page = "home" | "resume" | "works" | "token";
 
 function PageContent({ isMobile }: { isMobile: boolean }) {
-  const navigate = useNavigate()
-  const { startTransition, endTransition } = useTransitionStore()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const { startTransition, endTransition } = useTransitionStore();
+  const location = useLocation();
 
   const handlePageChange = (page: Page, index?: number) => {
-    startTransition()
+    startTransition();
     setTimeout(() => {
-      if (page === 'works') {
-        navigate(`/works/${typeof index === 'number' ? index : 0}`)
+      if (page === "works") {
+        navigate(`/works/${typeof index === "number" ? index : 0}`);
       } else {
-        navigate(page === 'home' ? '/' : `/${page}`)
+        navigate(page === "home" ? "/" : `/${page}`);
       }
-    }, 500)
+    }, 500);
     setTimeout(() => {
-      endTransition()
-    }, 1200)
-  }
+      endTransition();
+    }, 1200);
+  };
 
-  const currentPath = location.pathname.replace('/another_boring_portfolio', '') || '/'
+  const currentPath =
+    location.pathname.replace("/another_boring_portfolio", "") || "/";
 
-  const homeBlocks = (isMobile ? HomeMobile : Home)({ onNextPage: () => handlePageChange('resume') })
-  const resumeBlocks = (isMobile ? ResumeMobile : Resume)({ onSeeProject: () => handlePageChange('works') })
-  const worksBlocks = (isMobile ? WorksMobile : Works)()
-  const notFoundBlocks = NotFound()
+  const homeBlocks = (isMobile ? HomeMobile : Home)({
+    onNextPage: () => handlePageChange("resume"),
+  });
+  const resumeBlocks = (isMobile ? ResumeMobile : Resume)({
+    onSeeProject: () => handlePageChange("works"),
+  });
+  const worksBlocks = (isMobile ? WorksMobile : Works)();
+  const tokenBlocks = (isMobile ? TokenMobile : Token)();
+  const notFoundBlocks = NotFound();
 
-  let leftBlock, centerBlock, rightBlock
+  let leftBlock, centerBlock, rightBlock;
 
-  if (currentPath === '/') {
-    ({ leftBlock, centerBlock, rightBlock } = homeBlocks)
-  } else if (currentPath === '/resume') {
-    ({ leftBlock, centerBlock, rightBlock } = resumeBlocks)
-  } else if (currentPath.startsWith('/works')) {
-    ({ leftBlock, centerBlock, rightBlock } = worksBlocks)
+  if (currentPath === "/") {
+    ({ leftBlock, centerBlock, rightBlock } = homeBlocks);
+  } else if (currentPath === "/resume") {
+    ({ leftBlock, centerBlock, rightBlock } = resumeBlocks);
+  } else if (currentPath.startsWith("/works")) {
+    ({ leftBlock, centerBlock, rightBlock } = worksBlocks);
+  } else if (currentPath === "/token") {
+    ({ leftBlock, centerBlock, rightBlock } = tokenBlocks);
   } else {
-    ({ leftBlock, centerBlock, rightBlock } = notFoundBlocks)
+    ({ leftBlock, centerBlock, rightBlock } = notFoundBlocks);
   }
 
   return (
     <>
-      <Header currentPage={
-        currentPath === '/' ? 'home' :
-        currentPath === '/resume' ? 'resume' :
-        currentPath.startsWith('/works') ? 'works' : '404'
-      } onPageChange={handlePageChange} />
-      <Content 
+      <Header
+        currentPage={
+          currentPath === "/"
+            ? "home"
+            : currentPath === "/resume"
+              ? "resume"
+              : currentPath === "/token"
+                ? "token"
+                : currentPath.startsWith("/works")
+                  ? "works"
+                  : "404"
+        }
+        onPageChange={handlePageChange}
+      />
+      <Content
         leftBlock={leftBlock}
         centerBlock={centerBlock}
         rightBlock={rightBlock}
       />
     </>
-  )
+  );
 }
 
 export default function App() {
-  const isMobile = useIsMobile(768)
+  const isMobile = useIsMobile(768);
 
   return (
     <Router basename="/another_boring_portfolio">
       <Routes>
-        <Route path="/" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
-        <Route path="/resume" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
+        <Route
+          path="/"
+          element={
+            <PageContent
+              isMobile={isMobile}
+              key={isMobile ? "mobile" : "desktop"}
+            />
+          }
+        />
+        <Route
+          path="/resume"
+          element={
+            <PageContent
+              isMobile={isMobile}
+              key={isMobile ? "mobile" : "desktop"}
+            />
+          }
+        />
+        <Route
+          path="/token"
+          element={
+            <PageContent
+              isMobile={isMobile}
+              key={isMobile ? "mobile" : "desktop"}
+            />
+          }
+        />
         <Route path="/works" element={<Navigate to="/works/0" replace />} />
-        <Route path="/works/:index" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
-        <Route path="*" element={<PageContent isMobile={isMobile} key={isMobile ? 'mobile' : 'desktop'} />} />
+        <Route
+          path="/works/:index"
+          element={
+            <PageContent
+              isMobile={isMobile}
+              key={isMobile ? "mobile" : "desktop"}
+            />
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PageContent
+              isMobile={isMobile}
+              key={isMobile ? "mobile" : "desktop"}
+            />
+          }
+        />
       </Routes>
     </Router>
-  )
+  );
 }
