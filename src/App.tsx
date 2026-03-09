@@ -11,16 +11,14 @@ import Content from "./components/common/content";
 import Home from "./components/pages/home";
 import Resume from "./components/pages/resume";
 import Works from "./components/pages/works";
-import Token from "./components/pages/token";
 import NotFound from "./components/pages/notFound";
 import HomeMobile from "./components/mobile/homeMobile";
 import ResumeMobile from "./components/mobile/resumeMobile";
 import WorksMobile from "./components/mobile/worksMobile";
-import TokenMobile from "./components/mobile/tokenMobile";
 import { useTransitionStore } from "./stores/transitionStore";
 import { useIsMobile } from "./hooks/useIsMobile";
 
-type Page = "home" | "resume" | "works" | "token";
+type Page = "home" | "resume" | "works";
 
 function PageContent({ isMobile }: { isMobile: boolean }) {
   const navigate = useNavigate();
@@ -51,7 +49,6 @@ function PageContent({ isMobile }: { isMobile: boolean }) {
     onSeeProject: () => handlePageChange("works"),
   });
   const worksBlocks = (isMobile ? WorksMobile : Works)();
-  const tokenBlocks = (isMobile ? TokenMobile : Token)();
   const notFoundBlocks = NotFound();
 
   let leftBlock, centerBlock, rightBlock;
@@ -62,8 +59,6 @@ function PageContent({ isMobile }: { isMobile: boolean }) {
     ({ leftBlock, centerBlock, rightBlock } = resumeBlocks);
   } else if (currentPath.startsWith("/works")) {
     ({ leftBlock, centerBlock, rightBlock } = worksBlocks);
-  } else if (currentPath === "/token") {
-    ({ leftBlock, centerBlock, rightBlock } = tokenBlocks);
   } else {
     ({ leftBlock, centerBlock, rightBlock } = notFoundBlocks);
   }
@@ -76,11 +71,9 @@ function PageContent({ isMobile }: { isMobile: boolean }) {
             ? "home"
             : currentPath === "/resume"
               ? "resume"
-              : currentPath === "/token"
-                ? "token"
-                : currentPath.startsWith("/works")
-                  ? "works"
-                  : "404"
+              : currentPath.startsWith("/works")
+                ? "works"
+                : "404"
         }
         onPageChange={handlePageChange}
       />
@@ -110,15 +103,6 @@ export default function App() {
         />
         <Route
           path="/resume"
-          element={
-            <PageContent
-              isMobile={isMobile}
-              key={isMobile ? "mobile" : "desktop"}
-            />
-          }
-        />
-        <Route
-          path="/token"
           element={
             <PageContent
               isMobile={isMobile}

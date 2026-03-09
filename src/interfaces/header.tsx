@@ -1,4 +1,4 @@
-export type Page = "home" | "resume" | "works" | "token";
+export type Page = "home" | "resume" | "works";
 
 export interface HeaderProps {
   currentPage: Page | "404";

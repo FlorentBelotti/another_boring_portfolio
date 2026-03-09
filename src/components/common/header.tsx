@@ -13,7 +13,7 @@ export default function Header({
 }: HeaderProps & { currentPage: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handlePageChange = (page: "home" | "resume" | "works" | "token") => {
+  const handlePageChange = (page: "home" | "resume" | "works") => {
     onPageChange(page);
     setIsMenuOpen(false);
   };
@@ -92,24 +92,6 @@ export default function Header({
 
           <button
             className={`${styles.fontHeading} ${
-              currentPage === "token" ? styles.neonGlow : styles.neonUnderline
-            }`}
-            onClick={
-              currentPage === "token" ? undefined : () => onPageChange("token")
-            }
-            type="button"
-            disabled={currentPage === "token"}
-            style={
-              currentPage === "token"
-                ? { cursor: "default", color: "var(--color-accent)" }
-                : {}
-            }
-          >
-            Token
-          </button>
-
-          <button
-            className={`${styles.fontHeading} ${
               currentPage === "home" ? styles.neonGlow : styles.neonUnderline
             }`}
             onClick={
@@ -170,20 +152,6 @@ export default function Header({
             disabled={currentPage === "works"}
           >
             Works
-          </button>
-          <button
-            className={`${styles.fontHeading} ${
-              currentPage === "token" ? styles.neonGlow : styles.neonUnderline
-            }`}
-            onClick={
-              currentPage === "token"
-                ? undefined
-                : () => handlePageChange("token")
-            }
-            type="button"
-            disabled={currentPage === "token"}
-          >
-            Token
           </button>
           <button
             className={`${styles.fontHeading} ${
