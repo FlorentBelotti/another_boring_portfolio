@@ -1,20 +1,25 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import styles from './emblaScreenshot.module.scss';
+import React, { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import styles from "./emblaScreenshot.module.scss";
 
 interface EmblaScreenshotProps {
   screenshots: string[];
-  onImageClick?: (src: string) => void;
+  onImageClick?: (index: number) => void;
 }
 
-const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageClick }) => {
+const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({
+  screenshots,
+  onImageClick,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [_selectedIndex, setSelectedIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (emblaApi) {
-      emblaApi.on('select', () => setSelectedIndex(emblaApi.selectedScrollSnap()));
+      emblaApi.on("select", () =>
+        setSelectedIndex(emblaApi.selectedScrollSnap()),
+      );
       setSelectedIndex(emblaApi.selectedScrollSnap());
     }
   }, [emblaApi]);
@@ -41,7 +46,9 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={styles.clickOverlay}>CLICK HERE TO SEE THE FULL PICTURE</div>
+      <div className={styles.clickOverlay}>
+        CLICK HERE TO SEE THE FULL PICTURE
+      </div>
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.emblaContainer}>
           {screenshots.map((src, idx) => (
@@ -50,7 +57,7 @@ const EmblaScreenshot: React.FC<EmblaScreenshotProps> = ({ screenshots, onImageC
                 src={src}
                 alt={`screenshot-${idx}`}
                 className={styles.projectImage}
-                onClick={() => onImageClick && onImageClick(src)}
+                onClick={() => onImageClick && onImageClick(idx)}
               />
             </div>
           ))}

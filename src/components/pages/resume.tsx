@@ -32,7 +32,7 @@ export default function Resume({
     setIsFirefox(/firefox/i.test(ua));
   }, []);
 
-  const leftBlock = (
+  const centerBlock = (
     <div className={styles.block}>
       <PointCloudImage
         src={me}
@@ -44,7 +44,7 @@ export default function Resume({
     </div>
   );
 
-  const centerBlock = (
+  const leftBlock = (
     <div className={`${styles.block} ${styles.center}`}>
       <div className={styles.experiencesContainer}>
         <h2>EXPERIENCES</h2>
